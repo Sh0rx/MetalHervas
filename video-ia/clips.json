@@ -16,19 +16,12 @@
       "prompt": "video-ia/prompts/clip-1.txt"
     },
     {
-      "nombre": "clip-a",
-      "tramo": "La ventana se abre",
+      "nombre": "clip-ab",
+      "tramo": "Atravesamos el vidrio y salimos al valle",
       "primero": "video-ia/claves/k1-{f}.jpg",
-      "ultimo": "video-ia/claves/k2-{f}.jpg",
-      "prompt": "video-ia/prompts/clip-a.txt"
-    },
-    {
-      "nombre": "clip-b",
-      "tramo": "Salimos al valle",
-      "primero": "video-ia/claves/ka-final-{f}.png",
       "ultimo": "video-ia/claves/kc-inicio-{f}.png",
-      "prompt": "video-ia/prompts/clip-b.txt",
-      "nota": "Puente: se genera con el último fotograma real del clip A y el primero real del clip C, para que las dos costuras encajen."
+      "prompt": "video-ia/prompts/clip-ab.txt",
+      "nota": "Sustituye a los clips A y B: la IA duplicaba la manilla al abrir; la apertura se enseña en el 3D. En Flow se hace ampliando el clip 1; la costura con C se resuelve con un fundido."
     },
     {
       "nombre": "clip-c",

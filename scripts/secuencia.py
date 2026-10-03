@@ -70,6 +70,7 @@ def main():
     ap.add_argument("--calidad", type=int, default=72, help="calidad WebP 0–100")
     ap.add_argument("--solo-costuras", action="store_true")
     ap.add_argument("--umbral", type=float, default=0.7, help="por debajo de este SSIM la costura se funde")
+    ap.add_argument("--fundir", nargs="+", default=[], help="fundir también la entrada a estos clips (p. ej. clip-1)")
     ap.add_argument("--fundido", type=int, default=12, help="fotogramas del fundido en las costuras que no encajan")
     a = ap.parse_args()
     ancho = a.ancho or (1600 if a.formato == "16x9" else 720)
@@ -108,7 +109,7 @@ def main():
         cuadros = sorted(carpeta.glob("*.webp"))
         if i > 0 and cuadros:  # el primero repite el último del clip anterior
             cuadros[0].unlink(); cuadros = cuadros[1:]
-        if i > 0 and (costuras[i - 1] or 0) < a.umbral:
+        if i > 0 and ((costuras[i - 1] or 0) < a.umbral or c["nombre"] in a.fundir):
             fundir(salida / videos[i - 1][0]["nombre"], tramos[-1]["cuadros"], carpeta, cuadros, a.fundido, a.calidad)
             for q in cuadros[:a.fundido]:
                 q.unlink()

@@ -12,3 +12,6 @@ Thumbs.db
 desktop.ini
 .DS_Store
 node_modules/
+
+# Vídeos generados con IA (pesados); se versionan solo los prompts y las claves elegidas
+video-ia/salidas/

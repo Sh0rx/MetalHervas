@@ -15,3 +15,6 @@ node_modules/
 
 # Vídeos generados con IA (pesados); se versionan solo los prompts y las claves elegidas
 video-ia/salidas/
+
+# Fotogramas del recorrido (se regeneran con scripts/secuencia.py desde video-ia/salidas/)
+prototipos/assets/recorrido/

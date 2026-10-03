@@ -3,7 +3,8 @@
 Lee el orden de video-ia/clips.json, toma de video-ia/salidas/ el final 1080p de cada clip
 (o el borrador si aún no hay final) y deja los fotogramas WebP y un manifest.json en
 prototipos/assets/recorrido/<formato>/. También mide cuánto se parecen las costuras
-(último fotograma de un clip contra el primero del siguiente).
+(último fotograma de un clip contra el primero del siguiente) y, si una costura no encaja
+(SSIM por debajo de --umbral), funde los últimos fotogramas de un clip con los primeros del siguiente.
 
 Uso:
   python scripts/secuencia.py --formato 16x9
@@ -11,6 +12,7 @@ Uso:
   python scripts/secuencia.py --formato 16x9 --solo-costuras
 """
 import argparse, json, pathlib, re, shutil, subprocess, sys, tempfile
+from PIL import Image
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 SALIDAS = RAIZ / "video-ia" / "salidas"
@@ -49,6 +51,16 @@ def ssim(a, b):
     return float(m.group(1)) if m else None
 
 
+def fundir(carpeta_a, nombres_a, carpeta_b, cuadros_b, n, calidad):
+    """Mezcla los últimos n fotogramas del clip anterior con los n primeros del siguiente."""
+    n = min(n, len(nombres_a), len(cuadros_b))
+    for j in range(n):
+        destino = carpeta_a / nombres_a[len(nombres_a) - n + j]
+        t = (j + 1) / (n + 1)
+        with Image.open(destino) as x, Image.open(cuadros_b[j]) as y:
+            Image.blend(x.convert("RGB"), y.convert("RGB").resize(x.size), t).save(destino, "WEBP", quality=calidad)
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")  # la consola de Windows no es UTF-8 por defecto
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -57,6 +69,8 @@ def main():
     ap.add_argument("--ancho", type=int, help="ancho en px (por defecto 1600 en 16x9 y 720 en 9x16)")
     ap.add_argument("--calidad", type=int, default=72, help="calidad WebP 0–100")
     ap.add_argument("--solo-costuras", action="store_true")
+    ap.add_argument("--umbral", type=float, default=0.7, help="por debajo de este SSIM la costura se funde")
+    ap.add_argument("--fundido", type=int, default=12, help="fotogramas del fundido en las costuras que no encajan")
     a = ap.parse_args()
     ancho = a.ancho or (1600 if a.formato == "16x9" else 720)
 
@@ -72,12 +86,14 @@ def main():
     if not videos:
         sys.exit("No hay ningún clip en video-ia/salidas/.")
 
+    costuras = []
     with tempfile.TemporaryDirectory() as tmp:
         tmp = pathlib.Path(tmp)
-        print("Costuras (SSIM; 1 = idénticos, por debajo de ~0,85 se notará el salto):")
+        print(f"Costuras (SSIM; 1 = idénticos; por debajo de {a.umbral} se funden):")
         for (c1, v1, _), (c2, v2, _) in zip(videos, videos[1:]):
             fotograma(v1, "ultimo", tmp / "a.png"); fotograma(v2, "primero", tmp / "b.png")
-            print(f"  {c1['nombre']} → {c2['nombre']}: {ssim(tmp / 'a.png', tmp / 'b.png')}")
+            costuras.append(ssim(tmp / "a.png", tmp / "b.png"))
+            print(f"  {c1['nombre']} → {c2['nombre']}: {costuras[-1]}" + ("  → fundido" if (costuras[-1] or 0) < a.umbral else ""))
     if a.solo_costuras:
         return
 
@@ -92,6 +108,11 @@ def main():
         cuadros = sorted(carpeta.glob("*.webp"))
         if i > 0 and cuadros:  # el primero repite el último del clip anterior
             cuadros[0].unlink(); cuadros = cuadros[1:]
+        if i > 0 and (costuras[i - 1] or 0) < a.umbral:
+            fundir(salida / videos[i - 1][0]["nombre"], tramos[-1]["cuadros"], carpeta, cuadros, a.fundido, a.calidad)
+            for q in cuadros[:a.fundido]:
+                q.unlink()
+            cuadros = cuadros[a.fundido:]
         peso = sum(p.stat().st_size for p in cuadros)
         tramos.append({"nombre": c["nombre"], "tramo": c["tramo"], "calidad": calidad,
                        "carpeta": f"{c['nombre']}/", "cuadros": [p.name for p in cuadros]})

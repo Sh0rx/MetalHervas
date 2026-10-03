@@ -1,0 +1,507 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Metal Hervás Oficio</title>
+<meta name="description" content="Carpintería de hierro, aluminio y PVC y estructuras metálicas en Hervás (Cáceres).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Dirección Oficio. Negro cálido de taller de noche; el vídeo real de soldadura a la derecha y sus chispas
+   saltando hacia el titular. Letra condensada y pesada, como un rótulo de taller. Un solo mundo oscuro,
+   elegido a propósito: no cambia con el tema del sistema. */
+:root {
+  color-scheme: dark;
+  --negro: #14110f; --negro-2: #1c1815; --negro-3: #26201b; --linea: #3a322b;
+  --texto: #f3ede4; --texto-suave: #b9ad9f; --chispa: #f2a33a; --brasa: #e2622b;
+  --verde: #4ba939; --verde-claro: #6cc85a; --on-verde: #0b140c; --focus: #f2a33a;
+  --display: "Archivo", "Arial Black", system-ui, sans-serif;
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1320px;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--negro); color: var(--texto); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 900; text-wrap: balance; margin: 0; font-stretch: 72%; letter-spacing: -0.01em; }
+p { margin: 0; }
+.envoltura { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.label { font-family: var(--mono); font-size: 13px; line-height: 1.3; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--chispa); }
+.icono { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 12px 24px; border-radius: 2px; font: 600 17px/1.2 var(--sans); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background-color .2s, border-color .2s; }
+.boton-principal { background: var(--verde); color: var(--on-verde); }
+.boton-principal:hover { background: var(--verde-claro); }
+.boton-borde { border-color: var(--texto-suave); color: var(--texto); background: transparent; }
+.boton-borde:hover { border-color: var(--texto); background: rgba(255, 255, 255, 0.05); }
+
+/* Cabecera */
+.cabecera { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--negro) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--linea); }
+.cabecera .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 68px; }
+.cabecera .logo img { height: 40px; width: auto; }
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--texto-suave); }
+.nav a:hover { color: var(--texto); }
+.nav .tel { color: var(--texto); display: inline-flex; gap: 8px; align-items: center; font-family: var(--mono); }
+@media (max-width: 860px) { .nav a:not(.tel) { display: none; } .cabecera .logo img { height: 34px; } }
+
+/* Hero */
+.hero { position: relative; height: calc(100svh - 68px); min-height: 620px; max-height: 1000px; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 38%); }
+.hero-texto { position: relative; z-index: 2; align-self: center; display: flex; flex-direction: column; gap: 26px; padding: 0 clamp(24px, 4vw, 64px) 0 max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter))); }
+.hero h1 { font-size: clamp(60px, 9vw, 150px); line-height: 0.86; text-transform: none; }
+.hero h1 span { display: block; }
+.hero .lead { font-size: 20px; line-height: 1.5; color: var(--texto-suave); max-width: 44ch; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+.video { position: relative; z-index: 1; margin: 0; background: #000; overflow: hidden; }
+.video video { width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; filter: saturate(0.9) contrast(1.05); }
+.video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--negro) 0%, transparent 28%), linear-gradient(transparent 70%, rgba(20, 17, 15, 0.7)); pointer-events: none; }
+.video figcaption { position: absolute; z-index: 2; left: 24px; right: 24px; bottom: 22px; display: flex; justify-content: space-between; gap: 12px; align-items: center; font-family: var(--mono); font-size: 12px; color: var(--texto-suave); }
+.reproducir { min-height: 36px; padding: 6px 12px; border: 1px solid var(--texto-suave); background: rgba(20, 17, 15, 0.6); color: var(--texto); border-radius: 2px; font: 500 13px var(--sans); cursor: pointer; }
+.chispas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+
+@media (max-width: 860px) {
+  .hero { display: block; height: calc(100svh - 68px - 69px); min-height: 580px; }
+  .video { position: absolute; inset: 0; }
+  .video::after { background: linear-gradient(rgba(20, 17, 15, 0) 0%, rgba(20, 17, 15, 0.2) 30%, rgba(20, 17, 15, 0.85) 58%, var(--negro) 80%); }
+  .video video { object-position: 35% 30%; }
+  .video figcaption { top: 16px; bottom: auto; }
+  .hero-texto { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 var(--gutter) 28px; gap: 18px; }
+  .hero h1 { font-size: clamp(54px, 17vw, 84px); }
+  .hero .lead { font-size: 17px; }
+}
+
+/* Secciones */
+.seccion { padding-block: clamp(72px, 10vw, 136px); }
+.seccion-cabeza { display: flex; flex-direction: column; gap: 14px; margin-bottom: 44px; max-width: 760px; }
+.seccion-cabeza h2 { font-size: clamp(44px, 6.4vw, 92px); line-height: 0.9; }
+.seccion-cabeza p { color: var(--texto-suave); font-size: 18px; max-width: 54ch; }
+
+/* Selector de material */
+.selector { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.pestanas { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid var(--linea); }
+.pestana { position: relative; background: none; border: 0; color: var(--texto-suave); font: 900 clamp(22px, 2.6vw, 34px)/1 var(--display); font-stretch: 72%; padding: 14px 22px 16px 0; margin-right: 22px; cursor: pointer; }
+.pestana::after { content: ""; position: absolute; left: 0; right: 22px; bottom: -1px; height: 3px; background: var(--chispa); transform: scaleX(0); transform-origin: left; transition: transform .35s cubic-bezier(.2, .7, .2, 1); }
+.pestana[aria-selected="true"] { color: var(--texto); }
+.pestana[aria-selected="true"]::after { transform: scaleX(1); }
+.pestana:hover { color: var(--texto); }
+.visor { position: relative; aspect-ratio: 4 / 3; background: radial-gradient(90% 90% at 60% 35%, #2a221c, var(--negro-2) 70%); border: 1px solid var(--linea); overflow: hidden; }
+.visor img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.visor canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
+.visor canvas:active { cursor: grabbing; }
+.visor .ayuda { position: absolute; left: 16px; bottom: 14px; font-family: var(--mono); font-size: 12px; color: var(--texto-suave); display: flex; gap: 8px; align-items: center; }
+.panel { display: flex; flex-direction: column; gap: 16px; padding-top: 8px; }
+.panel h3 { font-size: clamp(34px, 3.6vw, 52px); line-height: 0.95; }
+.panel p { color: var(--texto-suave); font-size: 18px; }
+.panel ul { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--linea); }
+.panel li { padding-block: 12px; border-bottom: 1px solid var(--linea); display: flex; gap: 12px; align-items: baseline; }
+.panel li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--chispa); box-shadow: 0 0 10px var(--chispa); flex: none; transform: translateY(-2px); }
+.panel .dato { font-family: var(--mono); font-size: 14px; color: var(--texto-suave); }
+.tambien { margin-top: 28px; color: var(--texto-suave); font-size: 16px; }
+.tambien strong { color: var(--texto); font-weight: 600; }
+.sin-gl .visor canvas, .sin-gl .visor .ayuda { display: none; }
+@media (max-width: 900px) { .selector { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .pestanas { flex-wrap: nowrap; justify-content: space-between; } .pestana { font-size: 20px; margin-right: 0; padding-right: 0; } .pestana::after { right: 0; } }
+
+/* Trabajos: mosaico */
+.trabajos { background: var(--negro-2); }
+.mosaico { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 220px; gap: 12px; }
+.mosaico figure { position: relative; margin: 0; overflow: hidden; background: var(--negro-3); min-width: 0; }
+.mosaico figure.alta { grid-row: span 2; }
+.mosaico figure.ancha { grid-column: span 2; }
+.mosaico img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.mosaico figure:hover img { transform: scale(1.04); }
+.mosaico figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 16px 14px; background: linear-gradient(transparent, rgba(20, 17, 15, 0.92)); display: flex; flex-direction: column; gap: 2px; }
+.mosaico figcaption .label { font-size: 11px; }
+.mosaico figcaption span:last-child { font-weight: 500; font-size: 16px; }
+@media (max-width: 900px) { .mosaico { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 180px; } }
+@media (max-width: 520px) { .mosaico figure.ancha { grid-column: span 2; } }
+.pagina-aparte { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.pronto { font-size: 14px; color: var(--texto-suave); }
+
+/* Series: placas de características */
+.placas { display: flex; flex-direction: column; border-top: 1px solid var(--linea); }
+.placa { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 6fr) auto; gap: 24px; align-items: center; padding-block: 22px; border-bottom: 1px solid var(--linea); }
+.placa h3 { font-size: clamp(30px, 3.2vw, 44px); line-height: 0.95; }
+.placa h3 small { display: block; margin-top: 6px; font-family: var(--mono); font-size: 12px; font-weight: 400; letter-spacing: 0.08em; color: var(--texto-suave); text-transform: uppercase; }
+.datos { display: flex; flex-wrap: wrap; gap: 8px; }
+.datos span { font-family: var(--mono); font-size: 14px; padding: 6px 12px; border: 1px solid var(--linea); border-radius: 999px; color: var(--texto); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.datos span.material { border-color: transparent; background: var(--negro-3); color: var(--chispa); }
+.placa a { color: var(--verde-claro); font-weight: 600; font-size: 15px; white-space: nowrap; text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
+.placa a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.fuente { margin-top: 18px; color: var(--texto-suave); font-size: 14px; }
+@media (max-width: 900px) { .placa { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
+
+/* Contacto */
+.contacto { background: var(--negro-2); border-top: 1px solid var(--linea); }
+.contacto .rejilla { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 56px; }
+.gran-telefono { display: block; font-family: var(--display); font-weight: 900; font-stretch: 72%; font-size: clamp(56px, 8.5vw, 132px); line-height: 0.9; letter-spacing: -0.01em; text-decoration: none; color: var(--texto); margin-top: 18px; user-select: all; }
+.gran-telefono:hover { color: var(--chispa); }
+.contacto .intro { color: var(--texto-suave); margin-top: 22px; max-width: 46ch; font-size: 18px; }
+.otras { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 32px; }
+.otras li { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.otras small { font-family: var(--mono); font-size: 12px; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.06em; }
+.otras strong { font-weight: 500; font-size: 18px; overflow-wrap: anywhere; }
+.otras a { color: var(--verde-claro); }
+.fila-copiar { display: flex; gap: 10px; align-items: center; margin-top: 18px; flex-wrap: wrap; }
+.copiar { min-height: 40px; padding: 8px 14px; background: transparent; color: var(--texto-suave); border: 1px solid var(--linea); border-radius: 2px; font: 500 14px var(--sans); cursor: pointer; }
+.copiar:hover { color: var(--texto); border-color: var(--texto-suave); }
+.formulario { background: var(--negro); border: 1px solid var(--linea); padding: clamp(20px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px; align-self: start; }
+.formulario h3 { font-size: 34px; line-height: 1; }
+.campos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.campo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.campo.ancho { grid-column: 1 / -1; }
+.campo label { font-size: 14px; font-weight: 500; color: var(--texto-suave); }
+.campo input, .campo select, .campo textarea { width: 100%; min-height: 48px; padding: 12px 14px; background: var(--negro-2); color: var(--texto); border: 1px solid var(--linea); border-radius: 2px; font: 400 16px/1.4 var(--sans); }
+.campo textarea { min-height: 110px; resize: vertical; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: 2px solid var(--chispa); outline-offset: 1px; }
+.aviso { font-size: 14px; color: var(--texto-suave); }
+.aviso.ok { color: var(--verde-claro); }
+@media (max-width: 900px) { .contacto .rejilla { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .campos, .otras { grid-template-columns: minmax(0, 1fr); } }
+
+.pie { border-top: 1px solid var(--linea); padding-block: 40px 120px; }
+.pie .envoltura { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; align-items: flex-end; }
+.pie .marcas { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+.pie .marcas img:first-child { height: 52px; width: auto; }
+.pie .marcas img:last-child { height: 40px; width: auto; }
+.pie p { color: var(--texto-suave); font-size: 14px; }
+@media (min-width: 861px) { .pie { padding-bottom: 48px; } }
+
+.barra-movil { display: none; }
+@media (max-width: 860px) {
+  .barra-movil { position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--negro-2); border-top: 1px solid var(--linea); box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5); }
+  .barra-movil .boton { min-height: 48px; font-size: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) { .js-anim .aparece { opacity: 0; transform: translateY(24px); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<header class="cabecera">
+  <div class="envoltura">
+    <a class="logo" href="#inicio" aria-label="Metal Hervás, inicio"><img src="assets/logo/sin-sl/logo-negativo.svg" alt="Metal Hervás" width="102" height="38"></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#series">Productos</a>
+      <a href="#contacto">Contacto</a>
+      <a class="tel" href="tel:+34664409618"><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>664 40 96 18</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio" aria-label="Presentación">
+    <canvas class="chispas" id="chispas" aria-hidden="true"></canvas>
+    <div class="hero-texto">
+      <p class="label">Carpintería metálica y estructuras · Hervás (Cáceres)</p>
+      <h1><span>Hierro,</span><span>aluminio</span><span>y PVC</span></h1>
+      <p class="lead">Medimos, fabricamos en nuestro taller y montamos. Ventanas de PVC de fabricación propia, carpintería de aluminio, cerrajería y naves.</p>
+      <div class="acciones">
+        <a class="boton boton-principal" href="#contacto">Pedir presupuesto</a>
+        <a class="boton boton-borde" href="tel:+34664409618">Llamar al 664 40 96 18</a>
+      </div>
+    </div>
+    <figure class="video" id="video-taller">
+      <video id="video" src="assets/video/soldadura.mp4" poster="assets/video/soldadura-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Vídeo: un operario de Metal Hervás suelda un pilar de noche"></video>
+      <figcaption><span>Soldadura de pilares, de noche</span><button class="reproducir" id="reproducir" type="button">Pausar vídeo</button></figcaption>
+    </figure>
+  </section>
+
+  <section class="seccion" id="que-hacemos">
+    <div class="envoltura">
+      <div class="seccion-cabeza aparece">
+        <p class="label">Qué hacemos</p>
+        <h2>Cuatro materiales, un mismo taller</h2>
+        <p>Del pilar de una nave a la ventana de tu cocina. Lo medimos en obra, lo preparamos en Hervás y lo montamos nosotros.</p>
+      </div>
+      <div class="selector aparece">
+        <div class="pestanas" role="tablist" aria-label="Materiales">
+          <button class="pestana" role="tab" id="t-estructuras" aria-controls="panel" aria-selected="true" data-k="estructuras">Estructuras</button>
+          <button class="pestana" role="tab" id="t-hierro" aria-controls="panel" aria-selected="false" tabindex="-1" data-k="hierro">Hierro</button>
+          <button class="pestana" role="tab" id="t-aluminio" aria-controls="panel" aria-selected="false" tabindex="-1" data-k="aluminio">Aluminio</button>
+          <button class="pestana" role="tab" id="t-pvc" aria-controls="panel" aria-selected="false" tabindex="-1" data-k="pvc">PVC</button>
+        </div>
+        <div class="visor" id="visor">
+          <img id="visor-foto" src="assets/fotos/nave-estructura-arriostrada.webp" alt="Estructura metálica de una nave con arriostramientos" hidden>
+          <canvas id="visor-3d" aria-label="Modelo 3D de un nudo de acero: pilar y dos vigas IPE 300 atornilladas. Arrastra para girarlo."></canvas>
+          <p class="ayuda" id="ayuda">↔ Arrastra para girar el nudo</p>
+        </div>
+        <div class="panel" id="panel" role="tabpanel" aria-labelledby="t-estructuras" tabindex="0"></div>
+      </div>
+      <p class="tambien aparece"><strong>También:</strong> cierres de terraza, mosquiteras y mamparas de baño.</p>
+    </div>
+  </section>
+
+  <section class="seccion trabajos" id="trabajos">
+    <div class="envoltura">
+      <div class="seccion-cabeza aparece">
+        <p class="label">Trabajos</p>
+        <h2>Obra hecha</h2>
+        <p>Fotos de nuestras obras y del taller, sin retocar el producto.</p>
+      </div>
+      <div class="mosaico">
+        <figure class="alta aparece"><img src="assets/fotos/soldadura-pilares.webp" alt="Soldadura de pilares metálicos" loading="lazy"><figcaption><span class="label">Naves y estructuras</span><span>Soldadura de pilares</span></figcaption></figure>
+        <figure class="ancha aparece"><img src="assets/fotos/nave-grua-montaje.webp" alt="Montaje de la estructura de una nave con grúa" loading="lazy"><figcaption><span class="label">Naves y estructuras</span><span>Montaje de nave con grúa</span></figcaption></figure>
+        <figure class="alta aparece"><img src="assets/fotos/puerta-antracita-diagonal.webp" alt="Puerta de entrada de aluminio antracita con diseño en diagonal" loading="lazy"><figcaption><span class="label">Puertas de entrada</span><span>Aluminio antracita</span></figcaption></figure>
+        <figure class="aparece"><img src="assets/fotos/taller-ventanas-pvc-rojas.webp" alt="Ventanas de PVC en el taller" loading="lazy"><figcaption><span class="label">Taller</span><span>Ventanas de PVC</span></figcaption></figure>
+        <figure class="aparece"><img src="assets/fotos/pabellon-cristal-negro.webp" alt="Pabellón acristalado con perfilería negra" loading="lazy"><figcaption><span class="label">Cerramientos</span><span>Pabellón de cristal</span></figcaption></figure>
+        <figure class="ancha aparece"><img src="assets/fotos/chalet-travertino-porche.webp" alt="Porche de chalet con carpintería exterior" loading="lazy"><figcaption><span class="label">Viviendas</span><span>Porche de chalet</span></figcaption></figure>
+        <figure class="aparece"><img src="assets/fotos/barandilla-vidrio-escalera.webp" alt="Barandilla de vidrio en una escalera" loading="lazy"><figcaption><span class="label">Barandillas</span><span>Barandilla de vidrio</span></figcaption></figure>
+        <figure class="aparece"><img src="assets/fotos/terraza-plegable.webp" alt="Cierre de terraza con hojas plegables de vidrio" loading="lazy"><figcaption><span class="label">Cerramientos</span><span>Cierre de terraza plegable</span></figcaption></figure>
+      </div>
+      <div class="pagina-aparte aparece"><a class="boton boton-borde" href="#" data-pronto="la galería de trabajos">Ver todos los trabajos<svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><span class="pronto" hidden></span></div>
+    </div>
+  </section>
+
+  <section class="seccion" id="series">
+    <div class="envoltura">
+      <div class="seccion-cabeza aparece">
+        <p class="label">Series y proveedores</p>
+        <h2>Lo que montamos, con sus datos</h2>
+        <p>Una selección de las series con las que trabajamos. Las cifras son las que publica cada fabricante; te ayudamos a elegir la que encaja en tu obra.</p>
+      </div>
+      <div class="placas">
+        <article class="placa aparece"><h3>S 9000<small>GEALAN</small></h3><div class="datos"><span class="material">PVC</span><span>82,5 mm</span><span>Uf ≤ 0,89 W/(m²K)</span><span>vidrio hasta 56 mm</span></div><a href="https://www.gealan.de/es/sistemas/s-9000" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="placa aparece"><h3>S 8000<small>GEALAN</small></h3><div class="datos"><span class="material">PVC</span><span>74 mm</span><span>Uf ≤ 1,2 W/(m²K)</span><span>5 o 6 cámaras</span></div><a href="https://www.gealan.de/es/sistemas/s-8000" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="placa aparece"><h3>GEALAN-LINEAR®<small>GEALAN</small></h3><div class="datos"><span class="material">PVC</span><span>74 mm</span><span>Uf ≤ 1,0 W/(m²K)</span><span>acrylcolor®</span></div><a href="https://www.gealan.de/es/sistemas/gealan-linear" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="placa aparece"><h3>XP-80+ HI<small>Extrugasa</small></h3><div class="datos"><span class="material">Aluminio</span><span>80 mm</span><span>RPT 44 mm</span><span>Uf 0,87 W/(m²K)</span><span>Rw 48 (−1;−4) dB</span></div><a href="https://www.extrugasa.com/edificacion/xp-80-c16-hi" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="placa aparece"><h3>ALUPROM 46 C16<small>Aluval</small></h3><div class="datos"><span class="material">Aluminio</span><span>marco 77 mm</span><span>RPT</span><span>junquillos 36–70 mm</span></div><a href="https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-46-c16" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="placa aparece"><h3>Climalit Plus®<small>Saint-Gobain · PLANITHERM® XN</small></h3><div class="datos"><span class="material">Vidrio</span><span>Ug 1,1 W/(m²K)</span><span>TL 81 %</span><span>cámara con argón</span></div><a href="https://www.saint-gobain-glass.es/es/productos/planitherm-xn" target="_blank" rel="noopener">Ver el vidrio</a></article>
+      </div>
+      <p class="fuente">Uf: aislamiento del perfil. Ug: del vidrio. Cuanto más bajo, menos calor se escapa.</p>
+      <div class="pagina-aparte aparece"><a class="boton boton-borde" href="#" data-pronto="la página de productos">Ver todos los productos y proveedores<svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><span class="pronto" hidden></span></div>
+    </div>
+  </section>
+
+  <section class="seccion contacto" id="contacto">
+    <div class="envoltura rejilla">
+      <div>
+        <p class="label">Contacto · llámanos</p>
+        <a class="gran-telefono" href="tel:+34664409618">664 40 96 18</a>
+        <div class="fila-copiar"><button class="copiar" type="button" data-copiar="664 40 96 18">Copiar el número</button><span class="pronto">Móvil y WhatsApp</span></div>
+        <p class="intro">Cuéntanos qué necesitas. Si puedes, manda fotos del hueco y unas medidas aproximadas; vamos a medir antes de cerrar el precio.</p>
+        <ul class="otras">
+          <li><small>Taller (teléfono y fax)</small><strong><a href="tel:+34927473619">927 47 36 19</a></strong></li>
+          <li><small>Correo</small><strong>metalhervas@gmail.com</strong></li>
+          <li><small>Dirección</small><strong>Ctra. de las Cañadas, s/n · 10700 Hervás (Cáceres)</strong></li>
+          <li><small>Cómo llegar</small><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Metal%20Herv%C3%A1s%2C%20Ctra.%20de%20las%20Ca%C3%B1adas%2C%20Herv%C3%A1s" target="_blank" rel="noopener">Abrir en Google Maps</a></strong></li>
+        </ul>
+      </div>
+      <form class="formulario" id="formulario" novalidate>
+        <h3>O escríbenos</h3>
+        <div class="campos">
+          <div class="campo"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required></div>
+          <div class="campo"><label for="f-telefono">Teléfono</label><input id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="campo ancho"><label for="f-tipo">Qué necesitas</label>
+            <select id="f-tipo" name="tipo">
+              <option>Ventanas de PVC</option><option>Carpintería de aluminio</option><option>Puerta de entrada</option>
+              <option>Cerrajería: cancela, baranda, reja</option><option>Nave o estructura metálica</option><option>Cierre de terraza</option><option>Otra cosa</option>
+            </select>
+          </div>
+          <div class="campo ancho"><label for="f-mensaje">Detalles</label><textarea id="f-mensaje" name="mensaje" placeholder="Por ejemplo: 3 ventanas oscilobatientes de 120 × 140 cm en Hervás"></textarea></div>
+          <div class="campo ancho"><label for="f-fotos">Fotos del hueco (opcional)</label><input id="f-fotos" name="fotos" type="file" accept="image/*" multiple></div>
+        </div>
+        <button class="boton boton-principal" type="submit">Enviar petición</button>
+        <p class="aviso" id="aviso" role="status">Te llamamos para concretar. No compartimos tus datos.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <div class="marcas">
+      <img src="assets/logo/sin-sl/logo-negativo.svg" alt="Metal Hervás" width="139" height="52" loading="lazy">
+      <img src="assets/logo/ventanas-pvc-negativo.svg" alt="Ventanas de PVC" loading="lazy">
+    </div>
+    <p>Metal Hervás · Ctra. de las Cañadas, s/n · 10700 Hervás (Cáceres)<br>Prototipo de la página inicial · dirección Oficio</p>
+  </div>
+</footer>
+
+<nav class="barra-movil" aria-label="Contacto rápido">
+  <a class="boton boton-borde" href="tel:+34664409618">Llamar</a>
+  <a class="boton boton-principal" href="#contacto">Presupuesto</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+} }
+</script>
+<script>
+// Contenido de cada pestaña del selector (textos reales del brief; nada de medidas inventadas)
+const MATERIALES = {
+  estructuras: { label: "Estructuras", titulo: "Naves y estructuras metálicas", texto: "Estructura, cubierta, fachada y remates. Cerramientos con placa alveolar.",
+    lista: ["Naves agrícolas e industriales", "Cubiertas, fachadas y remates", "Cerramientos con placa alveolar"],
+    dato: "En el visor: nudo de pilar y vigas IPE 300 con chapas atornilladas, como en nuestro logo.", tres: true,
+    foto: ["assets/fotos/nave-estructura-arriostrada.webp", "Estructura metálica de una nave con arriostramientos"] },
+  hierro: { label: "Hierro", titulo: "Cerrajería", texto: "Soldada y montada por nosotros, a la medida de tu casa o tu finca.",
+    lista: ["Cancelas", "Barandas", "Rejas", "Puertas de garaje"], foto: ["assets/fotos/taller-soldador.webp", "Soldador trabajando en el taller de Metal Hervás"] },
+  aluminio: { label: "Aluminio", titulo: "Carpintería de aluminio", texto: "Perfil europeo con rotura de puente térmico, en muchos colores y en acabados madera.",
+    lista: ["Ventanas y balconeras", "Puertas de entrada", "Cierres de terraza y mamparas"], dato: "Series de Aluval (ALUPROM) y Extrugasa.",
+    foto: ["assets/fotos/puerta-antracita-acristalada.webp", "Puerta de entrada de aluminio en gris antracita con vidrio"] },
+  pvc: { label: "PVC", titulo: "Ventanas de PVC", texto: "Las fabricamos nosotros, en el taller de Hervás, con perfiles GEALAN y vidrio Climalit.",
+    lista: ["GEALAN S 9000, S 8000 y LINEAR", "Doble y triple acristalamiento Climalit", "Mosquiteras a medida"], dato: "Fabricación propia: submarca «Ventanas de PVC».",
+    foto: ["assets/fotos/taller-ventanas-pvc-blancas.webp", "Ventanas de PVC blancas recién fabricadas en el taller"] },
+};
+(() => {
+  const raiz = document.documentElement, quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Copiar, enlaces a páginas futuras y formulario
+  document.querySelectorAll("[data-copiar]").forEach((b) => b.addEventListener("click", () => {
+    const t = b.textContent, ok = () => { b.textContent = "Copiado"; setTimeout(() => (b.textContent = t), 1800); };
+    try { navigator.clipboard.writeText(b.dataset.copiar).then(ok, () => {}); } catch {}
+  }));
+  document.querySelectorAll("[data-pronto]").forEach((a) => a.addEventListener("click", (e) => {
+    e.preventDefault(); const n = a.nextElementSibling;
+    n.textContent = `Prototipo: ${a.dataset.pronto} se hará cuando elijáis el estilo de la página inicial.`; n.hidden = false;
+  }));
+  const form = document.getElementById("formulario"), aviso = document.getElementById("aviso");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nombre = form.nombre.value.trim(), tel = form.telefono.value.trim();
+    if (!nombre || !tel) { aviso.className = "aviso"; aviso.textContent = "Escribe tu nombre y un teléfono para poder llamarte."; (nombre ? form.telefono : form.nombre).focus(); return; }
+    aviso.className = "aviso ok"; aviso.textContent = "Esto es un prototipo y la petición no se envía todavía. Mientras tanto, llama al 664 40 96 18.";
+  });
+
+  // Vídeo: en reposo si se pide reducir movimiento; botón para pausar o reproducir
+  const video = document.getElementById("video"), boton = document.getElementById("reproducir");
+  const pintar = () => (boton.textContent = video.paused ? "Reproducir vídeo" : "Pausar vídeo");
+  if (quieto) { video.removeAttribute("autoplay"); video.pause(); }
+  let aMano = false;   // si la persona lo pausa, no se vuelve a reproducir solo
+  const arrancar = () => { if (!quieto && !aMano && video.paused) video.play().catch(() => {}); };
+  // Algunos navegadores ignoran autoplay hasta que hay interacción o el vídeo está listo
+  arrancar(); video.addEventListener("canplay", arrancar);
+  for (const ev of ["pointerdown", "scroll", "keydown", "touchstart"]) addEventListener(ev, arrancar, { once: true, passive: true });
+  video.addEventListener("play", pintar); video.addEventListener("pause", pintar); pintar();
+  boton.addEventListener("click", () => { if (video.paused) { aMano = false; video.play().catch(() => {}); } else { aMano = true; video.pause(); } });
+
+  // Selector de material
+  const pestanas = [...document.querySelectorAll(".pestana")], panel = document.getElementById("panel");
+  const foto = document.getElementById("visor-foto"), lienzo = document.getElementById("visor-3d"), ayuda = document.getElementById("ayuda");
+  function elegir(k, foco) {
+    const m = MATERIALES[k];
+    pestanas.forEach((p) => { const si = p.dataset.k === k; p.setAttribute("aria-selected", si); p.tabIndex = si ? 0 : -1; if (si && foco) p.focus(); });
+    panel.setAttribute("aria-labelledby", "t-" + k);
+    panel.innerHTML = `<p class="label">${m.label}</p><h3>${m.titulo}</h3><p>${m.texto}</p><ul>${m.lista.map((x) => `<li>${x}</li>`).join("")}</ul>${m.dato ? `<p class="dato">${m.dato}</p>` : ""}`;
+    const con3d = m.tres && !raiz.classList.contains("sin-gl");
+    foto.src = m.foto[0]; foto.alt = m.foto[1]; foto.hidden = con3d; lienzo.hidden = !con3d; ayuda.hidden = !con3d;
+    window.dispatchEvent(new CustomEvent("material", { detail: k }));
+  }
+  pestanas.forEach((p, i) => {
+    p.addEventListener("click", () => elegir(p.dataset.k));
+    p.addEventListener("keydown", (e) => {
+      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); elegir(pestanas[(i + d + pestanas.length) % pestanas.length].dataset.k, true); }
+    });
+  });
+  window.elegirMaterial = elegir;
+  elegir("estructuras");
+
+  // Chispas: salen del punto de soldadura del vídeo y saltan hacia el titular
+  const cv = document.getElementById("chispas"), ctx = cv.getContext("2d"), hero = document.querySelector(".hero"), panelVideo = document.getElementById("video-taller");
+  let chispas = [], W = 0, H = 0, ultimo = performance.now(), visible = true, rafaga = 0;
+  const medir = () => { const r = devicePixelRatio > 1 ? 2 : 1; W = hero.clientWidth; H = hero.clientHeight; cv.width = W * r; cv.height = H * r; ctx.setTransform(r, 0, 0, r, 0, 0); };
+  medir(); addEventListener("resize", medir);
+  new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(hero);
+  function foco() {
+    const h = hero.getBoundingClientRect(), v = panelVideo.getBoundingClientRect();
+    return W > 860 ? { x: v.left - h.left + v.width * 0.16, y: v.top - h.top + v.height * 0.58, dir: -1 } : { x: W * 0.28, y: H * 0.36, dir: 1 };
+  }
+  function bucle(t) {
+    const dt = Math.min(0.05, (t - ultimo) / 1000); ultimo = t;
+    if (visible && !quieto && !video.paused) {
+      // La soldadura va a golpes: ráfagas con pausas
+      rafaga -= dt; if (rafaga < -0.6 - Math.random()) rafaga = 0.4 + Math.random() * 0.9;
+      if (rafaga > 0) {
+        const f = foco(), n = Math.random() < 0.7 ? 2 : 4;
+        for (let i = 0; i < n; i++) {
+          const a = (f.dir < 0 ? Math.PI : 0) + (Math.random() - 0.5) * 1.6 - f.dir * 0.35 * 0, v = 180 + Math.random() * 520;
+          chispas.push({ x: f.x, y: f.y, vx: Math.cos(a) * v, vy: -Math.abs(Math.sin(a)) * v * 0.9 - 80 - Math.random() * 160, vida: 0, max: 0.5 + Math.random() * 1.1 });
+        }
+      }
+    }
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = "lighter";
+    chispas = chispas.filter((c) => (c.vida += dt) < c.max && c.y < H + 20);
+    for (const c of chispas) {
+      c.vy += 980 * dt; c.vx *= 0.995; c.x += c.vx * dt; c.y += c.vy * dt;
+      const k = 1 - c.vida / c.max, largo = 0.022;
+      ctx.strokeStyle = `rgba(${255}, ${Math.round(150 + 90 * k)}, ${Math.round(60 + 120 * k * k)}, ${k})`;
+      ctx.lineWidth = 1 + k * 1.2;
+      ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(c.x - c.vx * largo, c.y - c.vy * largo); ctx.stroke();
+    }
+    ctx.globalCompositeOperation = "source-over";
+    requestAnimationFrame(bucle);
+  }
+  if (!quieto) requestAnimationFrame(bucle);
+
+  if (!quieto && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    raiz.classList.add("js-anim");
+    gsap.utils.toArray(".aparece").forEach((el) => {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
+    });
+  }
+})();
+</script>
+<script type="module">
+// Visor 3D del selector: el nudo del logo, girable con el dedo o el ratón. Se carga al acercarse la sección.
+const raiz = document.documentElement, lienzo = document.getElementById("visor-3d");
+const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const hayGL = (() => { try { const c = document.createElement("canvas"); return !!(c.getContext("webgl2") || c.getContext("webgl")); } catch { return false; } })();
+if (!hayGL) { raiz.classList.add("sin-gl"); window.elegirMaterial?.("estructuras"); }
+else new IntersectionObserver(async ([e], obs) => {
+  if (!e.isIntersecting) return;
+  obs.disconnect();
+  try { await iniciar(); } catch (err) { console.error(err); raiz.classList.add("sin-gl"); window.elegirMaterial?.("estructuras"); }
+}, { rootMargin: "400px" }).observe(document.getElementById("visor"));
+
+async function iniciar() {
+  const THREE = await import("three");
+  const { OrbitControls } = await import("three/addons/controls/OrbitControls.js");
+  const { nudo, entorno } = await import("./shared/viga.js");
+  const renderer = new THREE.WebGLRenderer({ canvas: lienzo, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.25;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  const scene = new THREE.Scene();
+  entorno(renderer, scene);
+  // Luz de taller: cálida desde arriba y un brillo de soldadura naranja junto al nudo
+  const luz = new THREE.DirectionalLight(0xffe2c0, 3); luz.position.set(-2, 13, 5); luz.castShadow = true; luz.shadow.mapSize.set(1024, 1024);
+  Object.assign(luz.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near: 1, far: 30 }); luz.shadow.normalBias = 0.015;
+  scene.add(luz);
+  const brasa = new THREE.PointLight(0xf2a33a, 16, 6, 1.4); brasa.position.set(-0.6, 3.1, 0.7); scene.add(brasa);
+  const { grupo } = nudo({ largoViga: 2.4, sobrePilar: 0.9 });
+  grupo.position.y = -3.3; grupo.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+  scene.add(grupo);
+  const camara = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+  // Punto de partida: el mismo encuadre del logo (esquina vista desde dentro y desde abajo)
+  const az = -0.9, el = -0.32, r = 5.6, objetivo = new THREE.Vector3(-0.55, 0.05, 0.55);
+  camara.position.set(objetivo.x + r * Math.cos(el) * Math.sin(az), objetivo.y + r * Math.sin(el), objetivo.z + r * Math.cos(el) * Math.cos(az));
+  const control = new OrbitControls(camara, lienzo);
+  control.target.copy(objetivo); control.enableDamping = true; control.enablePan = false;
+  control.minDistance = 3.8; control.maxDistance = 9; control.autoRotate = !quieto; control.autoRotateSpeed = 0.6;
+  control.addEventListener("start", () => (control.autoRotate = false));
+  control.update();
+  const medir = () => { const w = lienzo.clientWidth, h = lienzo.clientHeight; if (!w) return; renderer.setSize(w, h, false); camara.aspect = w / h; camara.updateProjectionMatrix(); };
+  new ResizeObserver(medir).observe(lienzo); medir();
+  let activo = true, visible = true;
+  addEventListener("material", (e) => (activo = e.detail === "estructuras"));
+  new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(lienzo);
+  const reloj = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    if (!activo || !visible) return;
+    const t = reloj.getElapsedTime();
+    brasa.intensity = quieto ? 8 : 6 + Math.random() * 6 * (Math.sin(t * 3) > 0 ? 1 : 0.3);   // parpadeo de soldadura
+    control.update();
+    renderer.render(scene, camara);
+  });
+}
+</script>

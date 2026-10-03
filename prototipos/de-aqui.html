@@ -1,0 +1,449 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Metal Hervás De aquí</title>
+<meta name="description" content="Carpintería de hierro, aluminio y PVC y estructuras metálicas en Hervás (Cáceres).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Dirección De aquí. El taller, la gente y la comarca. Colores del Valle del Ambroz: piedra de granito,
+   madera de castaño y pizarra, con el verde de la marca para la acción. Poco 3D: fotos reales del taller
+   y del equipo, un mapa esquemático del valle y huecos marcados para lo que tiene que contar la familia. */
+:root {
+  --fondo: #f3efe8; --fondo-2: #fffdf9; --piedra: #e3dccf; --linea: #d3c9b8;
+  --tinta: #2a2622; --tinta-suave: #625a52; --castano: #6b3f24; --castano-texto: #6b3f24;
+  --pizarra: #3b4148; --pizarra-2: #2f343a; --sobre-pizarra: #eef0f1; --sobre-pizarra-suave: #b9c0c7;
+  --verde: #4ba939; --accion: #256a31; --on-accion: #ffffff; --verde-texto: #256a31; --focus: #256a31;
+  --sombra: 0 8px 24px rgba(42, 38, 34, 0.16);
+  --display: "Archivo", "Arial Black", system-ui, sans-serif;
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1280px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fondo: #1d1f22; --fondo-2: #26292d; --piedra: #2c2f33; --linea: #3d4247;
+    --tinta: #f0ece5; --tinta-suave: #b8b0a5; --castano-texto: #d9a07a;
+    --accion: #4ba939; --on-accion: #0b140c; --verde-texto: #7fcf70; --focus: #87d2a9;
+    --sombra: 0 8px 24px rgba(0, 0, 0, 0.5); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fondo: #1d1f22; --fondo-2: #26292d; --piedra: #2c2f33; --linea: #3d4247;
+  --tinta: #f0ece5; --tinta-suave: #b8b0a5; --castano-texto: #d9a07a;
+  --accion: #4ba939; --on-accion: #0b140c; --verde-texto: #7fcf70; --focus: #87d2a9;
+  --sombra: 0 8px 24px rgba(0, 0, 0, 0.5); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--fondo); color: var(--tinta); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; text-wrap: balance; margin: 0; letter-spacing: -0.015em; }
+p { margin: 0; }
+.envoltura { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.label { font-size: 13px; line-height: 1.3; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--castano-texto); }
+.icono { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 12px 24px; border-radius: 2px; font: 600 17px/1.2 var(--sans); text-decoration: none; border: 1px solid transparent; cursor: pointer; }
+.boton-principal { background: var(--accion); color: var(--on-accion); }
+.boton-principal:hover { filter: brightness(1.08); }
+.boton-borde { border-color: var(--tinta); color: var(--tinta); background: transparent; }
+.boton-borde:hover { background: var(--piedra); }
+/* Huecos que tiene que rellenar la familia: se ven a propósito en el prototipo */
+.pendiente { border: 1.5px dashed var(--castano-texto); padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; background: color-mix(in srgb, var(--castano) 6%, transparent); }
+.pendiente strong { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--castano-texto); }
+.pendiente p { color: var(--tinta-suave); font-size: 15px; }
+
+.cabecera { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--fondo) 94%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--linea); }
+.cabecera .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; }
+.cabecera .logo img { height: 42px; width: auto; }
+.logo .oscuro { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo .claro { display: none; } :root:not([data-theme="light"]) .logo .oscuro { display: block; } }
+:root[data-theme="dark"] .logo .claro { display: none; } :root[data-theme="dark"] .logo .oscuro { display: block; }
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--tinta-suave); }
+.nav a:hover { color: var(--tinta); }
+.nav .tel { color: var(--tinta); display: inline-flex; gap: 8px; align-items: center; font-weight: 600; }
+@media (max-width: 860px) { .nav a:not(.tel) { display: none; } .cabecera .logo img { height: 34px; } }
+
+/* Hero: la sede con su rótulo y una persona del equipo */
+.hero { padding-block: clamp(32px, 5vw, 64px) clamp(56px, 7vw, 96px); }
+.hero .envoltura { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.hero-texto { display: flex; flex-direction: column; gap: 22px; }
+.hero h1 { font-size: clamp(44px, 6vw, 84px); line-height: 0.98; font-stretch: 110%; }
+.hero .lead { font-size: 20px; color: var(--tinta-suave); max-width: 44ch; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+.visitanos { display: flex; gap: 12px; align-items: flex-start; padding-top: 18px; border-top: 1px solid var(--linea); color: var(--tinta-suave); font-size: 16px; }
+.visitanos .icono { color: var(--castano-texto); margin-top: 3px; }
+.visitanos strong { color: var(--tinta); font-weight: 600; }
+.fotos-hero { position: relative; padding: 0 0 12% 0; }
+.fotos-hero .sede { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: var(--piedra); }
+.fotos-hero .sede img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.fotos-hero .persona { position: absolute; left: -6%; bottom: 0; width: 38%; margin: 0; border: 8px solid var(--fondo-2); box-shadow: var(--sombra); background: var(--piedra); transform: rotate(-2deg); }
+.fotos-hero .persona img { aspect-ratio: 3 / 4; width: 100%; object-fit: cover; object-position: 20% 78%; }
+.fotos-hero figcaption { font-size: 13px; color: var(--tinta-suave); padding: 8px 2px 0; }
+.fotos-hero .persona figcaption { position: absolute; left: 0; right: 0; top: 100%; }
+.fotos-hero .sede-pie { text-align: right; }
+@media (max-width: 900px) { .hero .envoltura { grid-template-columns: minmax(0, 1fr); } .fotos-hero { order: -1; padding-bottom: 18%; } .fotos-hero .persona { left: auto; right: 4%; width: 36%; } .hero .lead { font-size: 18px; } }
+
+/* Secciones */
+.seccion { padding-block: clamp(72px, 10vw, 128px); }
+.seccion-cabeza { display: flex; flex-direction: column; gap: 14px; margin-bottom: 44px; max-width: 760px; }
+.seccion-cabeza h2 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1; font-stretch: 108%; }
+.seccion-cabeza p { color: var(--tinta-suave); font-size: 18px; max-width: 56ch; }
+
+/* Quiénes somos (pizarra) */
+.nosotros { background: var(--pizarra); color: var(--sobre-pizarra); }
+.nosotros .envoltura { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.nosotros .label { color: #e8b48f; }
+.nosotros h2 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1; font-stretch: 108%; margin-top: 14px; }
+.nosotros .texto { display: flex; flex-direction: column; gap: 20px; }
+.nosotros .texto > p { color: var(--sobre-pizarra-suave); font-size: 19px; max-width: 48ch; }
+.nosotros .pasos { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+.nosotros .pasos li { padding: 16px 16px 0 0; display: flex; flex-direction: column; gap: 4px; }
+.nosotros .pasos span { font-family: var(--mono); font-size: 13px; color: #e8b48f; }
+.nosotros .pasos strong { font-family: var(--display); font-size: 22px; font-weight: 800; }
+.nosotros .pasos p { font-size: 15px; color: var(--sobre-pizarra-suave); }
+.nosotros .pendiente { border-color: #e8b48f; background: rgba(232, 180, 143, 0.08); }
+.nosotros .pendiente strong { color: #e8b48f; }
+.nosotros .pendiente p { color: var(--sobre-pizarra-suave); }
+.nosotros figure { margin: 0; }
+.nosotros figure img { aspect-ratio: 3 / 4; width: 100%; object-fit: cover; }
+.nosotros figcaption { font-size: 13px; color: var(--sobre-pizarra-suave); padding-top: 10px; }
+@media (max-width: 900px) { .nosotros .envoltura { grid-template-columns: minmax(0, 1fr); } .nosotros figure img { aspect-ratio: 4 / 3; } }
+@media (max-width: 520px) { .nosotros .pasos { grid-template-columns: minmax(0, 1fr); } }
+
+/* Qué hacemos */
+.materiales { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.material { background: var(--fondo-2); display: flex; flex-direction: column; min-width: 0; border-bottom: 4px solid var(--castano); }
+.material figure { margin: 0; aspect-ratio: 1; overflow: hidden; background: var(--piedra); }
+.material img { width: 100%; height: 100%; object-fit: cover; }
+.material .cuerpo { padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.material h3 { font-size: 22px; line-height: 1.15; }
+.material p { color: var(--tinta-suave); font-size: 16px; }
+.tambien { margin-top: 28px; color: var(--tinta-suave); }
+.tambien strong { color: var(--tinta); }
+@media (max-width: 1000px) { .materiales { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .materiales { grid-template-columns: minmax(0, 1fr); } .material figure { aspect-ratio: 3 / 2; } }
+
+/* La comarca: mapa esquemático */
+.comarca { background: var(--piedra); }
+.comarca .envoltura { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.comarca .texto { display: flex; flex-direction: column; gap: 20px; }
+.comarca h2 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1; font-stretch: 108%; }
+.comarca .texto > p { color: var(--tinta-suave); font-size: 18px; max-width: 48ch; }
+.mapa { width: 100%; height: auto; max-height: 640px; }
+.mapa .via { fill: none; stroke: var(--tinta-suave); stroke-width: 2; stroke-dasharray: 8 6; }
+.mapa .valle { fill: color-mix(in srgb, var(--verde) 14%, transparent); stroke: color-mix(in srgb, var(--verde) 55%, transparent); stroke-width: 1.5; }
+.mapa .pueblo { fill: var(--tinta); }
+.mapa .ciudad { fill: var(--fondo-2); stroke: var(--tinta); stroke-width: 2; }
+.mapa text { font-family: var(--sans); font-size: 15px; fill: var(--tinta); }
+.mapa .sec { fill: var(--tinta-suave); font-size: 13px; }
+.mapa .casa { fill: var(--castano); }
+.mapa .casa-anillo { fill: none; stroke: var(--castano); stroke-width: 2; }
+.mapa .titulo-casa { font-family: var(--display); font-weight: 800; font-size: 22px; fill: var(--castano-texto); }
+.mapa .etiqueta-via { font-family: var(--mono); font-size: 12px; fill: var(--tinta-suave); }
+.mapa .nota-mapa { font-size: 12px; fill: var(--tinta-suave); }
+@media (max-width: 900px) { .comarca .envoltura { grid-template-columns: minmax(0, 1fr); } }
+
+/* Trabajos */
+.tira { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 31%); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: var(--linea) transparent; }
+.tira figure { margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 10px; background: var(--fondo-2); padding: 10px 10px 14px; }
+.tira .foto { aspect-ratio: 4 / 3; overflow: hidden; background: var(--piedra); }
+.tira img { width: 100%; height: 100%; object-fit: cover; }
+.tira figcaption { display: flex; flex-direction: column; gap: 2px; padding-inline: 4px; }
+.tira figcaption .label { font-size: 11px; }
+.tira figcaption span:last-child { font-weight: 500; }
+@media (max-width: 760px) { .tira { grid-auto-columns: 82%; } }
+.pagina-aparte { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.pronto { font-size: 14px; color: var(--tinta-suave); }
+
+/* Series */
+.series { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.serie { background: var(--fondo-2); padding: 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0; border-top: 4px solid var(--pizarra); }
+.serie .marca { font-size: 13px; color: var(--tinta-suave); letter-spacing: 0.06em; text-transform: uppercase; }
+.serie h3 { font-size: 24px; line-height: 1.15; }
+.serie .cifra { font-family: var(--mono); font-size: 28px; font-variant-numeric: tabular-nums; }
+.serie p { color: var(--tinta-suave); font-size: 15px; font-family: var(--mono); }
+.serie a { margin-top: auto; color: var(--verde-texto); font-weight: 600; font-size: 15px; }
+.fuente { margin-top: 18px; color: var(--tinta-suave); font-size: 14px; }
+@media (max-width: 1000px) { .series { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .series { grid-template-columns: minmax(0, 1fr); } }
+
+/* Contacto */
+.contacto { background: var(--pizarra); color: var(--sobre-pizarra); }
+.contacto .envoltura { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 56px; }
+.contacto .label { color: #e8b48f; }
+.contacto h2 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1; font-stretch: 108%; margin-top: 14px; }
+.contacto .intro { color: var(--sobre-pizarra-suave); margin-top: 18px; max-width: 46ch; font-size: 18px; }
+.vias { list-style: none; margin: 32px 0 0; padding: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+.via-c { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px; padding-block: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+.via-c small { display: block; font-size: 13px; color: var(--sobre-pizarra-suave); }
+.via-c strong { font-family: var(--mono); font-weight: 500; font-size: 22px; user-select: all; overflow-wrap: anywhere; }
+.via-c strong.correo { font-family: var(--sans); font-size: 19px; }
+.via-c a { text-decoration: none; }
+.copiar { min-height: 40px; padding: 8px 14px; background: transparent; color: var(--sobre-pizarra); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 2px; font: 500 14px var(--sans); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+.copiar:hover { border-color: #fff; }
+.formulario { background: var(--fondo-2); color: var(--tinta); padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px; align-self: start; }
+.formulario h3 { font-size: 26px; }
+.campos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.campo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.campo.ancho { grid-column: 1 / -1; }
+.campo label { font-size: 14px; font-weight: 500; color: var(--tinta-suave); }
+.campo input, .campo select, .campo textarea { width: 100%; min-height: 48px; padding: 12px 14px; background: var(--fondo); color: var(--tinta); border: 1px solid var(--linea); border-radius: 2px; font: 400 16px/1.4 var(--sans); }
+.campo textarea { min-height: 110px; resize: vertical; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: 2px solid var(--focus); outline-offset: 1px; }
+.aviso { font-size: 14px; color: var(--tinta-suave); }
+.aviso.ok { color: var(--verde-texto); }
+@media (max-width: 900px) { .contacto .envoltura { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .campos { grid-template-columns: minmax(0, 1fr); } }
+
+.pie { background: var(--pizarra-2); color: var(--sobre-pizarra); padding-block: 40px 120px; }
+.pie .envoltura { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; align-items: flex-end; }
+.pie .marcas { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+.pie .marcas img:first-child { height: 52px; width: auto; }
+.pie .marcas img:last-child { height: 40px; width: auto; }
+.pie p { color: var(--sobre-pizarra-suave); font-size: 14px; }
+@media (min-width: 861px) { .pie { padding-bottom: 48px; } }
+
+.barra-movil { display: none; }
+@media (max-width: 860px) {
+  .barra-movil { position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--fondo-2); border-top: 1px solid var(--linea); box-shadow: var(--sombra); }
+  .barra-movil .boton { min-height: 48px; font-size: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) { .js-anim .aparece { opacity: 0; transform: translateY(24px); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<header class="cabecera">
+  <div class="envoltura">
+    <a class="logo" href="#inicio" aria-label="Metal Hervás, inicio"><img class="claro" src="assets/logo/sin-sl/logo-color.svg" alt="Metal Hervás" width="114" height="42"><img class="oscuro" src="assets/logo/sin-sl/logo-negativo.svg" alt="Metal Hervás" width="114" height="42"></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#nosotros">Quiénes somos</a>
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#series">Productos</a>
+      <a href="#contacto">Contacto</a>
+      <a class="tel" href="tel:+34664409618"><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>664 40 96 18</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio" aria-label="Presentación">
+    <div class="envoltura">
+      <div class="hero-texto">
+        <p class="label">Empresa familiar · Hervás, Valle del Ambroz</p>
+        <h1>Hierro, aluminio y PVC</h1>
+        <p class="lead">Medimos, fabricamos en nuestro taller y montamos. Ventanas de PVC de fabricación propia, carpintería de aluminio, cerrajería y naves.</p>
+        <div class="acciones">
+          <a class="boton boton-principal" href="#contacto">Pedir presupuesto</a>
+          <a class="boton boton-borde" href="tel:+34664409618">Llamar al 664 40 96 18</a>
+        </div>
+        <p class="visitanos"><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Estamos en la <strong>Ctra. de las Cañadas, en Hervás</strong>. Pásate por el taller y lo vemos juntos.</span></p>
+      </div>
+      <div class="fotos-hero">
+        <figure class="sede aparece-foto"><img src="assets/fotos/sede-camiones-rotulo.webp" alt="Nave de Metal Hervás con su rótulo y dos camiones cargados delante"></figure>
+        <figure class="persona aparece-foto"><img src="assets/fotos/equipo-puerta.webp" alt="Una persona del equipo de Metal Hervás junto a una puerta recién montada"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion nosotros" id="nosotros">
+    <div class="envoltura">
+      <div class="texto aparece">
+        <div><p class="label">Quiénes somos</p><h2>Gente de aquí que hace el trabajo de principio a fin</h2></div>
+        <p>Somos una empresa familiar de Hervás. No subcontratamos el trabajo: lo hace el mismo equipo que te atiende al teléfono.</p>
+        <ol class="pasos">
+          <li><span>1</span><strong>Medimos</strong><p>Vamos a tu obra y tomamos medidas.</p></li>
+          <li><span>2</span><strong>Fabricamos</strong><p>En nuestro taller de Hervás.</p></li>
+          <li><span>3</span><strong>Montamos</strong><p>Lo instala nuestro equipo.</p></li>
+        </ol>
+        <div class="pendiente"><strong>Pendiente de la familia</strong><p>Aquí irá la historia: desde cuándo existe el taller, quién lo empezó y cuántas generaciones lleva. No lo escribimos hasta que nos lo contéis.</p></div>
+      </div>
+      <figure class="aparece"><img src="assets/fotos/taller-soldador.webp" alt="Dos personas del equipo trabajando en el taller de Metal Hervás" loading="lazy"><figcaption>En el taller.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="seccion" id="que-hacemos">
+    <div class="envoltura">
+      <div class="seccion-cabeza aparece">
+        <p class="label">Qué hacemos</p>
+        <h2>Cuatro materiales, un mismo taller</h2>
+        <p>Del pilar de una nave a la ventana de tu cocina. Lo medimos en obra, lo preparamos en Hervás y lo montamos nosotros.</p>
+      </div>
+      <div class="materiales">
+        <article class="material aparece"><figure><img src="assets/fotos/soldadura-pilares.webp" alt="Soldadura de pilares metálicos" loading="lazy"></figure><div class="cuerpo"><p class="label">Hierro</p><h3>Cerrajería</h3><p>Cancelas, barandas, rejas y puertas de garaje, soldadas en nuestro taller.</p></div></article>
+        <article class="material aparece"><figure><img src="assets/fotos/puerta-antracita-acristalada.webp" alt="Puerta de entrada de aluminio en gris antracita con vidrio" loading="lazy"></figure><div class="cuerpo"><p class="label">Aluminio</p><h3>Carpintería de aluminio</h3><p>Perfil europeo con rotura de puente térmico, en muchos colores y en acabados madera.</p></div></article>
+        <article class="material aparece"><figure><img src="assets/fotos/taller-ventanas-pvc-rojas.webp" alt="Ventana de PVC granate en el taller, con su protección GEALAN" loading="lazy"></figure><div class="cuerpo"><p class="label">PVC</p><h3>Ventanas de PVC</h3><p>Las fabricamos nosotros, con perfiles GEALAN y vidrio Climalit.</p></div></article>
+        <article class="material aparece"><figure><img src="assets/fotos/nave-grua-montaje.webp" alt="Montaje de la estructura de una nave con grúa" loading="lazy"></figure><div class="cuerpo"><p class="label">Estructuras</p><h3>Naves y estructuras</h3><p>Estructura, cubierta, fachada y remates. Cerramientos con placa alveolar.</p></div></article>
+      </div>
+      <p class="tambien aparece"><strong>También:</strong> cierres de terraza, mosquiteras y mamparas de baño.</p>
+    </div>
+  </section>
+
+  <section class="seccion comarca" id="comarca">
+    <div class="envoltura">
+      <div class="texto aparece">
+        <p class="label">Dónde estamos</p>
+        <h2>En el Valle del Ambroz, entre Plasencia y Béjar</h2>
+        <p>El taller está en Hervás, junto a la A-66. Desde aquí salimos a medir y a montar por la comarca.</p>
+        <div class="pendiente"><strong>Pendiente de la familia</strong><p>Marcaremos en el mapa los pueblos donde habéis trabajado, con una foto de cada obra. Solo los que nos confirméis.</p></div>
+      </div>
+      <svg class="mapa aparece" viewBox="0 0 540 680" role="img" aria-labelledby="mapa-t">
+        <title id="mapa-t">Mapa esquemático del Valle del Ambroz con Hervás destacado, entre Plasencia al suroeste y Béjar al noreste, unidos por la A-66</title>
+        <!-- Contorno aproximado del valle: solo orientativo -->
+        <path class="valle" d="M140 232 C 170 196, 250 178, 320 150 C 380 128, 450 120, 470 150 C 485 178, 440 210, 390 240 C 350 266, 300 300, 260 350 C 238 378, 205 380, 196 352 C 186 318, 150 290, 140 232 Z"/>
+        <path class="via" d="M63 624 C 80 570, 120 470, 171 400 S 240 300, 263 259 S 320 190, 335 165 S 400 120, 460 53"/>
+        <text class="etiqueta-via" x="128" y="470" transform="rotate(-58 128 470)">A-66</text>
+        <g>
+          <circle class="ciudad" cx="63" cy="624" r="9"/><text x="80" y="629">Plasencia</text>
+          <circle class="ciudad" cx="460" cy="53" r="9"/><text x="380" y="40">Béjar</text>
+        </g>
+        <g>
+          <circle class="pueblo" cx="342" cy="164" r="5"/><text x="356" y="168" class="sec">Baños de Montemayor</text>
+          <circle class="pueblo" cx="439" cy="154" r="5"/><text x="414" y="184" class="sec">La Garganta</text>
+          <circle class="pueblo" cx="259" cy="259" r="5"/><text x="132" y="230" class="sec">Aldeanueva del Camino</text>
+          <circle class="pueblo" cx="268" cy="273" r="5"/><text x="282" y="290" class="sec">Gargantilla</text>
+          <circle class="pueblo" cx="234" cy="307" r="5"/><text x="248" y="318" class="sec">Segura de Toro</text>
+          <circle class="pueblo" cx="225" cy="344" r="5"/><text x="239" y="356" class="sec">Casas del Monte</text>
+          <circle class="pueblo" cx="155" cy="250" r="5"/><text x="96" y="276" class="sec">Abadía</text>
+        </g>
+        <g>
+          <circle class="casa-anillo" cx="341" cy="236" r="18"/>
+          <circle class="casa" cx="341" cy="236" r="8"/>
+          <text class="titulo-casa" x="366" y="244">Hervás</text>
+          <text class="sec" x="366" y="264">aquí está el taller</text>
+        </g>
+        <text class="nota-mapa" x="20" y="668">Esquema orientativo, no a escala.</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="seccion" id="trabajos">
+    <div class="envoltura">
+      <div class="seccion-cabeza aparece">
+        <p class="label">Trabajos</p>
+        <h2>Obra hecha</h2>
+        <p>Fotos de nuestras obras y del taller, sin retocar el producto.</p>
+      </div>
+      <div class="tira" tabindex="0" aria-label="Fotos de trabajos">
+        <figure><div class="foto"><img src="assets/fotos/chalet-travertino-trasera.webp" alt="Vivienda con carpintería exterior y porche" loading="lazy"></div><figcaption><span class="label">Viviendas</span><span>Carpintería de una vivienda</span></figcaption></figure>
+        <figure><div class="foto"><img src="assets/fotos/porche-plegable-madera.webp" alt="Porche cerrado con puertas plegables de vidrio" loading="lazy"></div><figcaption><span class="label">Cerramientos</span><span>Porche con puertas plegables</span></figcaption></figure>
+        <figure><div class="foto"><img src="assets/fotos/nave-terminada.webp" alt="Nave metálica terminada con cubierta y fachada" loading="lazy"></div><figcaption><span class="label">Naves y estructuras</span><span>Nave terminada</span></figcaption></figure>
+        <figure><div class="foto"><img src="assets/fotos/chalet-travertino-entrada.webp" alt="Entrada de chalet con barandilla de vidrio" loading="lazy"></div><figcaption><span class="label">Barandillas</span><span>Entrada con barandilla de vidrio</span></figcaption></figure>
+        <figure><div class="foto"><img src="assets/fotos/soldadura-nocturna.webp" alt="Soldadura de un pilar de noche, con chispas" loading="lazy"></div><figcaption><span class="label">Naves y estructuras</span><span>Soldando de noche</span></figcaption></figure>
+        <figure><div class="foto"><img src="assets/fotos/terraza-plegable.webp" alt="Cierre de terraza con hojas plegables de vidrio" loading="lazy"></div><figcaption><span class="label">Cerramientos</span><span>Cierre de terraza plegable</span></figcaption></figure>
+      </div>
+      <div class="pagina-aparte aparece"><a class="boton boton-borde" href="#" data-pronto="la galería de trabajos">Ver todos los trabajos<svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><span class="pronto" hidden></span></div>
+    </div>
+  </section>
+
+  <section class="seccion" id="series" style="padding-top: 0">
+    <div class="envoltura">
+      <div class="seccion-cabeza aparece">
+        <p class="label">Series y proveedores</p>
+        <h2>Lo que montamos, con sus datos</h2>
+        <p>Una selección de las series con las que trabajamos. Las cifras son las que publica cada fabricante; te ayudamos a elegir la que encaja en tu obra.</p>
+      </div>
+      <div class="series">
+        <article class="serie aparece"><span class="marca">GEALAN · PVC</span><h3>S 9000</h3><span class="cifra">82,5 mm</span><p>Uf ≤ 0,89 W/(m²K) · vidrio hasta 56 mm</p><a href="https://www.gealan.de/es/sistemas/s-9000" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="serie aparece"><span class="marca">GEALAN · PVC</span><h3>S 8000</h3><span class="cifra">74 mm</span><p>Uf ≤ 1,2 W/(m²K) · 5 o 6 cámaras</p><a href="https://www.gealan.de/es/sistemas/s-8000" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="serie aparece"><span class="marca">GEALAN · PVC</span><h3>GEALAN-LINEAR®</h3><span class="cifra">74 mm</span><p>Uf ≤ 1,0 W/(m²K) · acrylcolor®</p><a href="https://www.gealan.de/es/sistemas/gealan-linear" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="serie aparece"><span class="marca">Extrugasa · Aluminio</span><h3>XP-80+ HI</h3><span class="cifra">80 mm</span><p>RPT 44 mm · Uf 0,87 W/(m²K) · Rw 48 dB</p><a href="https://www.extrugasa.com/edificacion/xp-80-c16-hi" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="serie aparece"><span class="marca">Aluval · Aluminio</span><h3>ALUPROM 46 C16</h3><span class="cifra">77 mm</span><p>Marco con RPT · junquillos 36–70 mm</p><a href="https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-46-c16" target="_blank" rel="noopener">Ver la serie</a></article>
+        <article class="serie aparece"><span class="marca">Saint-Gobain · Vidrio</span><h3>Climalit Plus®</h3><span class="cifra">Ug 1,1</span><p>W/(m²K) con argón · PLANITHERM® XN</p><a href="https://www.saint-gobain-glass.es/es/productos/planitherm-xn" target="_blank" rel="noopener">Ver el vidrio</a></article>
+      </div>
+      <p class="fuente">Uf: aislamiento del perfil. Ug: del vidrio. Cuanto más bajo, menos calor se escapa.</p>
+      <div class="pagina-aparte aparece"><a class="boton boton-borde" href="#" data-pronto="la página de productos">Ver todos los productos y proveedores<svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><span class="pronto" hidden></span></div>
+    </div>
+  </section>
+
+  <section class="seccion contacto" id="contacto">
+    <div class="envoltura">
+      <div>
+        <p class="label">Contacto</p>
+        <h2>Llámanos o pásate por el taller</h2>
+        <p class="intro">Cuéntanos qué necesitas. Si puedes, manda fotos del hueco y unas medidas aproximadas; vamos a medir antes de cerrar el precio.</p>
+        <ul class="vias">
+          <li class="via-c"><div><small>Móvil y WhatsApp</small><strong><a href="tel:+34664409618">664 40 96 18</a></strong></div><button class="copiar" type="button" data-copiar="664 40 96 18">Copiar</button></li>
+          <li class="via-c"><div><small>Taller (teléfono y fax)</small><strong><a href="tel:+34927473619">927 47 36 19</a></strong></div><button class="copiar" type="button" data-copiar="927 47 36 19">Copiar</button></li>
+          <li class="via-c"><div><small>Correo</small><strong class="correo">metalhervas@gmail.com</strong></div><button class="copiar" type="button" data-copiar="metalhervas@gmail.com">Copiar</button></li>
+          <li class="via-c"><div><small>El taller</small><span>Ctra. de las Cañadas, s/n · 10700 Hervás (Cáceres)</span></div><a class="copiar" href="https://www.google.com/maps/search/?api=1&amp;query=Metal%20Herv%C3%A1s%2C%20Ctra.%20de%20las%20Ca%C3%B1adas%2C%20Herv%C3%A1s" target="_blank" rel="noopener">Cómo llegar</a></li>
+        </ul>
+      </div>
+      <form class="formulario" id="formulario" novalidate>
+        <h3>Cuéntanos tu obra</h3>
+        <div class="campos">
+          <div class="campo"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required></div>
+          <div class="campo"><label for="f-telefono">Teléfono</label><input id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="campo"><label for="f-pueblo">Pueblo</label><input id="f-pueblo" name="pueblo" autocomplete="address-level2" placeholder="Hervás, Baños…"></div>
+          <div class="campo"><label for="f-tipo">Qué necesitas</label>
+            <select id="f-tipo" name="tipo">
+              <option>Ventanas de PVC</option><option>Carpintería de aluminio</option><option>Puerta de entrada</option>
+              <option>Cerrajería</option><option>Nave o estructura</option><option>Cierre de terraza</option><option>Otra cosa</option>
+            </select>
+          </div>
+          <div class="campo ancho"><label for="f-mensaje">Detalles</label><textarea id="f-mensaje" name="mensaje" placeholder="Por ejemplo: 3 ventanas oscilobatientes de 120 × 140 cm"></textarea></div>
+          <div class="campo ancho"><label for="f-fotos">Fotos del hueco (opcional)</label><input id="f-fotos" name="fotos" type="file" accept="image/*" multiple></div>
+        </div>
+        <button class="boton boton-principal" type="submit">Enviar petición</button>
+        <p class="aviso" id="aviso" role="status">Te llamamos para concretar. No compartimos tus datos.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <div class="marcas">
+      <img src="assets/logo/sin-sl/logo-negativo.svg" alt="Metal Hervás" width="139" height="52" loading="lazy">
+      <img src="assets/logo/ventanas-pvc-negativo.svg" alt="Ventanas de PVC" loading="lazy">
+    </div>
+    <p>Metal Hervás · Ctra. de las Cañadas, s/n · 10700 Hervás (Cáceres)<br>Prototipo de la página inicial · dirección De aquí</p>
+  </div>
+</footer>
+
+<nav class="barra-movil" aria-label="Contacto rápido">
+  <a class="boton boton-borde" href="tel:+34664409618">Llamar</a>
+  <a class="boton boton-principal" href="#contacto">Presupuesto</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  document.querySelectorAll("[data-copiar]").forEach((b) => b.addEventListener("click", () => {
+    const ok = () => { b.textContent = "Copiado"; setTimeout(() => (b.textContent = "Copiar"), 1800); };
+    try { navigator.clipboard.writeText(b.dataset.copiar).then(ok, () => {}); } catch {}
+  }));
+  document.querySelectorAll("[data-pronto]").forEach((a) => a.addEventListener("click", (e) => {
+    e.preventDefault(); const n = a.nextElementSibling;
+    n.textContent = `Prototipo: ${a.dataset.pronto} se hará cuando elijáis el estilo de la página inicial.`; n.hidden = false;
+  }));
+  const form = document.getElementById("formulario"), aviso = document.getElementById("aviso");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nombre = form.nombre.value.trim(), tel = form.telefono.value.trim();
+    if (!nombre || !tel) { aviso.className = "aviso"; aviso.textContent = "Escribe tu nombre y un teléfono para poder llamarte."; (nombre ? form.telefono : form.nombre).focus(); return; }
+    aviso.className = "aviso ok"; aviso.textContent = "Esto es un prototipo y la petición no se envía todavía. Mientras tanto, llama al 664 40 96 18.";
+  });
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  document.documentElement.classList.add("js-anim");
+  // Entrada del hero: la sede se descubre y la foto del equipo cae encima, como una foto pegada
+  gsap.fromTo(".fotos-hero .sede", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.1, ease: "power3.inOut", clearProps: "clipPath" });
+  gsap.from(".fotos-hero .persona", { y: 40, rotate: -8, opacity: 0, duration: 0.9, delay: 0.7, ease: "back.out(1.6)" });
+  gsap.to(".fotos-hero .sede img", { yPercent: 8, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  // El mapa: la carretera se dibuja y Hervás late una vez
+  const via = document.querySelector(".mapa .via"), largo = via.getTotalLength();
+  gsap.fromTo(via, { strokeDasharray: `${largo} ${largo}`, strokeDashoffset: largo }, { strokeDashoffset: 0, duration: 1.6, ease: "power2.out",
+    scrollTrigger: { trigger: ".mapa", start: "top 75%", once: true }, onComplete: () => via.removeAttribute("style") });
+  gsap.from(".mapa .casa-anillo", { scale: 2.4, opacity: 0, transformOrigin: "341px 236px", duration: 1, delay: 0.8, ease: "power2.out", scrollTrigger: { trigger: ".mapa", start: "top 75%", once: true } });
+  gsap.utils.toArray(".aparece").forEach((el) => {
+    gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
+  });
+})();
+</script>

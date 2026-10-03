@@ -1,0 +1,514 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Metal Hervás Luz y vidrio</title>
+<meta name="description" content="Carpintería de hierro, aluminio y PVC y estructuras metálicas en Hervás (Cáceres).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+<style>
+/* Dirección Luz y vidrio. Casa terminada y mucha luz: blanco, travertino y un verde sobrio. Titulares en
+   Archivo de ancho normal y peso medio, aire generoso, filetes finos. El momento protagonista es un
+   doble acristalamiento 4/16/4 en 3D delante de la foto, que gira para enseñar su canto. */
+:root {
+  --fondo: #fbfaf7; --fondo-2: #ffffff; --piedra: #ece5d8; --piedra-2: #e2d9c8; --linea: #ddd5c6;
+  --tinta: #1d1c19; --tinta-suave: #5d584e; --verde-texto: #256a31; --accion: #256a31; --on-accion: #ffffff;
+  --velo: rgba(251, 250, 247, 0.86); --focus: #256a31; --sombra: 0 8px 24px rgba(29, 28, 25, 0.14);
+  --verde: #4ba939; --menta: #87d2a9;
+  --display: "Archivo", "Helvetica Neue", system-ui, sans-serif;
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 64px);
+  --max: 1320px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fondo: #161513; --fondo-2: #1e1d1a; --piedra: #2a2620; --piedra-2: #332e27; --linea: #3b362e;
+    --tinta: #f2eee6; --tinta-suave: #b5ad9f; --verde-texto: #7fcf70; --accion: #4ba939; --on-accion: #0b140c;
+    --velo: rgba(22, 21, 19, 0.82); --focus: #87d2a9; --sombra: 0 8px 24px rgba(0, 0, 0, 0.5); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fondo: #161513; --fondo-2: #1e1d1a; --piedra: #2a2620; --piedra-2: #332e27; --linea: #3b362e;
+  --tinta: #f2eee6; --tinta-suave: #b5ad9f; --verde-texto: #7fcf70; --accion: #4ba939; --on-accion: #0b140c;
+  --velo: rgba(22, 21, 19, 0.82); --focus: #87d2a9; --sombra: 0 8px 24px rgba(0, 0, 0, 0.5); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--fondo); color: var(--tinta); font-family: var(--sans); font-size: 17px; line-height: 1.65; font-weight: 400; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; margin: 0; letter-spacing: -0.025em; }
+p { margin: 0; }
+.envoltura { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.label { font-family: var(--sans); font-size: 13px; line-height: 1.3; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--verde-texto); }
+.icono { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 24px; border-radius: 2px; font: 500 16px/1.2 var(--sans); letter-spacing: 0.01em; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background-color .2s, border-color .2s; }
+.boton-principal { background: var(--accion); color: var(--on-accion); }
+.boton-principal:hover { filter: brightness(1.08); }
+.boton-borde { border-color: var(--tinta); color: var(--tinta); background: transparent; }
+.boton-borde:hover { background: var(--piedra); }
+
+/* Cabecera clara */
+.cabecera { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--fondo) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linea); }
+.cabecera .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; }
+.cabecera .logo img { height: 42px; width: auto; }
+.logo .oscuro { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo .claro { display: none; } :root:not([data-theme="light"]) .logo .oscuro { display: block; } }
+:root[data-theme="dark"] .logo .claro { display: none; } :root[data-theme="dark"] .logo .oscuro { display: block; }
+.nav { display: flex; align-items: center; gap: 32px; }
+.nav a { text-decoration: none; font-size: 15px; color: var(--tinta-suave); }
+.nav a:hover { color: var(--tinta); }
+.nav .tel { color: var(--tinta); display: inline-flex; gap: 8px; align-items: center; font-weight: 500; }
+@media (max-width: 860px) { .nav a:not(.tel) { display: none; } .cabecera .logo img { height: 34px; } }
+
+/* Hero: la foto en el lienzo 3D, el vidrio delante y el texto sobre un velo claro */
+.hero { position: relative; height: calc(100svh - 72px); min-height: 620px; max-height: 1080px; overflow: hidden; background: #d9d2c4 url("assets/fotos/porche-plegable-interior.webp") center / cover no-repeat; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-contenido { position: relative; z-index: 2; height: 100%; display: flex; align-items: flex-end; padding-bottom: clamp(24px, 5vh, 56px); pointer-events: none; }
+.hero-texto { pointer-events: auto; max-width: 600px; display: flex; flex-direction: column; gap: 22px; padding: clamp(24px, 3vw, 40px); background: var(--velo); backdrop-filter: blur(14px) saturate(1.1); border: 1px solid color-mix(in srgb, var(--linea) 70%, transparent); }
+.hero h1 { font-size: clamp(42px, 5.6vw, 76px); line-height: 1; }
+.hero .lead { font-size: 19px; line-height: 1.55; color: var(--tinta-suave); max-width: 46ch; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+.notas { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.nota { position: absolute; left: 0; top: 0; display: flex; flex-direction: column; gap: 1px; padding: 8px 12px; background: var(--velo); backdrop-filter: blur(8px); border-left: 2px solid var(--verde); font-size: 13px; line-height: 1.3; color: var(--tinta); white-space: nowrap; will-change: transform, opacity; }
+.nota strong { font-family: var(--mono); font-weight: 500; font-size: 15px; }
+.nota span { color: var(--tinta-suave); }
+.pista { position: absolute; z-index: 2; right: var(--gutter); bottom: 28px; font-size: 13px; color: #fff; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); display: flex; gap: 8px; align-items: center; transition: opacity .4s; }
+.pista i { width: 1px; height: 22px; background: linear-gradient(#fff, transparent); animation: baja 1.8s ease-in-out infinite; }
+@keyframes baja { 0%, 100% { transform: scaleY(.4); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } }
+.sin-3d .pista, .sin-3d .notas { display: none; }
+@media (max-width: 860px) {
+  .hero { height: calc(100svh - 72px - 69px); min-height: 600px; }
+  .hero-contenido { padding-bottom: 16px; }
+  .hero-texto { gap: 16px; padding: 22px 20px; }
+  .hero .lead { font-size: 16px; }
+  .pista { display: none; }
+  .nota { font-size: 12px; padding: 6px 10px; } .nota strong { font-size: 13px; }
+}
+
+/* Secciones */
+.seccion { padding-block: clamp(80px, 11vw, 150px); }
+.seccion-cabeza { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px 72px; align-items: end; margin-bottom: 56px; }
+.seccion-cabeza .label { grid-column: 1 / -1; }
+.seccion-cabeza h2 { font-size: clamp(36px, 4.6vw, 64px); line-height: 1.02; }
+.seccion-cabeza p { color: var(--tinta-suave); font-size: 18px; max-width: 50ch; }
+@media (max-width: 760px) { .seccion-cabeza { grid-template-columns: minmax(0, 1fr); margin-bottom: 40px; } }
+
+/* Qué hacemos: cuatro fotos grandes en dos filas */
+.materiales { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 4vw, 56px) clamp(20px, 3vw, 40px); }
+.material { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.material:nth-child(2n) { margin-top: clamp(0px, 8vw, 120px); }
+.material figure { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: var(--piedra); }
+.material img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2, .7, .2, 1); }
+.material:hover img { transform: scale(1.03); }
+.material .cuerpo { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 4px 24px; }
+.material .label { padding-top: 7px; }
+.material h3 { font-size: 28px; line-height: 1.15; }
+.material p { grid-column: 2; color: var(--tinta-suave); }
+.tambien { margin-top: 56px; color: var(--tinta-suave); padding-top: 24px; border-top: 1px solid var(--linea); }
+.tambien strong { color: var(--tinta); font-weight: 500; }
+@media (max-width: 760px) { .materiales { grid-template-columns: minmax(0, 1fr); } .material:nth-child(2n) { margin-top: 0; } .material .cuerpo { grid-template-columns: minmax(0, 1fr); } .material p { grid-column: 1; } }
+
+/* Trabajos: una foto grande y una tira */
+.trabajos { background: var(--piedra); }
+.galeria { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px; }
+.galeria figure { margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.galeria .foto { overflow: hidden; background: var(--piedra-2); }
+.galeria img { width: 100%; height: 100%; object-fit: cover; }
+.galeria .grande .foto { aspect-ratio: 4 / 3; }
+.galeria .columna { display: grid; grid-template-rows: auto auto; gap: 20px; }
+.galeria .columna .foto { aspect-ratio: 16 / 10; }
+.galeria figcaption { font-size: 15px; color: var(--tinta-suave); display: flex; gap: 10px; align-items: baseline; }
+.galeria figcaption .label { font-size: 11px; }
+.tira { margin-top: 20px; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 23%); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; scrollbar-width: thin; scrollbar-color: var(--linea) transparent; }
+.tira figure { margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 10px; }
+.tira .foto { aspect-ratio: 4 / 5; overflow: hidden; background: var(--piedra-2); }
+.tira img { width: 100%; height: 100%; object-fit: cover; }
+.tira figcaption { font-size: 15px; color: var(--tinta-suave); }
+@media (max-width: 860px) { .galeria { grid-template-columns: minmax(0, 1fr); } .tira { grid-auto-columns: 70%; } }
+.pagina-aparte { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.pronto { font-size: 14px; color: var(--tinta-suave); }
+
+/* Series: lista con filetes */
+.series { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tinta); }
+.serie { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr) minmax(0, 4fr) auto; gap: 24px; align-items: baseline; padding-block: 26px; border-bottom: 1px solid var(--linea); }
+.serie h3 { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; }
+.serie .marca { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tinta-suave); }
+.serie .cifra { font-family: var(--mono); font-size: 26px; font-weight: 400; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.serie .cifra small { display: block; font-family: var(--sans); font-size: 13px; color: var(--tinta-suave); letter-spacing: 0; }
+.serie .resto { color: var(--tinta-suave); font-size: 15px; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.serie a { color: var(--verde-texto); font-weight: 500; font-size: 15px; white-space: nowrap; }
+.fuente { margin-top: 20px; color: var(--tinta-suave); font-size: 14px; }
+@media (max-width: 900px) { .serie { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 16px; } .serie .resto { grid-column: 1 / -1; } }
+
+/* Contacto */
+.contacto { background: var(--piedra); }
+.contacto .rejilla { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 96px); }
+.contacto h2 { font-size: clamp(36px, 4.6vw, 64px); line-height: 1.02; margin-top: 16px; }
+.contacto .intro { color: var(--tinta-suave); margin-top: 20px; max-width: 44ch; font-size: 18px; }
+.vias { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--tinta); }
+.via { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; padding-block: 18px; border-bottom: 1px solid var(--linea); }
+.via small { display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tinta-suave); }
+.via strong { font-family: var(--mono); font-weight: 400; font-size: 22px; user-select: all; overflow-wrap: anywhere; }
+.via strong.correo { font-family: var(--sans); font-size: 19px; }
+.via a { text-decoration: none; }
+.copiar { min-height: 40px; padding: 8px 14px; background: transparent; color: var(--tinta); border: 1px solid var(--linea); border-radius: 2px; font: 500 14px var(--sans); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+.copiar:hover { border-color: var(--tinta); }
+.formulario { background: var(--fondo-2); padding: clamp(24px, 3vw, 44px); display: flex; flex-direction: column; gap: 20px; align-self: start; }
+.formulario h3 { font-size: 26px; }
+.campos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+.campo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.campo.ancho { grid-column: 1 / -1; }
+.campo label { font-size: 14px; color: var(--tinta-suave); }
+.campo input, .campo select, .campo textarea { width: 100%; min-height: 48px; padding: 12px 14px; background: var(--fondo); color: var(--tinta); border: 1px solid var(--linea); border-radius: 2px; font: 400 16px/1.4 var(--sans); }
+.campo textarea { min-height: 110px; resize: vertical; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: 2px solid var(--focus); outline-offset: 1px; }
+.aviso { font-size: 14px; color: var(--tinta-suave); }
+.aviso.ok { color: var(--verde-texto); }
+@media (max-width: 900px) { .contacto .rejilla { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .campos { grid-template-columns: minmax(0, 1fr); } }
+
+.pie { padding-block: 48px 120px; border-top: 1px solid var(--linea); }
+.pie .envoltura { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; align-items: flex-end; }
+.pie .marcas { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+.pie .marcas img { height: 48px; width: auto; }
+.pie .marcas .pvc { height: 38px; }
+.pie p { color: var(--tinta-suave); font-size: 14px; }
+@media (min-width: 861px) { .pie { padding-bottom: 56px; } }
+
+.barra-movil { display: none; }
+@media (max-width: 860px) {
+  .barra-movil { position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--fondo-2); border-top: 1px solid var(--linea); box-shadow: var(--sombra); }
+  .barra-movil .boton { min-height: 48px; }
+}
+@media (prefers-reduced-motion: no-preference) { .js-anim .aparece { opacity: 0; transform: translateY(28px); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<header class="cabecera">
+  <div class="envoltura">
+    <a class="logo" href="#inicio" aria-label="Metal Hervás, inicio"><img class="claro" src="assets/logo/sin-sl/logo-color.svg" alt="Metal Hervás" width="114" height="42"><img class="oscuro" src="assets/logo/sin-sl/logo-negativo.svg" alt="Metal Hervás" width="114" height="42"></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#series">Productos</a>
+      <a href="#contacto">Contacto</a>
+      <a class="tel" href="tel:+34664409618"><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>664 40 96 18</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio" aria-label="Presentación">
+    <canvas id="lienzo" aria-hidden="true"></canvas>
+    <div class="notas" id="notas" aria-hidden="true"></div>
+    <div class="hero-contenido envoltura">
+      <div class="hero-texto">
+        <p class="label">Carpintería metálica y estructuras · Hervás (Cáceres)</p>
+        <h1>Hierro, aluminio y PVC</h1>
+        <p class="lead">Medimos, fabricamos en nuestro taller y montamos. Ventanas de PVC de fabricación propia, carpintería de aluminio, cerrajería y naves.</p>
+        <div class="acciones">
+          <a class="boton boton-principal" href="#contacto">Pedir presupuesto</a>
+          <a class="boton boton-borde" href="tel:+34664409618">Llamar al 664 40 96 18</a>
+        </div>
+      </div>
+    </div>
+    <p class="pista" id="pista" aria-hidden="true"><i></i>Baja para ver el canto del vidrio</p>
+  </section>
+
+  <section class="seccion" id="que-hacemos">
+    <div class="envoltura">
+      <div class="seccion-cabeza aparece">
+        <p class="label">Qué hacemos</p>
+        <h2>Cuatro materiales, un mismo taller</h2>
+        <p>Del pilar de una nave a la ventana de tu cocina. Lo medimos en obra, lo preparamos en Hervás y lo montamos nosotros.</p>
+      </div>
+      <div class="materiales">
+        <article class="material aparece">
+          <figure><img src="assets/fotos/taller-ventanas-pvc-blancas.webp" alt="Ventanas de PVC blancas recién fabricadas en el taller" loading="lazy"></figure>
+          <div class="cuerpo"><p class="label">PVC</p><h3>Ventanas de PVC</h3><p>Las fabricamos nosotros, con perfiles GEALAN y vidrio Climalit.</p></div>
+        </article>
+        <article class="material aparece">
+          <figure><img src="assets/fotos/puerta-antracita-acristalada.webp" alt="Puerta de entrada de aluminio en gris antracita con vidrio" loading="lazy"></figure>
+          <div class="cuerpo"><p class="label">Aluminio</p><h3>Carpintería de aluminio</h3><p>Perfil europeo con rotura de puente térmico, en muchos colores y en acabados madera.</p></div>
+        </article>
+        <article class="material aparece">
+          <figure><img src="assets/fotos/chalet-travertino-entrada.webp" alt="Entrada de chalet con barandilla de vidrio y acero inoxidable" loading="lazy"></figure>
+          <div class="cuerpo"><p class="label">Hierro</p><h3>Cerrajería</h3><p>Cancelas, barandas, rejas y puertas de garaje, soldadas en nuestro taller.</p></div>
+        </article>
+        <article class="material aparece">
+          <figure><img src="assets/fotos/nave-cerchas-cielo.webp" alt="Cerchas metálicas de una nave contra el cielo" loading="lazy"></figure>
+          <div class="cuerpo"><p class="label">Estructuras</p><h3>Naves y estructuras</h3><p>Estructura, cubierta, fachada y remates. Cerramientos con placa alveolar.</p></div>
+        </article>
+      </div>
+      <p class="tambien aparece"><strong>También:</strong> cierres de terraza, mosquiteras y mamparas de baño.</p>
+    </div>
+  </section>
+
+  <section class="seccion trabajos" id="trabajos">
+    <div class="envoltura">
+      <div class="seccion-cabeza aparece">
+        <p class="label">Trabajos</p>
+        <h2>Obra hecha</h2>
+        <p>Fotos de nuestras obras y del taller, sin retocar el producto.</p>
+      </div>
+      <div class="galeria aparece">
+        <figure class="grande"><div class="foto"><img src="assets/fotos/porche-plegable-madera.webp" alt="Porche cerrado con puertas plegables de vidrio que dan al jardín" loading="lazy"></div><figcaption><span class="label">Cerramientos</span>Porche con puertas plegables</figcaption></figure>
+        <div class="columna">
+          <figure><div class="foto"><img src="assets/fotos/chalet-travertino-fachada.webp" alt="Fachada de chalet con carpintería exterior" loading="lazy"></div><figcaption><span class="label">Viviendas</span>Carpintería exterior de chalet</figcaption></figure>
+          <figure><div class="foto"><img src="assets/fotos/pabellon-cristal-negro.webp" alt="Pabellón acristalado con perfilería negra" loading="lazy"></div><figcaption><span class="label">Cerramientos</span>Pabellón de cristal</figcaption></figure>
+        </div>
+      </div>
+      <div class="tira" tabindex="0" aria-label="Más fotos de trabajos">
+        <figure><div class="foto"><img src="assets/fotos/chalet-gris-jardin.webp" alt="Vivienda con terraza acristalada sobre el jardín" loading="lazy"></div><figcaption>Terraza con barandilla de vidrio</figcaption></figure>
+        <figure><div class="foto"><img src="assets/fotos/terraza-plegable.webp" alt="Cierre de terraza con hojas plegables de vidrio" loading="lazy"></div><figcaption>Cierre de terraza plegable</figcaption></figure>
+        <figure><div class="foto"><img src="assets/fotos/puerta-antracita-diagonal.webp" alt="Puerta de entrada de aluminio antracita con diseño en diagonal" loading="lazy"></div><figcaption>Puerta de aluminio antracita</figcaption></figure>
+        <figure><div class="foto"><img src="assets/fotos/barandilla-vidrio-escalera.webp" alt="Barandilla de vidrio en una escalera" loading="lazy"></div><figcaption>Barandilla de vidrio</figcaption></figure>
+        <figure><div class="foto"><img src="assets/fotos/nave-terminada.webp" alt="Nave metálica terminada con cubierta y fachada" loading="lazy"></div><figcaption>Nave terminada</figcaption></figure>
+      </div>
+      <div class="pagina-aparte aparece"><a class="boton boton-borde" href="#" data-pronto="la galería de trabajos">Ver todos los trabajos<svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><span class="pronto" hidden></span></div>
+    </div>
+  </section>
+
+  <section class="seccion" id="series">
+    <div class="envoltura">
+      <div class="seccion-cabeza aparece">
+        <p class="label">Series y proveedores</p>
+        <h2>Lo que montamos, con sus datos</h2>
+        <p>Una selección de las series con las que trabajamos. Las cifras son las que publica cada fabricante; te ayudamos a elegir la que encaja en tu obra.</p>
+      </div>
+      <ul class="series">
+        <li class="serie aparece"><div><h3>S 9000</h3><span class="marca">GEALAN · PVC</span></div><span class="cifra">82,5 mm<small>profundidad</small></span><span class="resto">Uf ≤ 0,89 W/(m²K) · vidrio hasta 56 mm</span><a href="https://www.gealan.de/es/sistemas/s-9000" target="_blank" rel="noopener">Ver la serie</a></li>
+        <li class="serie aparece"><div><h3>S 8000</h3><span class="marca">GEALAN · PVC</span></div><span class="cifra">74 mm<small>profundidad</small></span><span class="resto">Uf ≤ 1,2 W/(m²K) · 5 o 6 cámaras</span><a href="https://www.gealan.de/es/sistemas/s-8000" target="_blank" rel="noopener">Ver la serie</a></li>
+        <li class="serie aparece"><div><h3>GEALAN-LINEAR®</h3><span class="marca">GEALAN · PVC</span></div><span class="cifra">74 mm<small>profundidad</small></span><span class="resto">Uf ≤ 1,0 W/(m²K) · acrylcolor®</span><a href="https://www.gealan.de/es/sistemas/gealan-linear" target="_blank" rel="noopener">Ver la serie</a></li>
+        <li class="serie aparece"><div><h3>XP-80+ HI</h3><span class="marca">Extrugasa · Aluminio</span></div><span class="cifra">80 mm<small>RPT de 44 mm</small></span><span class="resto">Uf 0,87 W/(m²K) · Rw 48 (−1;−4) dB</span><a href="https://www.extrugasa.com/edificacion/xp-80-c16-hi" target="_blank" rel="noopener">Ver la serie</a></li>
+        <li class="serie aparece"><div><h3>ALUPROM 46 C16</h3><span class="marca">Aluval · Aluminio</span></div><span class="cifra">77 mm<small>ancho de marco</small></span><span class="resto">RPT · junquillos 36–70 mm</span><a href="https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-46-c16" target="_blank" rel="noopener">Ver la serie</a></li>
+        <li class="serie aparece"><div><h3>Climalit Plus®</h3><span class="marca">Saint-Gobain · Vidrio</span></div><span class="cifra">Ug 1,1<small>W/(m²K), con argón</small></span><span class="resto">PLANITHERM® XN · TL 81 %</span><a href="https://www.saint-gobain-glass.es/es/productos/planitherm-xn" target="_blank" rel="noopener">Ver el vidrio</a></li>
+      </ul>
+      <p class="fuente">Uf: aislamiento del perfil. Ug: del vidrio. Cuanto más bajo, menos calor se escapa.</p>
+      <div class="pagina-aparte aparece"><a class="boton boton-borde" href="#" data-pronto="la página de productos">Ver todos los productos y proveedores<svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><span class="pronto" hidden></span></div>
+    </div>
+  </section>
+
+  <section class="seccion contacto" id="contacto">
+    <div class="envoltura rejilla">
+      <div>
+        <p class="label">Contacto</p>
+        <h2>Pide presupuesto</h2>
+        <p class="intro">Cuéntanos qué necesitas. Si puedes, manda fotos del hueco y unas medidas aproximadas; vamos a medir antes de cerrar el precio.</p>
+        <ul class="vias">
+          <li class="via"><div><small>Móvil y WhatsApp</small><strong><a href="tel:+34664409618">664 40 96 18</a></strong></div><button class="copiar" type="button" data-copiar="664 40 96 18">Copiar</button></li>
+          <li class="via"><div><small>Taller (teléfono y fax)</small><strong><a href="tel:+34927473619">927 47 36 19</a></strong></div><button class="copiar" type="button" data-copiar="927 47 36 19">Copiar</button></li>
+          <li class="via"><div><small>Correo</small><strong class="correo">metalhervas@gmail.com</strong></div><button class="copiar" type="button" data-copiar="metalhervas@gmail.com">Copiar</button></li>
+          <li class="via"><div><small>Taller</small><span>Ctra. de las Cañadas, s/n · 10700 Hervás (Cáceres)</span></div><a class="copiar" href="https://www.google.com/maps/search/?api=1&amp;query=Metal%20Herv%C3%A1s%2C%20Ctra.%20de%20las%20Ca%C3%B1adas%2C%20Herv%C3%A1s" target="_blank" rel="noopener">Cómo llegar</a></li>
+        </ul>
+      </div>
+      <form class="formulario" id="formulario" novalidate>
+        <h3>Cuéntanos tu obra</h3>
+        <div class="campos">
+          <div class="campo"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required></div>
+          <div class="campo"><label for="f-telefono">Teléfono</label><input id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="campo ancho"><label for="f-tipo">Qué necesitas</label>
+            <select id="f-tipo" name="tipo">
+              <option>Ventanas de PVC</option><option>Carpintería de aluminio</option><option>Puerta de entrada</option>
+              <option>Cerrajería: cancela, baranda, reja</option><option>Nave o estructura metálica</option><option>Cierre de terraza</option><option>Otra cosa</option>
+            </select>
+          </div>
+          <div class="campo ancho"><label for="f-mensaje">Detalles</label><textarea id="f-mensaje" name="mensaje" placeholder="Por ejemplo: 3 ventanas oscilobatientes de 120 × 140 cm en Hervás"></textarea></div>
+          <div class="campo ancho"><label for="f-fotos">Fotos del hueco (opcional)</label><input id="f-fotos" name="fotos" type="file" accept="image/*" multiple></div>
+        </div>
+        <button class="boton boton-principal" type="submit">Enviar petición</button>
+        <p class="aviso" id="aviso" role="status">Te llamamos para concretar. No compartimos tus datos.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <div class="marcas logo">
+      <img class="claro" src="assets/logo/sin-sl/logo-color.svg" alt="Metal Hervás" width="130" height="48" loading="lazy">
+      <img class="oscuro" src="assets/logo/sin-sl/logo-negativo.svg" alt="Metal Hervás" width="130" height="48" loading="lazy">
+      <img class="pvc claro" src="assets/logo/ventanas-pvc-color.svg" alt="Ventanas de PVC" loading="lazy">
+      <img class="pvc oscuro" src="assets/logo/ventanas-pvc-negativo.svg" alt="Ventanas de PVC" loading="lazy">
+    </div>
+    <p>Metal Hervás · Ctra. de las Cañadas, s/n · 10700 Hervás (Cáceres)<br>Prototipo de la página inicial · dirección Luz y vidrio</p>
+  </div>
+</footer>
+
+<nav class="barra-movil" aria-label="Contacto rápido">
+  <a class="boton boton-borde" href="tel:+34664409618">Llamar</a>
+  <a class="boton boton-principal" href="#contacto">Presupuesto</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+} }
+</script>
+<script>
+(() => {
+  document.querySelectorAll("[data-copiar]").forEach((b) => b.addEventListener("click", () => {
+    const ok = () => { b.textContent = "Copiado"; setTimeout(() => (b.textContent = "Copiar"), 1800); };
+    try { navigator.clipboard.writeText(b.dataset.copiar).then(ok, () => {}); } catch {}
+  }));
+  document.querySelectorAll("[data-pronto]").forEach((a) => a.addEventListener("click", (e) => {
+    e.preventDefault(); const n = a.nextElementSibling;
+    n.textContent = `Prototipo: ${a.dataset.pronto} se hará cuando elijáis el estilo de la página inicial.`; n.hidden = false;
+  }));
+  const form = document.getElementById("formulario"), aviso = document.getElementById("aviso");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nombre = form.nombre.value.trim(), tel = form.telefono.value.trim();
+    if (!nombre || !tel) { aviso.className = "aviso"; aviso.textContent = "Escribe tu nombre y un teléfono para poder llamarte."; (nombre ? form.telefono : form.nombre).focus(); return; }
+    aviso.className = "aviso ok"; aviso.textContent = "Esto es un prototipo y la petición no se envía todavía. Mientras tanto, llama al 664 40 96 18.";
+  });
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    document.documentElement.classList.add("js-anim");
+    gsap.utils.toArray(".aparece").forEach((el) => {
+      gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
+    });
+  }
+})();
+</script>
+<script type="module">
+// Hero 3D: un doble acristalamiento 4/16/4 (dos vidrios de 4 mm, cámara de 16 mm con argón) delante de la foto.
+// Al bajar gira y la cámara se acerca a su canto para enseñar la sección con sus medidas.
+const raiz = document.documentElement, hero = document.querySelector(".hero"), lienzo = document.getElementById("lienzo");
+const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const consulta = new URLSearchParams(location.search), parametro = consulta.get("p");
+const hayGL = (() => { try { const c = document.createElement("canvas"); return !!(c.getContext("webgl2") || c.getContext("webgl")); } catch { return false; } })();
+if (quieto || !hayGL) raiz.classList.add("sin-3d");
+else { try { await iniciar(); } catch (e) { console.error(e); raiz.classList.add("sin-3d"); } }
+
+async function iniciar() {
+  const THREE = await import("three");
+  const { RoomEnvironment } = await import("three/addons/environments/RoomEnvironment.js");
+  const renderer = new THREE.WebGLRenderer({ canvas: lienzo, antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.toneMapping = THREE.NeutralToneMapping;
+  const scene = new THREE.Scene();
+  const pm = new THREE.PMREMGenerator(renderer);
+  scene.environment = pm.fromScene(new RoomEnvironment(), 0.03).texture;
+
+  // La foto, como fondo de la escena para que el vidrio la refleje y la deje ver
+  const foto = await new THREE.TextureLoader().loadAsync("assets/fotos/porche-plegable-interior.webp");
+  foto.colorSpace = THREE.SRGBColorSpace;
+  scene.background = foto;
+  const ajustarFoto = (w, h) => {           // equivalente a object-fit: cover
+    const a = w / h, b = foto.image.width / foto.image.height;
+    if (a > b) { foto.repeat.set(1, b / a); foto.offset.set(0, (1 - b / a) / 2); }
+    else { foto.repeat.set(a / b, 1); foto.offset.set((1 - a / b) / 2, 0); }
+  };
+
+  // Unidad de vidrio aislante: medidas en metros
+  const ancho = 0.9, alto = 1.2, v = 0.004, camara = 0.016, total = 2 * v + camara;
+  const vidrio = new THREE.MeshPhysicalMaterial({ color: 0xf4fbf6, metalness: 0, roughness: 0.02, transmission: 1, thickness: 0.6, ior: 1.52,
+    specularIntensity: 1, envMapIntensity: 1.2, transparent: true });
+  // El canto del vidrio float se ve verde, como el de verdad
+  const canto = new THREE.MeshPhysicalMaterial({ color: 0x5fa77a, roughness: 0.08, transmission: 0.55, thickness: 0.3, ior: 1.52, transparent: true });
+  const caras = [canto, canto, canto, canto, vidrio, vidrio];
+  const unidad = new THREE.Group();
+  for (const z of [-(camara + v) / 2, (camara + v) / 2]) {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(ancho, alto, v), caras); m.position.z = z; unidad.add(m);
+  }
+  // Perfil separador de aluminio (16 mm) retranqueado 5 mm, y sellado exterior oscuro
+  const alu = new THREE.MeshStandardMaterial({ color: 0xb9bdc0, metalness: 1, roughness: 0.35 });
+  const sellado = new THREE.MeshStandardMaterial({ color: 0x1e1f21, roughness: 0.85 });
+  const sep = 0.007, ret = 0.005;
+  const marco = (grueso, prof, mat, fuera) => {
+    const g = new THREE.Group(), w = ancho - 2 * fuera, h = alto - 2 * fuera;
+    for (const [sx, sy, px, py] of [[w, grueso, 0, h / 2 - grueso / 2], [w, grueso, 0, -h / 2 + grueso / 2], [grueso, h - 2 * grueso, w / 2 - grueso / 2, 0], [grueso, h - 2 * grueso, -w / 2 + grueso / 2, 0]]) {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(sx, sy, prof), mat); m.position.set(px, py, 0); g.add(m);
+    }
+    return g;
+  };
+  unidad.add(marco(sep, camara * 0.98, alu, ret));
+  unidad.add(marco(ret, camara * 0.98, sellado, 0));
+  scene.add(unidad);
+
+  const camaraV = new THREE.PerspectiveCamera(32, 1, 0.01, 50);
+  const esquina = new THREE.Vector3(ancho / 2, alto / 2 - 0.12, 0);   // punto del canto que se enseña de cerca
+
+  // Notas de la sección, ancladas a capas del canto
+  const capa = document.getElementById("notas");
+  const N = (x, y, z, dx, dy, t, s) => ({ p: new THREE.Vector3(x, y, z), dx, dy, t, s });
+  const notas = [
+    N(ancho / 2, alto / 2 - 0.2, (camara + v) / 2, 30, -58, "4 mm", "vidrio exterior"),
+    N(ancho / 2 - 0.002, alto / 2 - 0.26, 0, 40, 0, "16 mm", "cámara con argón, cerrada con separador y sellado"),
+    N(ancho / 2, alto / 2 - 0.32, -(camara + v) / 2, 30, 58, "4 mm", "vidrio interior, baja emisividad"),
+    N(ancho / 2 - ret - sep / 2, alto / 2 - 0.08, 0, -150, -64, "Ug 1,1 W/(m²K)", "Climalit Plus® · PLANITHERM® XN"),
+  ].map((n) => { const el = document.createElement("div"); el.className = "nota"; el.innerHTML = `<strong>${n.t}</strong><span>${n.s}</span>`; capa.appendChild(el); return { ...n, el }; });
+
+  const suave = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+  let W = 1, H = 1, movil = false;
+  const raton = { x: 0, y: 0 }, rObj = { x: 0, y: 0 };
+  hero.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") return;
+    const b = hero.getBoundingClientRect();
+    rObj.x = ((e.clientX - b.left) / b.width - 0.5) * 2; rObj.y = ((e.clientY - b.top) / b.height - 0.5) * 2;
+  });
+  const pv = new THREE.Vector3(), mira = new THREE.Vector3(), lejos = new THREE.Vector3(), cerca = new THREE.Vector3();
+  function colocar(p, t) {
+    const k = suave(0.05, 0.85, p);
+    // El vidrio flota y gira poco a poco hasta ponerse casi de canto
+    unidad.rotation.y = THREE.MathUtils.lerp(-0.42, -1.18, k) + raton.x * 0.06 + Math.sin(t * 0.5) * 0.02 * (1 - k);
+    unidad.rotation.x = THREE.MathUtils.lerp(0.06, 0.12, k) + raton.y * 0.03;
+    unidad.position.set(movil ? 0 : 0.55, movil ? 0.42 : 0.1, 0);
+    unidad.updateMatrixWorld();
+    // Cámara: de ver el vidrio entero a acercarse a su esquina
+    lejos.set(unidad.position.x - (movil ? 0 : 0.35), unidad.position.y - (movil ? 0.25 : 0.05), 0);
+    cerca.copy(esquina).applyMatrix4(unidad.matrixWorld);
+    mira.lerpVectors(lejos, cerca, k);
+    const d = THREE.MathUtils.lerp(movil ? 4.4 : 3.4, movil ? 1.1 : 0.9, k);
+    camaraV.position.set(mira.x + d * 0.08, mira.y + d * THREE.MathUtils.lerp(0.05, 0.3, k), mira.z + d);
+    camaraV.lookAt(mira);
+    camaraV.updateMatrixWorld();
+    const vis = suave(0.6, 0.9, p);
+    for (const n of notas) {
+      pv.copy(n.p).applyMatrix4(unidad.matrixWorld).project(camaraV);
+      const x = (pv.x + 1) / 2 * W, y = (1 - pv.y) / 2 * H;
+      const izq = Math.min(Math.max(x + n.dx, 12), W - n.el.offsetWidth - 12), arr = Math.min(Math.max(y + n.dy - n.el.offsetHeight / 2, 12), H - n.el.offsetHeight - 12);
+      n.el.style.transform = `translate(${izq.toFixed(1)}px, ${arr.toFixed(1)}px)`;
+      n.el.style.opacity = vis;
+    }
+  }
+  function medir() {
+    W = hero.clientWidth; H = hero.clientHeight; movil = W <= 860;
+    renderer.setSize(W, H, false);
+    camaraV.aspect = W / H; camaraV.updateProjectionMatrix();
+    ajustarFoto(W, H);
+  }
+  let ultimo = "";
+  const remedir = () => { const k = hero.clientWidth + "x" + hero.clientHeight; if (k !== ultimo && hero.clientWidth > 0) { ultimo = k; medir(); } };
+  remedir();
+
+  let objetivo = parametro ? Number(parametro) : 0, progreso = objetivo;
+  const pista = document.getElementById("pista"), texto = document.querySelector(".hero-texto");
+  if (window.gsap && window.ScrollTrigger && !parametro) {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
+    ScrollTrigger.create({ trigger: hero, start: "top top+=72", end: "+=120%", pin: true, anticipatePin: 1, onUpdate: (s) => { objetivo = s.progress; } });
+  }
+  let visible = true;
+  new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(hero);
+  const reloj = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    if (!visible) return;
+    remedir();
+    progreso += (objetivo - progreso) * 0.08;
+    raton.x += (rObj.x - raton.x) * 0.05; raton.y += (rObj.y - raton.y) * 0.05;
+    colocar(progreso, reloj.getElapsedTime());
+    pista.style.opacity = progreso > 0.04 ? 0 : 1;
+    // Al acercarse al canto, el texto deja sitio
+    const f = suave(0.4, 0.7, progreso); texto.style.opacity = 1 - f; texto.style.visibility = f > 0.98 ? "hidden" : "visible";
+    renderer.render(scene, camaraV);
+  });
+}
+</script>

@@ -69,23 +69,29 @@ Extreme close-up through a clean pane of double glazing: the glass fills the ent
 Si Flow lo complica, vale un recorte muy desenfocado de K0:
 `ffmpeg -i claves/k0-16x9.png -vf "crop=iw/3:ih/3,scale=1920:1080,gblur=sigma=60" claves/kv-16x9.png`
 
-### K1 · ventana cerrada (sobre `ventana-cerrada.jpg`)
+**Orden en Flow: K3 (valle) primero**, porque K1 y K2 lo usan como vista exterior; así las tres claves cuentan con el mismo paisaje. Después K1, K2, K0, KV y K4.
+
+### K1 · ventana cerrada (sobre `ventana-cerrada.jpg`, con K3 como referencia del exterior)
 
 ```
-Edit this photo. Keep the window exactly as it is: two-leaf anthracite grey PVC window with a roller-shutter box above, same frame and sash widths, same central handle, same glass division, same proportions and position. Do not add or remove any part of the window.
-Change only light and cleanliness: blue hour just after sunset, deep blue sky outside, the exterior softly out of focus. Warm light from an unseen ceiling lamp gently lights the room. Remove the protective film, printed logos and stickers from frame and glass. Clean the walls of dust, cables and plaster marks; keep the room empty, no furniture, no people, no text.
+Edit this photo. Keep the window exactly as it is: two-leaf anthracite grey PVC window with a roller-shutter box above, same frame and sash widths, same glass division, same proportions and position. The window has exactly ONE handle in total, in the centre where the two sashes meet; keep it exactly there and do not add any other handle. Do not add or remove any part of the window.
+Replace everything seen through the glass with the landscape of the reference image (the valley at blue hour), softly out of focus: no buildings, no walls, no construction site outside.
+Light: blue hour just after sunset; warm light from an unseen ceiling lamp gently lights the room. Remove the protective film, printed logos and stickers from frame and glass. Clean the walls of dust, cables and plaster marks; keep the room empty, no furniture, no people, no text.
 Photorealistic architectural interior photography, 24 mm lens, straight verticals, eye level, centered on the window.
 Extend the frame to [16:9 | 9:16] by adding only wall, ceiling and floor around the window.
 ```
 
-### K2 · ventana abierta (sobre `ventana-abierta.jpg`, con K1 como imagen de referencia)
+### K2 · ventana abierta (sobre `ventana-abierta.jpg`, con K1 y K3 como referencias)
 
 ```
-Edit this photo. Keep the window exactly as it is: two-leaf anthracite grey PVC window, both sashes open inward at their exact current angles, same handles, same frame, same roller-shutter box. Do not change the window.
-Match the light, colour and room of the reference image: blue hour just after sunset, warm interior light, clean empty room. Remove protective film, logos and stickers, and the reflection of the person in the glass. The view outside: evening sky over soft hills, out of focus.
-Photorealistic architectural interior photography, 24 mm lens, straight verticals, eye level, same camera height and distance as the reference.
+Edit this photo. Keep the window exactly as it is: same anthracite grey PVC frame, same sashes in exactly their current open positions and angles, same hinges, same roller-shutter box. The window has exactly ONE handle in total, the same single handle as in the first reference image; do not add a second handle or any other hardware. Do not change the window.
+Match the room and light of the first reference image: blue hour just after sunset, warm interior light, clean empty room. Remove protective film, logos and stickers, and the reflection of the person in the glass.
+Replace everything seen through the window with the same landscape as in the second reference image (the valley at blue hour), softly out of focus: no construction site, no crane, no bricks, no buildings.
+Photorealistic architectural interior photography, 24 mm lens, straight verticals, eye level, same camera height and distance as the first reference.
 Extend the frame to [16:9 | 9:16] with only wall, ceiling and floor.
 ```
+
+**Si sigue saliendo una segunda manilla:** genera otra vez y, en la variante buena, borra la de sobra con la edición por zonas de Flow (selecciona solo la manilla y pide `remove this handle, keep the sash profile intact`).
 
 ### K3 · el valle
 

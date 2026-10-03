@@ -81,14 +81,15 @@ Photorealistic architectural interior photography, 24 mm lens, straight vertical
 Extend the frame to [16:9 | 9:16] by adding only wall, ceiling and floor around the window.
 ```
 
-### K2 · ventana abierta (sobre `ventana-abierta.jpg`, con K1 y K3 como referencias)
+### K2 · ventana abierta (sobre **K1 terminada**, con `ventana-abierta.jpg` como referencia de cómo es la hoja abierta)
+
+Se parte de K1 y no de la foto abierta: así K1 y K2 tienen el mismo encuadre, la misma habitación y el mismo valle, y solo cambia la posición de las hojas. La foto abierta es real (hoja, bisagras y grosor del perfil) y sirve de referencia. Abrir las dos hojas es un uso normal de esta ventana, no un cambio del producto.
 
 ```
-Edit this photo. Keep the window exactly as it is: same anthracite grey PVC frame, same sashes in exactly their current open positions and angles, same hinges, same roller-shutter box. The window has exactly ONE handle in total, the same single handle as in the first reference image; do not add a second handle or any other hardware. Do not change the window.
-Match the room and light of the first reference image: blue hour just after sunset, warm interior light, clean empty room. Remove protective film, logos and stickers, and the reflection of the person in the glass.
-Replace everything seen through the window with the same landscape as in the second reference image (the valley at blue hour), softly out of focus: no construction site, no crane, no bricks, no buildings.
-Photorealistic architectural interior photography, 24 mm lens, straight verticals, eye level, same camera height and distance as the first reference.
-Extend the frame to [16:9 | 9:16] with only wall, ceiling and floor.
+Edit this photo. Change only one thing: open the window. Both sashes swing inward into the room and open fully and symmetrically, each rotated about 90 degrees on its outer hinges, mirror images of each other, both standing perpendicular to the wall at the same angle. The left sash carries the single handle on its free edge and is opened exactly as far as the right sash. The right sash has no handle.
+Keep everything else exactly as it is: same camera position and framing, same room, same light, same roller-shutter box, same anthracite grey colour, same frame and sash profile widths, same glass. The window still has exactly ONE handle in total; do not add any other handle or hardware. The reference image shows how one of these sashes really looks when open (thickness, hinges, colour): match it.
+Through the open window the same valley at blue hour stays visible, softly out of focus. No people, no text, no reflections of people.
+Photorealistic architectural interior photography, 16:9.
 ```
 
 **Si sigue saliendo una segunda manilla:** genera otra vez y, en la variante buena, borra la de sobra con la edición por zonas de Flow (selecciona solo la manilla y pide `remove this handle, keep the sash profile intact`).

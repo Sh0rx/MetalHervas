@@ -19,6 +19,10 @@ SANS, DISP, MONO, LABEL = ns["SANS"], ns["DISP"], ns["MONO"], ns["LABEL"]
 ns["BLOB"].update({"e1b-lockup-color": "9df9a6207e97ad2454f87ee5717cb8a9", "e1b-lockup-negativo": "08e3e9e7561d24d3a2bd3480e2ad7a1b",
                    "e1b-simbolo-color": "f5d02a9b006abe8969b04dcc89f2e05d",   # icono sobre verde
                    "e1b-simbolo-blanco": "f3065524e7e274671b7ccc2855a4f48e"})
+# 15 · el logo actual tal cual, sin «S.L.»
+ns["BLOB"].update({"sinsl-lockup-color": "7b3516fcaeef6a42c74fc5b618b1bca4", "sinsl-lockup-negativo": "4bf74824d4a8565fe12956458a926c3d",
+                   "sinsl-simbolo-color": "397f0df6d2e48eaef906b3e8f306582a"})
+ASP["sinsl"] = ns["aspect"](pathlib.Path("prototipos/assets/logo/sin-sl/logo-color.svg"))
 ASP["e1b"] = ns["aspect"](pathlib.Path("prototipos/assets/logo/evolucion/e1b-lockup-color.svg"))
 
 ASP1 = {"Actual": 5040 / 1980, "A": 5040 / 1860, "B": 1000 / 230, "C": 1330 / 300}
@@ -32,6 +36,8 @@ def fit_h(asp, maxw=290, maxh=120):
 ACTUAL = ("Hoy", "Logo actual", "Como está ahora, con «S.L.» y la viga en perspectiva.",
           f'<img src="/_blob/8bf5ef3042bc58a993a82f50511292ec" alt="Logo actual de Metal Hervás" style="height: {fit_h(ASP1["Actual"])}px; width: auto; display: block">',
           imp("Actual", "simbolo", 48))
+SIN_SL = ("15", "Actual sin S.L.", "El logo de hoy sin ningún cambio, solo sin «S.L.».",
+          lockup("sinsl", "claro", h=fit_h(ASP["sinsl"])), simbolo("sinsl", 48))
 R1 = [("1", "Limpieza", "El mismo logo redibujado: sin «S.L.» y con la viga en plano.", imp("A", "horizontal", fit_h(ASP1["A"])), imp("A", "simbolo", 48)),
       ("2", "H de acero", "La H de HERVÁS es la sección de un pilar de acero.", imp("B", "horizontal", fit_h(ASP1["B"])), imp("B", "simbolo", 48)),
       ("3", "Pórtico", "Identidad nueva: pórtico con vidrio y verde oscuro.", imp("C", "horizontal", fit_h(ASP1["C"])), imp("C", "simbolo", 48))]
@@ -75,7 +81,7 @@ body = f"""<div style="width: 1920px; height: 2020px; box-sizing: border-box; pa
 </div>
 <div style="background: #e3f3e6; color: #256a31; padding: 18px 24px; font-size: 17px; line-height: 1.45; max-width: 46ch; font-weight: 600">Dime el número de las que más te gusten y qué cambiarías. Se pueden mezclar ideas de varias.</div>
 </header>
-{fila("Hoy y primera ronda", "Del retoque al cambio completo.", [card(*ACTUAL, ref=True)] + [card(*c) for c in R1])}
+{fila("Hoy y primera ronda", "Del retoque al cambio completo.", [card(*ACTUAL, ref=True), card(*SIN_SL)] + [card(*c) for c in R1])}
 {fila("Respetando el original", "Usan las letras del logo de siempre.", [card(*c) for c in R2])}
 {fila("Evolución", "Mismo verde y mismo HERVÁS, con letra más actual.", [card(*c) for c in R3])}
 </div>"""
@@ -84,6 +90,10 @@ body = f"""<div style="width: 1920px; height: 2020px; box-sizing: border-box; pa
 canvas = json.loads(SRC.read_text(encoding="utf-8"))
 canvas["boards"]["Resumen.dc.html"] = {"x": -2700, "y": 0, "w": 1920, "h": 2020, "title": "Todas las propuestas"}
 (P / "AplicE1B.dc.html").write_text(ns["aplic"]("E", "e1b", "14 · Nudo en acero"), encoding="utf-8")
+(P / "AplicSinSL.dc.html").write_text(ns["aplic"]("V", "sinsl", "15 · Actual sin S.L."), encoding="utf-8")
+canvas["boards"]["AplicSinSL.dc.html"] = {"x": 3360, "y": 1020, "w": 1600, "h": 980, "title": "15 · Actual sin S.L. · en uso"}
+if "AplicSinSL.dc.html" not in canvas["order"]:
+    canvas["order"].append("AplicSinSL.dc.html")
 canvas["boards"]["AplicE1B.dc.html"] = {"x": 1680, "y": 11640, "w": 1600, "h": 980, "title": "14 · Nudo en acero · en uso"}
 if "AplicE1B.dc.html" not in canvas["order"]:
     canvas["order"].append("AplicE1B.dc.html")

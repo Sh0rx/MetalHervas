@@ -8,6 +8,8 @@ Uso:
   python scripts/seedance.py clip --primero K1.png --ultimo K2.png --prompt video-ia/prompts/clip-a.txt --nombre clip-a-16x9 --borrador
   python scripts/seedance.py final --borrador-id <task_id> --nombre clip-a-16x9
   python scripts/seedance.py estado <task_id>
+  python scripts/seedance.py lote --formato 16x9 --borrador            (todos los clips de video-ia/clips.json)
+  python scripts/seedance.py lote --formato 16x9 --borrador --solo clip-c
 
 Cada trabajo deja su registro (petición, respuesta y coste) en video-ia/salidas/<nombre>.json y el vídeo en <nombre>.mp4.
 Documentación: https://docs.apimart.ai/en/api-reference/videos/seedance-2-5/generation
@@ -97,7 +99,42 @@ def guardar(nombre, cuerpo, lanzado, final):
     print(f"  vídeo → {destino}   coste: {d.get('cost', '¿?')}")
 
 
+def cuerpo_clip(primero, ultimo, prompt, duracion=6, borrador=False, semilla=None):
+    cuerpo = {"model": "seedance-2.5", "prompt": pathlib.Path(prompt).read_text(encoding="utf-8").strip(),
+              "image_with_roles": [{"url": subir(primero), "role": "first_frame"},
+                                   {"url": subir(ultimo), "role": "last_frame"}],
+              "size": "adaptive", "duration": duracion, "generate_audio": False, "watermark": False,
+              "return_last_frame": True}
+    cuerpo.update({"draft": True, "resolution": "480p"} if borrador else {"resolution": "1080p"})
+    if semilla is not None:
+        cuerpo["seed"] = semilla
+    return cuerpo
+
+
+def lote(a):
+    """Lanza todos los clips del manifiesto a la vez y luego espera uno a uno."""
+    clips = json.loads(pathlib.Path(a.manifiesto).read_text(encoding="utf-8"))["clips"]
+    if a.solo:
+        clips = [c for c in clips if c["nombre"] in a.solo]
+    lanzados = []
+    for c in clips:
+        primero, ultimo = (c[k].replace("{f}", a.formato) for k in ("primero", "ultimo"))
+        falta = [r for r in (primero, ultimo, c["prompt"]) if not pathlib.Path(r).exists()]
+        if falta:
+            print(f"- {c['nombre']}: me lo salto, falta {', '.join(falta)}")
+            continue
+        print(f"- {c['nombre']} ({c['tramo']})")
+        cuerpo = cuerpo_clip(primero, ultimo, c["prompt"], a.duracion, a.borrador, a.semilla)
+        task_id, lanzado = lanzar(cuerpo)
+        print(f"  lanzada: {task_id}")
+        lanzados.append((f"{c['nombre']}-{a.formato}" + ("-borrador" if a.borrador else ""), cuerpo, lanzado, task_id))
+    for nombre, cuerpo, lanzado, task_id in lanzados:
+        print(f"- {nombre}")
+        guardar(nombre, cuerpo, lanzado, esperar(task_id))
+
+
 def main():
+    sys.stdout.reconfigure(encoding="utf-8")  # la consola de Windows no es UTF-8 por defecto
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="orden", required=True)
     c = sub.add_parser("clip", help="clip entre un primer y un último fotograma")
@@ -110,20 +147,23 @@ def main():
     f.add_argument("--borrador-id", required=True); f.add_argument("--nombre", required=True)
     f.add_argument("--prompt", help="opcional: el mismo prompt del borrador")
     e = sub.add_parser("estado", help="consulta una tarea"); e.add_argument("task_id")
+    l = sub.add_parser("lote", help="todos los clips del manifiesto (video-ia/clips.json)")
+    l.add_argument("--manifiesto", default=str(SALIDAS.parent / "clips.json"))
+    l.add_argument("--formato", default="16x9", choices=["16x9", "9x16"])
+    l.add_argument("--solo", nargs="+", help="solo estos clips (p. ej. clip-0 clip-c)")
+    l.add_argument("--borrador", action="store_true"); l.add_argument("--duracion", type=int, default=6)
+    l.add_argument("--semilla", type=int)
     a = ap.parse_args()
+
+    if a.orden == "lote":
+        lote(a)
+        return
 
     if a.orden == "estado":
         print(json.dumps(peticion("GET", f"/tasks/{a.task_id}"), ensure_ascii=False, indent=1))
         return
     if a.orden == "clip":
-        cuerpo = {"model": "seedance-2.5", "prompt": pathlib.Path(a.prompt).read_text(encoding="utf-8").strip(),
-                  "image_with_roles": [{"url": subir(a.primero), "role": "first_frame"},
-                                       {"url": subir(a.ultimo), "role": "last_frame"}],
-                  "size": "adaptive", "duration": a.duracion, "generate_audio": False, "watermark": False,
-                  "return_last_frame": True}
-        cuerpo.update({"draft": True, "resolution": "480p"} if a.borrador else {"resolution": "1080p"})
-        if a.semilla is not None:
-            cuerpo["seed"] = a.semilla
+        cuerpo = cuerpo_clip(a.primero, a.ultimo, a.prompt, a.duracion, a.borrador, a.semilla)
         nombre = a.nombre + ("-borrador" if a.borrador else "")
     else:
         cuerpo = {"model": "seedance-2.5", "draft_task_id": a.borrador_id, "resolution": "1080p",

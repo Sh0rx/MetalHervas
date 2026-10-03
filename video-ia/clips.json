@@ -16,12 +16,20 @@
       "prompt": "video-ia/prompts/clip-1.txt"
     },
     {
-      "nombre": "clip-ab",
-      "tramo": "Atravesamos el vidrio y salimos al valle",
+      "nombre": "clip-a",
+      "tramo": "La ventana se abre",
       "primero": "video-ia/claves/k1-{f}.jpg",
+      "ultimo": "video-ia/claves/k2-{f}_LEFT.jpg",
+      "prompt": "video-ia/prompts/clip-a.txt",
+      "nota": "Jorge acepta que la IA ponga una segunda manilla (03-10-2026)."
+    },
+    {
+      "nombre": "clip-b",
+      "tramo": "Salimos al valle",
+      "primero": "video-ia/claves/ka-final-{f}.png",
       "ultimo": "video-ia/claves/kc-inicio-{f}.png",
-      "prompt": "video-ia/prompts/clip-ab.txt",
-      "nota": "Sustituye a los clips A y B: la IA duplicaba la manilla al abrir; la apertura se enseña en el 3D. En Flow se hace ampliando el clip 1; la costura con C se resuelve con un fundido."
+      "prompt": "video-ia/prompts/clip-b.txt",
+      "nota": "En Google Vids se amplía desde el final del clip A (no hay último fotograma); la costura con C se resuelve con un fundido."
     },
     {
       "nombre": "clip-c",

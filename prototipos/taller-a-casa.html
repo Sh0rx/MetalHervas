@@ -1,0 +1,505 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Del taller a tu casa</title>
+<meta name="description" content="Metal Hervás: ventanas de PVC fabricadas en nuestro taller de Hervás y montadas en tu casa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Mundo «hora azul»: la página entera vive en el anochecer del vídeo. Un escenario fijo a pantalla completa
+   que el scroll recorre como una película (taller → casa → ventana → valle → fachada → la ventana en 3D),
+   con los rótulos abajo a la izquierda como subtítulos y el recorrido marcado a la derecha. Tema oscuro único
+   y deliberado: es de noche en toda la historia. */
+:root {
+  --noche: #0c1215;        /* fondo: el cielo de la hora azul ya cerrado */
+  --noche-2: #131b1f;      /* bandas y tarjetas */
+  --linea: #26323a;
+  --cal: #eef0ea;          /* texto: la pared encalada con la lámpara encendida */
+  --cal-suave: #a7b3b4;
+  --verde: #4ba939;        /* verde de «HERVÁS», solo en bloques y botones */
+  --verde-texto: #86d375;
+  --on-verde: #08130a;
+  --lampara: #f1c27b;      /* la luz cálida de la habitación; acento muy escaso */
+  --velo: rgba(12, 18, 21, 0.78);
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 56px);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--noche); color: var(--cal); scrollbar-color: var(--linea) var(--noche); }
+button, input, select, textarea, option { color: var(--cal); }
+option { background: var(--noche-2); }
+body { margin: 0; background: var(--noche); color: var(--cal); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--verde); color: var(--on-verde); }
+a { color: inherit; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--verde-texto); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 800; font-stretch: 112%; letter-spacing: -0.02em; text-wrap: balance; }
+p { margin: 0; }
+.icono { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; }
+
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 22px; border-radius: 2px;
+  font: 500 16px/1.2 var(--sans); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: filter .2s, background-color .2s; }
+.boton-principal { background: var(--verde); color: var(--on-verde); }
+.boton-principal:hover { filter: brightness(1.1); }
+.boton-borde { border-color: color-mix(in srgb, var(--cal) 55%, transparent); color: var(--cal); background: transparent; }
+.boton-borde:hover { background: color-mix(in srgb, var(--cal) 10%, transparent); }
+
+/* Cabecera fija sobre el escenario */
+.cabecera { position: fixed; z-index: 30; inset: 0 0 auto 0; padding: calc(env(safe-area-inset-top, 0px) + 14px) var(--gutter) 14px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  background: linear-gradient(to bottom, rgba(12, 18, 21, 0.72), rgba(12, 18, 21, 0)); }
+.cabecera .logo img { display: block; height: 40px; width: auto; }
+.cabecera nav { display: flex; align-items: center; gap: 10px; }
+.cabecera .tel { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 15px; color: var(--cal); white-space: nowrap; }
+.cabecera .boton { min-height: 44px; padding: 10px 18px; font-size: 15px; }
+@media (max-width: 640px) { .cabecera .tel { display: none; } .cabecera .logo img { height: 32px; } }
+
+/* Escenario: alto para el scroll, con la escena pegada a la pantalla */
+#escenario { position: relative; height: 1000vh; }
+.escena { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--noche); }
+.escena canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#lienzo-3d { opacity: 0; pointer-events: none; }
+.velo { position: absolute; inset: auto 0 0 0; height: 58%; pointer-events: none;
+  background: linear-gradient(to top, rgba(12, 18, 21, 0.86) 8%, rgba(12, 18, 21, 0.38) 55%, rgba(12, 18, 21, 0)); }
+
+/* Rótulos: uno por tramo, como subtítulos */
+.rotulo { position: absolute; left: var(--gutter); right: var(--gutter); bottom: clamp(28px, 7vh, 72px); max-width: 860px;
+  display: flex; flex-direction: column; gap: 14px; opacity: 0; visibility: hidden; transform: translateY(14px); }
+.rotulo.visible { visibility: visible; }
+.rotulo h1, .rotulo h2 { font-size: clamp(36px, 5.4vw, 78px); line-height: 0.98; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45); }
+.rotulo p { font-size: clamp(17px, 1.5vw, 20px); color: var(--cal); max-width: 52ch; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6); }
+.rotulo .acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.rotulo[data-inicio] { opacity: 1; visibility: visible; transform: none; }
+.pista { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--cal-suave); }
+.pista i { display: block; width: 1px; height: 24px; background: linear-gradient(var(--cal), transparent); animation: baja 1.8s ease-in-out infinite; transform-origin: top; }
+@keyframes baja { 0%, 100% { transform: scaleY(.35); } 50% { transform: scaleY(1); } }
+
+/* Recorrido: la posición en la historia */
+.recorrido { position: absolute; right: var(--gutter); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 4px;
+  font-size: 13px; letter-spacing: 0.02em; }
+.recorrido li { list-style: none; display: grid; grid-template-columns: 22px auto; align-items: center; gap: 10px; color: var(--cal-suave); padding: 5px 0; transition: color .3s; }
+.recorrido li::before { content: ""; height: 1px; background: currentColor; width: 12px; justify-self: end; transition: width .3s, background-color .3s; }
+.recorrido li.activo { color: var(--cal); }
+.recorrido li.activo::before { width: 22px; background: var(--verde); height: 2px; }
+.recorrido ol { margin: 0; padding: 0; }
+.carga { margin-top: 14px; font-family: var(--mono); font-size: 12px; color: var(--cal-suave); font-variant-numeric: tabular-nums; }
+.barra-movil { display: none; }
+@media (max-width: 860px) {
+  .recorrido { display: none; }
+  .barra-movil { display: flex; position: absolute; left: var(--gutter); right: var(--gutter); top: calc(env(safe-area-inset-top, 0px) + 74px);
+    align-items: center; gap: 12px; font-size: 13px; color: var(--cal); }
+  .barra-movil .pista-barra { flex: 1; height: 2px; background: color-mix(in srgb, var(--cal) 22%, transparent); }
+  .barra-movil .pista-barra i { display: block; height: 100%; width: 0; background: var(--verde); }
+}
+
+/* Etiquetas del despiece */
+.etiquetas { position: absolute; inset: 0; pointer-events: none; }
+.etiqueta { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 10px; opacity: 0; will-change: transform, opacity; white-space: nowrap; }
+.etiqueta::before { content: ""; width: 7px; height: 7px; background: var(--lampara); flex: none; }
+.etiqueta.izquierda { flex-direction: row-reverse; text-align: right; }
+.etiqueta span { display: flex; flex-direction: column; padding: 6px 10px; background: var(--velo); border: 1px solid var(--linea); font-size: 14px; line-height: 1.3; }
+.etiqueta small { font-family: var(--mono); font-size: 12.5px; color: var(--cal-suave); font-variant-numeric: tabular-nums; }
+.aviso-3d { position: absolute; right: var(--gutter); bottom: 18px; max-width: 34ch; font-size: 12.5px; line-height: 1.45; color: var(--cal-suave); text-align: right; opacity: 0; }
+@media (max-width: 860px) { .etiqueta span { font-size: 12.5px; padding: 4px 8px; } .etiqueta small { display: none; } .aviso-3d { left: var(--gutter); text-align: left; bottom: auto; top: calc(env(safe-area-inset-top, 0px) + 100px); } }
+
+/* Obras */
+.seccion { padding: clamp(64px, 10vw, 128px) var(--gutter); }
+.seccion > * { max-width: 1240px; margin-inline: auto; }
+#obras { background: var(--noche); border-top: 1px solid var(--linea); }
+.cabeza { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 40px; margin-bottom: 36px; }
+.cabeza h2 { font-size: clamp(32px, 4.2vw, 56px); line-height: 1; }
+.cabeza p { color: var(--cal-suave); max-width: 46ch; }
+.obras { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.obras figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.obras img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; background: var(--noche-2); }
+.obras figcaption { font-size: 14px; color: var(--cal-suave); }
+@media (max-width: 1000px) { .obras { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .obras { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Presupuesto */
+#presupuesto { background: var(--noche-2); border-top: 1px solid var(--linea); }
+.presupuesto { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.presupuesto h2 { font-size: clamp(34px, 4.6vw, 62px); line-height: 1; }
+.presupuesto .entrada { margin-top: 18px; color: var(--cal-suave); max-width: 44ch; font-size: 18px; }
+.contactos { margin: 32px 0 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--linea); }
+.contactos li { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--linea); }
+.contactos .que { font-size: 14px; color: var(--cal-suave); }
+.contactos .dato { font-family: var(--mono); font-size: clamp(19px, 2vw, 24px); font-variant-numeric: tabular-nums; user-select: all; overflow-wrap: anywhere; }
+.copiar { min-height: 44px; padding: 8px 14px; border: 1px solid var(--linea); background: transparent; color: var(--cal); border-radius: 2px; font: 500 14px var(--sans); cursor: pointer; }
+.copiar:hover { border-color: var(--cal-suave); }
+.formulario { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; padding: clamp(20px, 3vw, 36px); border: 1px solid var(--linea); background: var(--noche); }
+.campo { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.campo.ancho { grid-column: 1 / -1; }
+.campo label { font-size: 15px; font-weight: 500; }
+.campo input, .campo select, .campo textarea { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--linea); border-radius: 2px; background: var(--noche-2); color: var(--cal); font: 400 16px/1.4 var(--sans); }
+.campo textarea { min-height: 120px; resize: vertical; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: 2px solid var(--verde-texto); outline-offset: 1px; }
+.formulario .boton { grid-column: 1 / -1; justify-self: start; }
+.respuesta { grid-column: 1 / -1; padding: 14px 16px; border: 1px solid var(--lampara); color: var(--cal); font-size: 15px; }
+@media (max-width: 860px) { .presupuesto { grid-template-columns: minmax(0, 1fr); } .formulario { grid-template-columns: minmax(0, 1fr); } }
+
+.pie { padding: 40px var(--gutter) calc(40px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--linea); color: var(--cal-suave); font-size: 14px; }
+.pie > div { max-width: 1240px; margin-inline: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 40px; }
+.pie .ia { max-width: 60ch; }
+.pie .ia strong { color: var(--cal); font-weight: 500; }
+
+body.solo .cabecera, body.solo .recorrido, body.solo .barra-movil, body.solo .rotulo, body.solo .aviso-3d { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .pista i { animation: none; } }
+</style>
+
+<header class="cabecera">
+  <a class="logo" href="#escenario" aria-label="Metal Hervás, inicio"><img src="assets/logo/sin-sl/logo-negativo.svg" alt="Metal Hervás"></a>
+  <nav aria-label="Contacto">
+    <span class="tel">664 40 96 18</span>
+    <a class="boton boton-principal" href="#presupuesto">Pedir presupuesto</a>
+  </nav>
+</header>
+
+<main>
+  <section id="escenario" aria-label="Recorrido: del taller a tu casa">
+    <div class="escena">
+      <canvas id="lienzo-video" aria-hidden="true"></canvas>
+      <canvas id="lienzo-3d" aria-hidden="true"></canvas>
+      <div class="velo"></div>
+      <div class="etiquetas" aria-hidden="true"></div>
+
+      <div class="rotulo" data-inicio data-r="inicio">
+        <h1>Del taller a tu casa</h1>
+        <p>Fabricamos ventanas de PVC en nuestro taller de Hervás y las montamos en tu casa. Baja despacio y acompaña a una de ellas.</p>
+        <div class="acciones">
+          <a class="boton boton-principal" href="#presupuesto">Pedir presupuesto</a>
+          <span class="pista"><i></i>Desliza para empezar</span>
+        </div>
+      </div>
+      <div class="rotulo" data-r="casa"><h2>Y la montamos en tu casa</h2><p>Medimos el hueco, la fabricamos a esa medida y la colocamos nosotros.</p></div>
+      <div class="rotulo" data-r="abre"><h2>Abre de par en par</h2><p>Dos hojas practicables en perfil de PVC GEALAN, color antracita, con doble acristalamiento Climalit.</p></div>
+      <div class="rotulo" data-r="valle"><h2>Que entre el valle</h2><p>La ventana es lo que separa tu casa de fuera. Por eso la hacemos nosotros.</p></div>
+      <div class="rotulo" data-r="fachada"><h2>Por fuera, a ras de la fachada</h2><p>El cajón de persiana queda por dentro y desde la calle solo se ve el marco.</p></div>
+      <div class="rotulo" data-r="dentro"><h2>Ahora, por dentro</h2><p>La misma ventana, en 3D. Sigue bajando y la abrimos.</p></div>
+      <div class="rotulo" data-r="manilla"><h2>Una manilla, dos hojas</h2><p>Giras la manilla de la hoja principal y la ventana abre hacia dentro.</p></div>
+      <div class="rotulo" data-r="piezas"><h2>Pieza a pieza</h2><p>Marco, hojas con refuerzo de acero, juntas y vidrio doble. Así se monta en el taller.</p></div>
+      <div class="rotulo" data-r="obras"><h2>Obras nuestras, ya terminadas</h2><p>Ventanas, puertas y cerramientos que hemos fabricado y montado.</p>
+        <div class="acciones"><a class="boton boton-borde" href="#obras">Ver más obras</a></div></div>
+
+      <nav class="recorrido" aria-label="Recorrido">
+        <ol>
+          <li data-paso="taller">El taller</li>
+          <li data-paso="casa">Tu casa</li>
+          <li data-paso="abre">Se abre</li>
+          <li data-paso="valle">El valle</li>
+          <li data-paso="fachada">La fachada</li>
+          <li data-paso="dentro">Por dentro</li>
+          <li data-paso="piezas">Pieza a pieza</li>
+          <li data-paso="obras">Obras</li>
+        </ol>
+        <p class="carga" aria-live="polite">Cargando el recorrido…</p>
+      </nav>
+      <div class="barra-movil" aria-hidden="true"><span class="nombre-paso">El taller</span><span class="pista-barra"><i></i></span></div>
+      <p class="aviso-3d">Modelo 3D provisional, con medidas genéricas: lo rehacemos con la sección real del perfil GEALAN.</p>
+    </div>
+  </section>
+
+  <section id="obras" class="seccion" aria-labelledby="titulo-obras">
+    <div class="cabeza">
+      <h2 id="titulo-obras">Obras nuestras</h2>
+      <p>Una muestra. La galería completa, ordenada por tipo de trabajo, irá en su propia página.</p>
+    </div>
+    <div class="obras">
+      <figure><img src="assets/fotos/chalet-travertino-fachada.webp" alt="Chalet de fachada de travertino con ventanas y persianas antracita" loading="lazy"><figcaption>Vivienda con ventanas antracita</figcaption></figure>
+      <figure><img src="assets/fotos/puerta-antracita-acristalada.webp" alt="Puerta de entrada antracita con vidrio" loading="lazy"><figcaption>Puerta de entrada acristalada</figcaption></figure>
+      <figure><img src="assets/fotos/pabellon-cristal-negro.webp" alt="Pabellón acristalado con perfilería negra" loading="lazy"><figcaption>Pabellón de cristal</figcaption></figure>
+      <figure><img src="assets/fotos/porche-plegable-madera.webp" alt="Porche cerrado con hojas plegables" loading="lazy"><figcaption>Cierre plegable de porche</figcaption></figure>
+      <figure><img src="assets/fotos/terraza-plegable.webp" alt="Terraza con cerramiento plegable de vidrio" loading="lazy"><figcaption>Cerramiento de terraza</figcaption></figure>
+      <figure><img src="assets/fotos/barandilla-vidrio-escalera.webp" alt="Barandilla de vidrio en una escalera" loading="lazy"><figcaption>Barandilla de vidrio</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="presupuesto" class="seccion" aria-labelledby="titulo-presupuesto">
+    <div class="presupuesto">
+      <div>
+        <h2 id="titulo-presupuesto">Cuéntanos qué ventana necesitas</h2>
+        <p class="entrada">Te decimos cuánto cuesta y cuándo podemos ir a medir. Lo más rápido es llamar.</p>
+        <ul class="contactos">
+          <li><div><div class="que">Móvil</div><div class="dato">664 40 96 18</div></div><button class="copiar" type="button" data-copiar="664 40 96 18">Copiar</button></li>
+          <li><div><div class="que">Teléfono del taller</div><div class="dato">927 47 36 19</div></div><button class="copiar" type="button" data-copiar="927 47 36 19">Copiar</button></li>
+          <li><div><div class="que">Correo</div><div class="dato">metalhervas@gmail.com</div></div><button class="copiar" type="button" data-copiar="metalhervas@gmail.com">Copiar</button></li>
+        </ul>
+      </div>
+      <form class="formulario" id="form-presupuesto" novalidate>
+        <div class="campo"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required></div>
+        <div class="campo"><label for="f-telefono">Teléfono</label><input id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required></div>
+        <div class="campo"><label for="f-pueblo">Pueblo</label><input id="f-pueblo" name="pueblo" autocomplete="address-level2"></div>
+        <div class="campo"><label for="f-tipo">Qué necesitas</label>
+          <select id="f-tipo" name="tipo">
+            <option>Ventanas de PVC</option><option>Ventanas o puertas de aluminio</option><option>Puerta de entrada</option>
+            <option>Cerramiento de terraza o porche</option><option>Cerrajería: rejas, barandillas, cancelas</option><option>Estructura metálica o nave</option><option>Otra cosa</option>
+          </select></div>
+        <div class="campo ancho"><label for="f-mensaje">Cuéntanos un poco más</label><textarea id="f-mensaje" name="mensaje" placeholder="Cuántas ventanas, medidas aproximadas, si es obra nueva o reforma…"></textarea></div>
+        <button class="boton boton-principal" type="submit">Pedir presupuesto</button>
+        <p class="respuesta" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div>
+    <p>Metal Hervás · Ctra. de las Cañadas, s/n · 10700 Hervás (Cáceres)</p>
+    <p class="ia"><strong>Animación creada con IA a partir de fotos de nuestras obras.</strong> El paisaje y la fachada exterior son recreaciones. Prototipo para revisión.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+} }
+</script>
+<script>
+// Contacto y formulario: funcionan aunque falle el resto
+document.querySelectorAll(".copiar").forEach((b) => b.addEventListener("click", async () => {
+  const t = b.dataset.copiar;
+  try { await navigator.clipboard.writeText(t); b.textContent = "Copiado"; }
+  catch { const d = b.parentElement.querySelector(".dato"); const r = document.createRange(); r.selectNodeContents(d); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Seleccionado"; }
+  setTimeout(() => { b.textContent = "Copiar"; }, 1800);
+}));
+document.getElementById("form-presupuesto").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const f = e.currentTarget, r = f.querySelector(".respuesta");
+  const falta = [...f.querySelectorAll("[required]")].filter((i) => !i.value.trim());
+  r.hidden = false;
+  if (falta.length) { r.textContent = "Falta tu " + falta.map((i) => i.labels[0].textContent.toLowerCase()).join(" y tu ") + " para poder llamarte."; falta[0].focus(); return; }
+  r.textContent = "Esto es un prototipo y el formulario todavía no envía nada. Mientras tanto, llámanos al 664 40 96 18.";
+});
+</script>
+<script type="module">
+import * as THREE from "three";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { crearVentana } from "./shared/ventana.js";
+
+const reducir = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const hash = location.hash + location.search;
+const fijo = /p=?(\d{1,3})/.exec(hash);                 // #p62 o ?p=62 congela el recorrido en ese punto
+if (/solo/.test(hash)) document.body.classList.add("solo");
+
+const escenario = document.getElementById("escenario");
+const cvVideo = document.getElementById("lienzo-video"), ctx = cvVideo.getContext("2d");
+const cv3d = document.getElementById("lienzo-3d");
+const carga = document.querySelector(".carga");
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const tramo = (p, a, b) => clamp((p - a) / (b - a));
+const suave = (t) => t * t * (3 - 2 * t);
+const mezcla = (a, b, t) => a + (b - a) * t;
+
+// ── Fotogramas del vídeo ──────────────────────────────────────────────
+const P_VIDEO = 0.6;                 // el vídeo ocupa el 60 % del recorrido
+const BASE = "assets/recorrido/16x9/";
+const man = await fetch(BASE + "manifest.json").then((r) => r.json());
+const rutas = [], tramos = {};
+for (const t of man.tramos) { tramos[t.nombre] = { ini: rutas.length }; for (const c of t.cuadros) rutas.push(BASE + t.carpeta + c); tramos[t.nombre].fin = rutas.length - 1; }
+const N = rutas.length, imgs = new Array(N);
+const pDe = (nombre, f) => ((tramos[nombre].ini + f * (tramos[nombre].fin - tramos[nombre].ini)) / (N - 1)) * P_VIDEO;
+
+let cargadas = 0;
+function cargar(i) {
+  return new Promise((ok) => { const im = new Image(); im.decoding = "async"; im.onload = () => { imgs[i] = im; cargadas++; ok(); }; im.onerror = ok; im.src = rutas[i]; });
+}
+(async () => {
+  await cargar(0); dibujarVideo(true);
+  let siguiente = 1;
+  const hilo = async () => { while (siguiente < N) { await cargar(siguiente++); if (cargadas % 12 === 0) carga.textContent = `Cargando el recorrido · ${Math.round(cargadas / N * 100)} %`; } };
+  await Promise.all([hilo(), hilo(), hilo(), hilo(), hilo(), hilo()]);
+  carga.hidden = true;
+})();
+
+function ajustarLienzos() {
+  const dpr = Math.min(devicePixelRatio || 1, 1.75);
+  for (const c of [cvVideo, cv3d]) { c.width = Math.round(c.clientWidth * dpr); c.height = Math.round(c.clientHeight * dpr); }
+}
+let ultimo = -1;
+function dibujarVideo(forzar) {
+  const objetivo = Math.round(clamp(pVista / P_VIDEO) * (N - 1));
+  let i = objetivo; while (i > 0 && !imgs[i]) i--;
+  if (!imgs[i]) { for (i = objetivo; i < N && !imgs[i]; i++); if (i >= N) return; }
+  if (i === ultimo && !forzar) return;
+  ultimo = i;
+  const im = imgs[i], W = cvVideo.width, H = cvVideo.height;
+  const s = Math.max(W / im.naturalWidth, H / im.naturalHeight), w = im.naturalWidth * s, h = im.naturalHeight * s;
+  ctx.drawImage(im, (W - w) / 2, (H - h) / 2, w, h);
+}
+
+// ── Rótulos y recorrido ───────────────────────────────────────────────
+const R = {
+  inicio: [-1, pDe("clip-0", 0.42)],
+  casa: [pDe("clip-1", 0.35), pDe("clip-a", 0.2)],
+  abre: [pDe("clip-a", 0.32), pDe("clip-a", 1)],
+  valle: [pDe("clip-b", 0.25), pDe("clip-b", 0.95)],
+  fachada: [pDe("clip-c", 0.55), 0.635],
+  dentro: [0.665, 0.725],
+  manilla: [0.735, 0.805],
+  piezas: [0.83, 0.9],
+  obras: [0.935, 2],
+};
+const PASOS = [["taller", 0], ["casa", pDe("clip-1", 0)], ["abre", pDe("clip-a", 0)], ["valle", pDe("clip-b", 0)], ["fachada", pDe("clip-c", 0)],
+  ["dentro", 0.64], ["piezas", 0.8], ["obras", 0.9]];
+const NOMBRES = { taller: "El taller", casa: "Tu casa", abre: "Se abre", valle: "El valle", fachada: "La fachada", dentro: "Por dentro", piezas: "Pieza a pieza", obras: "Obras" };
+const rotulos = [...document.querySelectorAll(".rotulo")].map((el) => ({ el, r: R[el.dataset.r] }));
+const pasos = [...document.querySelectorAll(".recorrido li")];
+const nombrePaso = document.querySelector(".nombre-paso"), barra = document.querySelector(".pista-barra i");
+const FUNDE = 0.012;
+function actualizarTextos(p) {
+  for (const { el, r } of rotulos) {
+    const v = Math.min(tramo(p, r[0], r[0] + FUNDE), 1 - tramo(p, r[1] - FUNDE, r[1]));
+    el.style.opacity = v; el.style.transform = `translateY(${(1 - v) * 14}px)`;
+    el.classList.toggle("visible", v > 0.01); el.toggleAttribute("data-inicio", false);
+  }
+  let actual = PASOS[0][0];
+  for (const [n, a] of PASOS) if (p >= a) actual = n;
+  pasos.forEach((li) => li.classList.toggle("activo", li.dataset.paso === actual));
+  nombrePaso.textContent = NOMBRES[actual]; barra.style.width = (p * 100).toFixed(1) + "%";
+}
+
+// Con «reducir movimiento» el recorrido avanza a saltos entre momentos fijos, sin interpolar
+const HITOS = [0, pDe("clip-0", 1), pDe("clip-1", 1), pDe("clip-a", 1), pDe("clip-b", 1), P_VIDEO, 0.67, 0.75, 0.8, 0.88, 0.95, 1];
+const aHito = (p) => HITOS.reduce((m, h) => (p >= h ? h : m), 0);
+
+// ── Escena 3D ─────────────────────────────────────────────────────────
+let tres = null;
+try { tres = montar3D(); } catch (e) { console.warn("Sin WebGL: el recorrido termina en el vídeo.", e); }
+
+function montar3D() {
+  const renderer = new THREE.WebGLRenderer({ canvas: cv3d, antialias: true, alpha: true, powerPreference: "high-performance" });
+  renderer.setClearColor(0x000000, 0);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  const escena = new THREE.Scene();
+  const pm = new THREE.PMREMGenerator(renderer);
+  escena.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+  const lampara = new THREE.DirectionalLight(0xffd9a0, 2.4); lampara.position.set(1.5, 2.5, 3); escena.add(lampara);
+  const contra = new THREE.DirectionalLight(0xc9dcff, 1.4); contra.position.set(-3, 1.5, 1); escena.add(contra);
+  const cielo = new THREE.DirectionalLight(0x9fb8d6, 0.9); cielo.position.set(-2, 1, -3); escena.add(cielo);
+
+  const camara = new THREE.PerspectiveCamera(30, 1, 0.05, 50);
+  const v = crearVentana(); escena.add(v.grupo);
+
+  // Fotos de obras en los vidrios: dos capas por hoja para fundir entre parejas
+  const cargador = new THREE.TextureLoader();
+  const PAREJAS = [["chalet-travertino-fachada", "puerta-antracita-acristalada"], ["pabellon-cristal-negro", "porche-plegable-madera"], ["terraza-plegable", "barandilla-vidrio-escalera"]];
+  const vw = v.medidas.hojaW - 2 * v.medidas.caraHoja + 0.02, vh = v.medidas.hojaH - 2 * v.medidas.caraHoja + 0.02;
+  const capas = v.hojas.map((h) => PAREJAS.map(() => {
+    const m = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false, toneMapped: false });
+    const plano = new THREE.Mesh(new THREE.PlaneGeometry(vw, vh), m);
+    plano.position.z = 0.016; plano.renderOrder = 2; h.hoja.add(plano); return m;
+  }));
+  PAREJAS.forEach((par, j) => par.forEach((nombre, k) => cargador.load(`assets/fotos/${nombre}.webp`, (t) => {
+    t.colorSpace = THREE.SRGBColorSpace;
+    const ai = t.image.width / t.image.height, ap = vw / vh;      // recorte tipo «cover»
+    if (ai > ap) { t.repeat.set(ap / ai, 1); t.offset.set((1 - ap / ai) / 2, 0); } else { t.repeat.set(1, ai / ap); t.offset.set(0, (1 - ai / ap) / 2); }
+    capas[k][j].map = t; capas[k][j].needsUpdate = true; api.sucio = true;
+  })));
+
+  // Etiquetas del despiece
+  // [ancla, título, detalle, lado del texto]
+  const ETQ = [["cajon", "Cajón de persiana", "", "d"], ["perfil", "Perfil de PVC GEALAN", "antracita", "d"], ["vidrio", "Doble acristalamiento Climalit", "4 / 16 / 4 mm, composición de ejemplo", "d"],
+    ["junta", "Juntas", "contra el aire y el agua", "d"], ["manilla", "Manilla", "solo en la hoja principal", "i"], ["refuerzo", "Refuerzo de acero", "dentro del perfil", "i"], ["marco", "Marco", "fijo al hueco", "i"]];
+  const capaEtq = document.querySelector(".etiquetas");
+  const etiquetas = ETQ.map(([k, t, s, lado]) => {
+    const el = document.createElement("div"); el.className = "etiqueta" + (lado === "i" ? " izquierda" : "");
+    el.innerHTML = `<span>${t}${s ? `<small>${s}</small>` : ""}</span>`; capaEtq.appendChild(el); return { el, ancla: v.anclas[k] };
+  });
+  const aviso = document.querySelector(".aviso-3d"), recorrido = document.querySelector(".recorrido");
+
+  // Encaje con el último fotograma: la ventana ocupa ~37 % del ancho del vídeo, centrada
+  const EN_VIDEO = { ancho: 0.37, cy: 0.5 };
+  const tanM = Math.tan(THREE.MathUtils.degToRad(15));
+  function distanciaEncaje() {
+    const W = cv3d.clientWidth, H = cv3d.clientHeight, anchoVideo = Math.max(W, H * 16 / 9);
+    const frac = EN_VIDEO.ancho * anchoVideo / W;                           // fracción del ancho de pantalla
+    return (v.medidas.ancho + 0.02) / (frac * 2 * tanM * (W / H));
+  }
+  function distanciaComoda() {
+    const W = cv3d.clientWidth, H = cv3d.clientHeight, a = W / H, tam = 1.75;
+    return Math.max(tam / (0.62 * 2 * tanM), tam / (0.82 * 2 * tanM * a));
+  }
+  const pos = new THREE.Vector3(), tmp = new THREE.Vector3();
+
+  function render(p) {
+    const W = cv3d.clientWidth, H = cv3d.clientHeight;
+    camara.aspect = W / H;
+    const corrimiento = W / H > 1.15 ? W * 0.09 * suave(tramo(p, 0.64, 0.7)) : 0;
+    camara.setViewOffset(W, H, corrimiento, 0, W, H); camara.updateProjectionMatrix();
+    const r0 = distanciaEncaje(), r1 = distanciaComoda();
+    // Fases del 3D
+    const fEntra = suave(tramo(p, 0.6, 0.63)), fFondo = suave(tramo(p, 0.63, 0.66));
+    const fGira = suave(tramo(p, 0.66, 0.72)), fMan = suave(tramo(p, 0.72, 0.75)), fAbre = suave(tramo(p, 0.75, 0.8));
+    const fCierra = suave(tramo(p, 0.8, 0.825)), fDesp = suave(tramo(p, 0.825, 0.88)), fJunta = suave(tramo(p, 0.9, 0.93)), fFotos = tramo(p, 0.93, 0.95);
+    let az = mezcla(Math.PI, -0.55, fGira); az = mezcla(az, -0.85, fCierra); az = mezcla(az, 0, fJunta);
+    let el = mezcla(0, 0.14, fGira); el = mezcla(el, 0, fJunta);
+    let r = mezcla(r0, r1, suave(tramo(p, 0.63, 0.7))); r = mezcla(r, r1 * 1.12, fDesp * (1 - fJunta)); r = mezcla(r, r1 * 0.92, fJunta);
+    pos.set(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)).multiplyScalar(r);
+    const yHueco = -v.medidas.cajon / 2, yObjetivo = mezcla(yHueco, 0, suave(tramo(p, 0.64, 0.7)));
+    pos.y += yObjetivo;
+    camara.position.copy(pos); camara.lookAt(0, yObjetivo, mezcla(0, 0.35, fDesp * (1 - fJunta)));
+    v.cajonVisible(fGira);
+    const abrir = p < 0.66 ? 0.72 : mezcla(0.72, 0, fGira) + fAbre * (1 - fCierra);
+    v.estado({ abrir: clamp(abrir), manilla: fMan * (1 - fCierra), despiece: fDesp * (1 - fJunta) });
+    // Fotos en los vidrios, de pareja en pareja
+    const j = p < 0.965 ? 0 : p < 0.985 ? 1 : 2, t = j === 0 ? 1 : tramo(p, j === 1 ? 0.965 : 0.985, (j === 1 ? 0.965 : 0.985) + 0.008);
+    capas.forEach((cs) => cs.forEach((m, k) => { m.opacity = fFotos * (k === j ? t : k === j - 1 ? 1 - t : 0); }));
+
+    cv3d.style.opacity = fEntra;
+    cvVideo.style.opacity = 1 - fFondo;
+    const vEtq = tramo(p, 0.845, 0.86) * (1 - tramo(p, 0.89, 0.9));
+    for (const { el, ancla } of etiquetas) {
+      ancla.getWorldPosition(tmp); tmp.project(camara);
+      el.style.opacity = vEtq;
+      // Se mantiene dentro de la pantalla aunque el ancla quede cerca del borde (móvil)
+      const ancho = el.offsetWidth, alto = el.offsetHeight;
+      let x = (tmp.x + 1) / 2 * W - (el.classList.contains("izquierda") ? ancho : 3);
+      x = clamp(x, 8, W - ancho - 8);
+      el.style.transform = `translate(${x.toFixed(1)}px, ${((1 - tmp.y) / 2 * H - alto / 2).toFixed(1)}px)`;
+    }
+    aviso.style.opacity = tramo(p, 0.64, 0.66) * (1 - tramo(p, 0.93, 0.94));
+    recorrido.style.opacity = 1 - 0.85 * vEtq;          // el recorrido se aparta mientras hay etiquetas
+    renderer.render(escena, camara);
+  }
+  function tam() { renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.75)); renderer.setSize(cv3d.clientWidth, cv3d.clientHeight, false); }
+  const api = { render, tam, sucio: false };
+  return api;
+}
+
+// ── Bucle: el scroll marca el destino y la vista lo sigue con un poco de inercia ──
+let pDestino = 0, pVista = 0;
+if (fijo) { history.scrollRestoration = "manual"; }
+if (fijo) {                          // modo captura: el recorrido queda quieto en ese punto
+  pDestino = pVista = clamp(+fijo[1] / 100);
+  setTimeout(() => scrollTo(0, escenario.offsetTop + pDestino * (escenario.offsetHeight - innerHeight)), 150);
+} else if (window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.create({ trigger: escenario, start: "top top", end: "bottom bottom", onUpdate: (s) => { pDestino = s.progress; } });
+} else {
+  addEventListener("scroll", () => { const b = escenario.getBoundingClientRect(); pDestino = clamp(-b.top / (b.height - innerHeight)); }, { passive: true });
+}
+function redimensionar() { ajustarLienzos(); tres?.tam(); dibujarVideo(true); }
+addEventListener("resize", redimensionar); redimensionar();
+
+let pPintada = -1;
+function bucle() {
+  const destino = reducir ? aHito(pDestino) : pDestino;
+  pVista = reducir || fijo ? destino : pVista + (destino - pVista) * 0.14;
+  if (Math.abs(destino - pVista) < 0.00005) pVista = destino;
+  if (pVista <= P_VIDEO + 0.07 || !tres) dibujarVideo();      // también pinta los fotogramas que acaban de llegar
+  if (pVista !== pPintada || tres?.sucio) {
+    pPintada = pVista;
+    actualizarTextos(pVista);
+    if (tres) tres.sucio = false;
+    if (tres && pVista > P_VIDEO - 0.005) tres.render(pVista); else cv3d.style.opacity = 0;
+  }
+  requestAnimationFrame(bucle);
+}
+bucle();
+</script>

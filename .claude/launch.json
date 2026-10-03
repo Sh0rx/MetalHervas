@@ -4,8 +4,26 @@
     {
       "name": "prototipos",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "prototipos"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--directory",
+        "prototipos"
+      ],
       "port": 8765
+    },
+    {
+      "name": "prototipos-b",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8766",
+        "--directory",
+        "prototipos"
+      ],
+      "port": 8766
     }
   ]
 }

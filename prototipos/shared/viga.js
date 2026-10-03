@@ -1,5 +1,5 @@
-// Perfiles de acero con sus medidas reales y el «nudo» del logo de Metal Hervás
-// (pilar + dintel inclinado + ménsula, unidos con chapa de testa atornillada).
+// Perfiles de acero con sus medidas reales y el «nudo»: esquina de pórtico con pilar y dos vigas
+// a 90° (las aristas de un cubo), unidas con chapas de testa atornilladas.
 // Lo comparten los prototipos Acero, Oficio y Blueprint. Unidades: metros.
 import * as THREE from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
@@ -28,7 +28,7 @@ export function seccionI(p) {
 }
 
 // Barra extruida a lo largo de +Z. corteIni/corteFin: ángulo (rad) del corte respecto al corte recto,
-// para que un dintel inclinado apoye a plomo contra el pilar. Colores por vértice: alas oscuras, alma clara,
+// para que una viga inclinada apoye a plomo contra el pilar. Colores por vértice: alas oscuras, alma clara,
 // como en el logo (alas negras, alma gris).
 export function barra(p, largo, { corteIni = 0, corteFin = 0, alas = 0x2a2f33, alma = 0x767c82 } = {}) {
   const g = new THREE.ExtrudeGeometry(seccionI(p), { depth: largo, bevelEnabled: false, curveSegments: 6 });
@@ -61,64 +61,69 @@ export function entorno(renderer, scene) {
   pm.dispose();
 }
 
-// Orienta una barra (extruida en +Z con el canto en Y) a lo largo de la dirección d dentro del plano XY
+// Orienta una barra (extruida en +Z con el canto en Y) a lo largo de la dirección d, con el alma vertical
 function orientar(obj, d) {
-  const z = d.clone().normalize(), y = new THREE.Vector3(-z.y, z.x, 0);
-  if (y.y < 0) y.negate();
-  const x = new THREE.Vector3().crossVectors(y, z);
+  const z = d.clone().normalize();
+  const x = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), z).normalize();
+  const y = new THREE.Vector3().crossVectors(z, x);
   obj.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(x, y, z));
 }
 
-// El nudo del logo. Devuelve el grupo y sus piezas (con su posición final guardada en userData.fin)
-// para poder animar el montaje.
-export function nudo({ perfil = "IPE 300", altoPilar = 4.4, alturaNudo = 3.95, largoDintel = 3.8,
-                      largoMensula = 0.95, pendiente = THREE.MathUtils.degToRad(20) } = {}) {
-  const p = PERFILES[perfil], mat = aceroMaterial(), h = p.h / 1000, b = p.b / 1000;
+// El nudo: esquina de un pórtico en la que pilar y dos vigas forman las tres aristas de un cubo.
+//  · Pilar vertical, con las alas perpendiculares a X.
+//  · Viga 1 hacia −X, atornillada con chapa de testa al ala del pilar.
+//  · Viga 2 hacia +Z, atornillada con chapa de testa al alma del pilar (entre sus alas).
+//  · Chapa de cabeza sobre el pilar, enrasada con las vigas.
+// Devuelve el grupo y sus piezas, con su posición final en userData.fin para animar el montaje.
+export function nudo({ perfil = "IPE 300", alturaNudo = 3.6, largoViga = 3.2 } = {}) {
+  const p = PERFILES[perfil], mat = aceroMaterial(), h = p.h / 1000, b = p.b / 1000, tw = p.tw / 1000;
   const chapa = 0.02, grupo = new THREE.Group(), piezas = {};
+  const arriba = alturaNudo + h / 2;            // cara superior de las vigas
 
-  // Pilar: alas perpendiculares a X, de modo que dintel y ménsula atornillan a sus caras
-  const pilar = new THREE.Mesh(barra(p, altoPilar), mat);
+  // Pilar: Z de la extrusión → Y; canto (Y) → X
+  const pilar = new THREE.Mesh(barra(p, arriba), mat);
   pilar.rotation.x = -Math.PI / 2; pilar.rotation.z = Math.PI / 2;
   piezas.pilar = pilar;
 
-  const tan = Math.tan(pendiente);
-  // Dintel: sube hacia la izquierda desde la cara del pilar, corte a plomo en el nudo
-  const dintel = new THREE.Mesh(barra(p, largoDintel, { corteIni: pendiente }), mat);
-  orientar(dintel, new THREE.Vector3(-Math.cos(pendiente), Math.sin(pendiente), 0));
-  dintel.position.set(-h / 2 - chapa, alturaNudo, 0);
-  piezas.dintel = dintel;
+  const viga1 = new THREE.Mesh(barra(p, largoViga), mat);
+  orientar(viga1, new THREE.Vector3(-1, 0, 0));
+  viga1.position.set(-h / 2 - chapa, alturaNudo, 0);
+  piezas.viga1 = viga1;
 
-  // Ménsula (vuelo) al otro lado, en la prolongación del dintel
-  const yM = alturaNudo - (h + 2 * chapa) * tan;
-  const mensula = new THREE.Mesh(barra(p, largoMensula, { corteIni: -pendiente }), mat);
-  orientar(mensula, new THREE.Vector3(Math.cos(pendiente), -Math.sin(pendiente), 0));
-  mensula.position.set(h / 2 + chapa, yM, 0);
-  piezas.mensula = mensula;
+  const viga2 = new THREE.Mesh(barra(p, largoViga), mat);
+  orientar(viga2, new THREE.Vector3(0, 0, 1));
+  viga2.position.set(0, alturaNudo, tw / 2 + chapa);
+  piezas.viga2 = viga2;
 
-  // Chapas de testa y tornillos M20 (cabeza hexagonal)
-  const altoChapa = h / Math.cos(pendiente) + 0.08;
-  const chapaGeo = new THREE.BoxGeometry(chapa, altoChapa, b + 0.02);
+  // Chapas de testa con 6 tornillos M20 (cabeza hexagonal), del lado de la viga
   const chapaMat = new THREE.MeshPhysicalMaterial({ color: 0x8d9296, metalness: 0.9, roughness: 0.42 });
   const tornMat = new THREE.MeshPhysicalMaterial({ color: 0xc4c8cb, metalness: 1, roughness: 0.28 });
   const cabeza = new THREE.CylinderGeometry(0.017, 0.017, 0.013, 6);
-  const union = (x, y, lado) => {
+  const altoChapa = h + 0.06;
+  const union = (ancho) => {          // chapa en el plano YZ local, tornillos hacia −X local
     const g = new THREE.Group();
-    g.add(new THREE.Mesh(chapaGeo, chapaMat));
-    for (const dy of [-0.3, 0, 0.3]) for (const dz of [-0.048, 0.048]) {
+    g.add(new THREE.Mesh(new THREE.BoxGeometry(chapa, altoChapa, ancho), chapaMat));
+    for (const dy of [-0.108, 0, 0.108]) for (const dz of [-0.048, 0.048]) {
       const t = new THREE.Mesh(cabeza, tornMat);
-      t.rotation.z = Math.PI / 2; t.position.set(lado * (chapa / 2 + 0.0065), dy * altoChapa * 0.9, dz);
+      t.rotation.z = Math.PI / 2; t.position.set(-(chapa / 2 + 0.0065), dy, dz);
       g.add(t);
     }
-    g.position.set(x, y, 0);
     return g;
   };
-  piezas.unionDintel = union(-h / 2 - chapa / 2, alturaNudo, -1);
-  piezas.unionMensula = union(h / 2 + chapa / 2, yM, 1);
+  piezas.union1 = union(b + 0.02);
+  piezas.union1.position.set(-h / 2 - chapa / 2, alturaNudo, 0);
+  piezas.union2 = union(b + 0.02);      // cabe entre las alas del pilar (luz libre h − 2·tf)
+  piezas.union2.rotation.y = Math.PI / 2;  // −X local → +Z
+  piezas.union2.position.set(0, alturaNudo, tw / 2 + chapa / 2);
+
+  // Chapa de cabeza del pilar
+  piezas.cabeza = new THREE.Mesh(new THREE.BoxGeometry(h + 0.02, chapa, b + 0.02), chapaMat);
+  piezas.cabeza.position.set(0, arriba + chapa / 2, 0);
 
   for (const k in piezas) {
     const o = piezas[k];
     o.userData.fin = { pos: o.position.clone(), quat: o.quaternion.clone() };
     grupo.add(o);
   }
-  return { grupo, piezas, centro: new THREE.Vector3(-1.1, 3.1, 0) };
+  return { grupo, piezas, esquina: new THREE.Vector3(0, alturaNudo, 0), largoViga };
 }

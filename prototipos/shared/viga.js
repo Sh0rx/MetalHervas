@@ -28,9 +28,9 @@ export function seccionI(p) {
 }
 
 // Barra extruida a lo largo de +Z. corteIni/corteFin: ángulo (rad) del corte respecto al corte recto,
-// para que una viga inclinada apoye a plomo contra el pilar. Colores por vértice: alas oscuras, alma clara,
-// como en el logo (alas negras, alma gris).
-export function barra(p, largo, { corteIni = 0, corteFin = 0, alas = 0x2a2f33, alma = 0x767c82 } = {}) {
+// para que una viga inclinada apoye a plomo contra el pilar. Colores por vértice: alas oscuras y alma gris,
+// los dos tonos de la viga del logo.
+export function barra(p, largo, { corteIni = 0, corteFin = 0, alas = 0x26292c, alma = 0x9a9fa3 } = {}) {
   const g = new THREE.ExtrudeGeometry(seccionI(p), { depth: largo, bevelEnabled: false, curveSegments: 6 });
   const pos = g.attributes.position, col = new Float32Array(pos.count * 3);
   const cA = new THREE.Color(alas), cW = new THREE.Color(alma), c = new THREE.Color();
@@ -51,7 +51,7 @@ export function barra(p, largo, { corteIni = 0, corteFin = 0, alas = 0x2a2f33, a
 export function aceroMaterial() {
   return new THREE.MeshPhysicalMaterial({
     vertexColors: true, metalness: 0.85, roughness: 0.4, clearcoat: 0.2, clearcoatRoughness: 0.45,
-    envMapIntensity: 0.8,
+    envMapIntensity: 0.4,
   });
 }
 
@@ -73,15 +73,16 @@ function orientar(obj, d) {
 //  · Pilar vertical, con las alas perpendiculares a X.
 //  · Viga 1 hacia −X, atornillada con chapa de testa al ala del pilar.
 //  · Viga 2 hacia +Z, atornillada con chapa de testa al alma del pilar (entre sus alas).
-//  · Chapa de cabeza sobre el pilar, enrasada con las vigas.
+//  · El pilar sigue por encima del nudo, como en el logo.
 // Devuelve el grupo y sus piezas, con su posición final en userData.fin para animar el montaje.
-export function nudo({ perfil = "IPE 300", alturaNudo = 3.6, largoViga = 3.2 } = {}) {
+export function nudo({ perfil = "IPE 300", alturaNudo = 3.6, largoViga = 3.2, sobrePilar = 1.2 } = {}) {
   const p = PERFILES[perfil], mat = aceroMaterial(), h = p.h / 1000, b = p.b / 1000, tw = p.tw / 1000;
   const chapa = 0.02, grupo = new THREE.Group(), piezas = {};
   const arriba = alturaNudo + h / 2;            // cara superior de las vigas
 
-  // Pilar: Z de la extrusión → Y; canto (Y) → X
-  const pilar = new THREE.Mesh(barra(p, arriba), mat);
+  // Pilar: Z de la extrusión → Y; canto (Y) → X. Como en el logo, sigue por encima de las vigas
+  // En el logo el pilar se ve al revés que las vigas: cara del ala gris y costado (alma) en negro
+  const pilar = new THREE.Mesh(barra(p, arriba + sobrePilar, { alas: 0x9a9fa3, alma: 0x26292c }), mat);
   pilar.rotation.x = -Math.PI / 2; pilar.rotation.z = Math.PI / 2;
   piezas.pilar = pilar;
 
@@ -115,10 +116,6 @@ export function nudo({ perfil = "IPE 300", alturaNudo = 3.6, largoViga = 3.2 } =
   piezas.union2 = union(b + 0.02);      // cabe entre las alas del pilar (luz libre h − 2·tf)
   piezas.union2.rotation.y = Math.PI / 2;  // −X local → +Z
   piezas.union2.position.set(0, alturaNudo, tw / 2 + chapa / 2);
-
-  // Chapa de cabeza del pilar
-  piezas.cabeza = new THREE.Mesh(new THREE.BoxGeometry(h + 0.02, chapa, b + 0.02), chapaMat);
-  piezas.cabeza.position.set(0, arriba + chapa / 2, 0);
 
   for (const k in piezas) {
     const o = piezas[k];

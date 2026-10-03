@@ -124,3 +124,46 @@ export function nudo({ perfil = "IPE 300", alturaNudo = 3.6, largoViga = 3.2, so
   }
   return { grupo, piezas, esquina: new THREE.Vector3(0, alturaNudo, 0), largoViga };
 }
+
+// ── Para el modo plano (Blueprint) ──────────────────────────────────────────────────────────────
+
+// Aristas de una pieza como líneas, ordenadas a lo largo de la barra para poder «dibujarlas»
+// poco a poco con setDrawRange. Se añaden como hijas de la malla, así siguen su posición.
+export function aristas(malla, material) {
+  const e = new THREE.EdgesGeometry(malla.geometry, 25), pos = e.attributes.position.array, seg = [];
+  for (let i = 0; i < pos.length; i += 6) seg.push(pos.slice(i, i + 6));
+  seg.sort((a, b) => Math.min(a[2], a[5]) - Math.min(b[2], b[5]));
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(seg.flatMap((s) => [...s]), 3));
+  const l = new THREE.LineSegments(g, material);
+  l.userData.total = seg.length * 2;
+  malla.add(l);
+  return l;
+}
+
+// Todas las mallas del nudo con sus aristas; devuelve las líneas en el orden de montaje
+export function plano(piezas, material) {
+  const lineas = [];
+  for (const k in piezas) piezas[k].traverse((o) => { if (o.isMesh) lineas.push({ pieza: k, linea: aristas(o, material) }); });
+  return lineas;
+}
+
+// Línea de cota 3D: de a → b, con líneas de referencia desde los puntos medidos y tics a 45°
+export function cota(a, b, desde, material) {
+  const t = 0.05, d = b.clone().sub(a).normalize();
+  const tic = new THREE.Vector3().crossVectors(d, new THREE.Vector3(0, 0, 1)).add(d).normalize().multiplyScalar(t);
+  if (tic.lengthSq() < 1e-6) tic.set(t, t, 0);
+  const pts = [a, b, a.clone().sub(tic), a.clone().add(tic), b.clone().sub(tic), b.clone().add(tic)];
+  for (const [p, q] of desde) pts.push(p, q);
+  return new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), material);
+}
+
+// Arco de ángulo en el plano horizontal (para marcar los 90° entre vigas)
+export function arco(centro, radio, ini, fin, material, n = 32) {
+  const pts = [];
+  for (let i = 0; i <= n; i++) {
+    const a = ini + (fin - ini) * (i / n);
+    pts.push(new THREE.Vector3(centro.x + Math.cos(a) * radio, centro.y, centro.z + Math.sin(a) * radio));
+  }
+  return new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), material);
+}

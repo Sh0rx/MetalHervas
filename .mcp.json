@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "appflowy": {
+      "command": "C:\\Users\\Jorge\\AppData\\Roaming\\Python\\Python312\\Scripts\\uvx.exe",
+      "args": ["appflowy-mcp"],
+      "env": {
+        "APPFLOWY_EMAIL": "${APPFLOWY_EMAIL}",
+        "APPFLOWY_PASSWORD": "${APPFLOWY_PASSWORD}"
+      }
+    }
+  }
+}

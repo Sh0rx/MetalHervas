@@ -1,0 +1,75 @@
+<!-- url: https://www.gealan.de/es/gealan-acrylcolor-metallic -->
+<!-- title: GEALAN-acrylcolor® Metálico -->
+![Logo](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+  * [Zustimmung](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+  * [Details](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+  * [[#IABV2SETTINGS#]](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+  * [Über Cookies](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+[[#DSR_FORM_URL_TEXT#]](https://www.gealan.de/es/\[#DSR_FORM_URL#\])
+[Einstellungen](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [Bimobject1](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://www.bimobject.com/en-us "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von Bimobject - öffnet in einem neuen Fenster")
+    * [Google1](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://business.safety.google/privacy/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von Google - öffnet in einem neuen Fenster")
+    * [Monotype1](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://www.monotype.com/legal/privacy-policy/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von Monotype - öffnet in einem neuen Fenster")
+    * [Sendinblue1](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://www.sendinblue.com/legal/privacypolicy/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von Sendinblue - öffnet in einem neuen Fenster")
+    * [Typeform13](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://admin.typeform.com/to/dwk6gt/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von Typeform - öffnet in einem neuen Fenster")
+    * [academy.gealan.de1](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+4](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [gealan.de1](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [gealan.foerderrechner.com1](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [jobs.veka.com1](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [lueftung.gealan.de1](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [www.gealan.de3](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [Typeform1](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://admin.typeform.com/to/dwk6gt/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von Typeform - öffnet in einem neuen Fenster")
+    * [www.gealan.de1](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [Typeform5](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://admin.typeform.com/to/dwk6gt/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von Typeform - öffnet in einem neuen Fenster")
+    * [gealan.de3](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [www.gealan.de1](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [ Meta Platforms, Inc.3](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://www.facebook.com/policy.php/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von  Meta Platforms, Inc. - öffnet in einem neuen Fenster")
+    * [Google6](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://business.safety.google/privacy/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von Google - öffnet in einem neuen Fenster")
+    * [RudderStack3](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://www.rudderstack.com/cookie-policy/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von RudderStack - öffnet in einem neuen Fenster")
+    * [YouTube16](https://www.gealan.de/es/gealan-acrylcolor-metallic)[Erfahren Sie mehr über diesen Anbieter![öffnet in einem neuen Fenster](https://www.gealan.de/es/gealan-acrylcolor-metallic)](https://business.safety.google/privacy/ "Erfahren Sie mehr über diesen Anbieter die Datenschutzrichtlinie von YouTube - öffnet in einem neuen Fenster")
+2](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [gealan.de1](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+2](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+    * [www.gealan.de1](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+[Domainübergreifende Zustimmung2](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+  * [Česky](https://www.gealan.de/cz/gealan-acrylcolor-metallic)
+  * [Deutsch](https://www.gealan.de/de/gealan-acrylcolor-metallic)
+  * [English](https://www.gealan.de/en/gealan-acrylcolor-metallic)
+  * [Español](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+  * [Estonia](https://www.gealan.de/ee/gealan-acrylcolor-metallic)
+  * [Français](https://www.gealan.de/fr/gealan-acrylcolor-teintes-metallisees)
+  * [Franco-Belga](https://www.gealan.de/be-fr/gealan-acrylcolor-metallic)
+  * [Hrvatski](https://www.gealan.de/hr/gealan-acrylcolor-metallic)
+  * [Italiano](https://www.gealan.de/it/gealan-acrylcolor-colori-metallizzati)
+  * [Latvia](https://www.gealan.de/lv/gealan-acrylcolor-metallic)
+  * [Lietuviškai](https://www.gealan.de/lt/gealan-acrylcolor-metallic)
+  * [Magyar](https://www.gealan.de/hu/gealan-acrylcolor-metal-szinek)
+  * [Nederlands](https://www.gealan.de/nl/gealan-acrylcolor-metallic)
+  * [Polski](https://www.gealan.de/pl/gealan-acrylcolor-metallic)
+  * [Português](https://www.gealan.de/pt/gealan-acrylcolor-metalico)
+  * [Română](https://www.gealan.de/ro/gealan-acrylcolor-metallic)
+  * [Shqip](https://www.gealan.de/sq/gealan-acrylcolor-metallic)
+  * [Vlaams](https://www.gealan.de/be-fl/gealan-acrylcolor-metallic)
+  * [Русский](https://www.gealan.de/ru/gealan-acrylcolor-metallic)
+  * [Українська](https://www.gealan.de/ua/gealan-acrylcolor-metallic)
+  * [Productos](https://www.gealan.de/es/gealan-acrylcolor-metallic)
+GEALAN-acrylcolor® en colores metálicos
+GEALAN-acrylcolor® en colores metálicos
+Debido al exigente proceso de fabricación, GEALAN es el único proveedor de sistemas que ofrece superficies con acabado PMMA en un tono metálico brillante. La paleta de colores de GEALAN-acrylcolor® incluye exclusivamente varios tonos metálicos. Puede elegir entre estos sistemas para su proyecto de construcción.
+Debido al exigente proceso de fabricación, GEALAN es el único proveedor de sistemas que ofrece superficies con acabado PMMA en un tono metálico brillante. La paleta de colores de GEALAN-acrylcolor® incluye exclusivamente varios tonos metálicos. Puede elegir entre estos sistemas para su proyecto de construcción.
+[Conviértase en socio de GEALAN](https://www.gealan.de/es/formulario-fabricantes)[Comprar ventanas GEALAN](https://www.gealan.de/es/busqueda-de-fabricantes-de-ventanas)
+## Sofisticado proceso de fabricación
+Producir superficies con acabado PMMA en tonos metálicos es complicado. Es por eso que somos el**único proveedor de sistemas** que los ofrece. En un **proceso exigente** , trabajamos los pigmentos metálicos de manera uniforme en la capa acrílica además de la pintura. Cuando se trabaja en moldes nuevos de GEALAN-acrylcolor®, se utiliza el color plateado. Con este tono, la aplicación uniforme de la pintura es particularmente desafiante. Con la ayuda de la plata, aseguramos el **logro de resultados óptimos**. Así es como se crea nuestra **selección de alta calidad de colores metálicos nobles**.
+![Sophisticated manufacturing process](https://www.gealan.de/getContentAsset/28e633c2-6f50-4380-83af-f8d90c879c68/cb87803a-320c-480f-ab75-7b9029eaaf79/Teaser-Mobile_1x/drei-gealan-acrylcolor-top-farben_14011_Teaser-Mobile_1x.avif?language=es)
+![True differentiation](https://www.gealan.de/getContentAsset/04b6efa1-597b-43f8-89c4-5845e89a7338/cb87803a-320c-480f-ab75-7b9029eaaf79/Teaser-Mobile_1x/sechs-passende-dekorfolien_14012_Teaser-Mobile_1x.avif?language=es)
+## Verdadera diferenciación
+Nuestras superficies con acabado PMMA en un acabado metálico brillante le permiten **generar una verdadera diferenciación**. Gracias a los pigmentos metálicos incluidos, proporcionan un **aspecto extraordinario**. Así es como se crean **las ventanas de PVC-U con aspecto de aluminio** para un diseño extraordinario.
+Los siguientes **colores** están disponibles exclusivamente para usted:
+  * Bronce 
+  * Oro
+  * Beige perla (RAL 1035)
+  * Aluminio blanco (RAL 9006)
+  * Plata (similar a RAL 9007)
+  * Mica de hierro (DB 703)
+Elija el tono metálico adecuado para **vistas estéticas de acuerdo con sus ideas**.

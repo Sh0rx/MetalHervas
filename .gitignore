@@ -1,0 +1,14 @@
+# Entorno Python
+.venv/
+__pycache__/
+*.log
+
+# Datos pesados (originales, no se versionan)
+Proveedores/pdfs/
+recursos-multimedia/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+node_modules/

@@ -1,0 +1,497 @@
+[
+  {
+    "url": "https://www.gealan.de/es/productos",
+    "ok": true,
+    "title": "Productos",
+    "file": "es_productos.md",
+    "depth": 0,
+    "chars": 30596,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas",
+    "ok": true,
+    "title": "Sistemas",
+    "file": "es_sistemas.md",
+    "depth": 0,
+    "chars": 30555,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/s-8000",
+    "ok": true,
+    "title": "S 8000",
+    "file": "es_sistemas_s-8000.md",
+    "depth": 0,
+    "chars": 36576,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/s-9000",
+    "ok": true,
+    "title": "GEALAN S 9000 - sistema combinado innovador para ventanas y puertas",
+    "file": "es_sistemas_s-9000.md",
+    "depth": 0,
+    "chars": 39790,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/gealan-linear",
+    "ok": true,
+    "title": "Página de detalles del producto GEALAN-LINEAR®",
+    "file": "es_sistemas_gealan-linear.md",
+    "depth": 0,
+    "chars": 42028,
+    "pdfs": [
+      "https://www.gealan.de/getContentAsset/56a73eb0-8bde-4a27-82b0-ab48dab152dd/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/GEALAN-acrylcolor-Lieferklassen-Ansicht.pdf?language=en",
+      "https://www.gealan.de/getContentAsset/e93e268f-4920-420a-a440-07ed3c491cf0/3300e2ea-3bab-45bc-a62a-dc94db8eac24/GEALAN-LINEAR-B2C-E.pdf?language=es"
+    ]
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/s-7000",
+    "ok": true,
+    "title": "Ventanas",
+    "file": "es_sistemas_s-7000.md",
+    "depth": 0,
+    "chars": 34582,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/gealan-kontur",
+    "ok": true,
+    "title": "GEALAN-KONTUR®",
+    "file": "es_sistemas_gealan-kontur.md",
+    "depth": 0,
+    "chars": 40821,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/gealan-kubus",
+    "ok": true,
+    "title": "GEALAN-KUBUS®",
+    "file": "es_sistemas_gealan-kubus.md",
+    "depth": 0,
+    "chars": 39744,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/gealan-smoovio",
+    "ok": true,
+    "title": "GEALAN-SMOOVIO® - Sistema de deslizamiento que ahorra espacio",
+    "file": "es_sistemas_gealan-smoovio.md",
+    "depth": 0,
+    "chars": 37612,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/gealan-smoove-multislide",
+    "ok": true,
+    "title": "GEALAN-SMOOVE multislide",
+    "file": "es_sistemas_gealan-smoove-multislide.md",
+    "depth": 0,
+    "chars": 39769,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/sistemas/sistema-deslizante-74mm-alt",
+    "ok": true,
+    "title": "Sistema deslizante 74 mm",
+    "file": "es_productos_sistemas_sistema-deslizante-74mm-alt.md",
+    "depth": 0,
+    "chars": 37760,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/ventanas",
+    "ok": true,
+    "title": "Ventanas",
+    "file": "es_ventanas.md",
+    "depth": 0,
+    "chars": 34582,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/puertas-de-casa",
+    "ok": true,
+    "title": "Puertas de casa",
+    "file": "es_puertas-de-casa.md",
+    "depth": 0,
+    "chars": 37867,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/elementos-corredera",
+    "ok": true,
+    "title": "Elementos corredera",
+    "file": "es_elementos-corredera.md",
+    "depth": 0,
+    "chars": 35060,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas-de-ventilacion",
+    "ok": true,
+    "title": "GEALAN-CAIRE® flex | Ventilador pasivo de galce de ventana",
+    "file": "es_sistemas-de-ventilacion.md",
+    "depth": 0,
+    "chars": 35408,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/soluciones-de-umbral",
+    "ok": true,
+    "title": "Sistemas de umbral GEALAN para transiciones cómodas",
+    "file": "es_soluciones-de-umbral.md",
+    "depth": 0,
+    "chars": 38159,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/soluciones",
+    "ok": true,
+    "title": "Productos",
+    "file": "es_productos_soluciones.md",
+    "depth": 0,
+    "chars": 31288,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/tipos-de-productos",
+    "ok": true,
+    "title": "Tipos de productos",
+    "file": "es_productos_tipos-de-productos.md",
+    "depth": 0,
+    "chars": 31763,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/soluciones/barreras-sin-umbral",
+    "ok": true,
+    "title": "El umbral estándar de GEALAN",
+    "file": "es_productos_soluciones_barreras-sin-umbral.md",
+    "depth": 0,
+    "chars": 39035,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/gealan-comfort",
+    "ok": true,
+    "title": "Umbral premium GEALAN-COMFORT®",
+    "file": "es_productos_gealan-comfort.md",
+    "depth": 0,
+    "chars": 38599,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/balance",
+    "ok": true,
+    "title": "GEALAN gana de nuevo el oro en ARCHITECTS' DARLING® 2025",
+    "file": "es_productos_balance.md",
+    "depth": 0,
+    "chars": 1,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/gealan-caire",
+    "ok": true,
+    "title": "GEALAN-CAIRE® flex | Ventilador pasivo de galce de ventana",
+    "file": "es_productos_gealan-caire.md",
+    "depth": 0,
+    "chars": 35408,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/gealan-caire-smart",
+    "ok": true,
+    "title": "GEALAN-CAIRE® flex | Ventilador pasivo de galce de ventana",
+    "file": "es_productos_gealan-caire-smart.md",
+    "depth": 0,
+    "chars": 35408,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/gealan-caire-flex",
+    "ok": true,
+    "title": "GEALAN-CAIRE® flex | Ventilador pasivo de galce de ventana",
+    "file": "es_productos_gealan-caire-flex.md",
+    "depth": 0,
+    "chars": 35408,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/gealan-caire-aereco",
+    "ok": true,
+    "title": "GEALAN-CAIRE® flex | Ventilador pasivo de galce de ventana",
+    "file": "es_productos_gealan-caire-aereco.md",
+    "depth": 0,
+    "chars": 35408,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/window-and-door-technology",
+    "ok": true,
+    "title": "Tecnología de ventanas y puertas",
+    "file": "es_productos_window-and-door-technology.md",
+    "depth": 0,
+    "chars": 32117,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/window-and-door-technology/gealan-windowfit",
+    "ok": true,
+    "title": "Perfiles de conexión GEALAN-windowfit",
+    "file": "es_productos_window-and-door-technology_gealan-windowfit.md",
+    "depth": 0,
+    "chars": 42937,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/lo-mas-destacado-del-producto",
+    "ok": true,
+    "title": "Lo más destacado del producto GEALAN",
+    "file": "es_lo-mas-destacado-del-producto.md",
+    "depth": 0,
+    "chars": 35588,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/superficies",
+    "ok": true,
+    "title": "Superficies",
+    "file": "es_superficies.md",
+    "depth": 0,
+    "chars": 35490,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/superficies/produktdetail-seite-dekorfolien",
+    "ok": true,
+    "title": "Láminas decorativas",
+    "file": "es_superficies_produktdetail-seite-dekorfolien.md",
+    "depth": 0,
+    "chars": 40972,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/gealan-acrylcolor",
+    "ok": true,
+    "title": "Innovaciones GEALAN-acrylcolor®",
+    "file": "es_gealan-acrylcolor.md",
+    "depth": 0,
+    "chars": 42507,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/innovaciones/gealan-acrylcolor",
+    "ok": true,
+    "title": "GEALAN-acrylcolor®",
+    "file": "es_innovaciones_gealan-acrylcolor.md",
+    "depth": 0,
+    "chars": 42980,
+    "pdfs": [
+      "https://www.gealan.de/getContentAsset/b2d0eb50-7de8-4a36-9b5d-bdd814654202/3300e2ea-3bab-45bc-a62a-dc94db8eac24/Warum-GEALAN-acrylcolor_GB_small.pdf?language=en"
+    ]
+  },
+  {
+    "url": "https://www.gealan.de/es/gealan-acrylcolor-metallic",
+    "ok": true,
+    "title": "GEALAN-acrylcolor® Metálico",
+    "file": "es_gealan-acrylcolor-metallic.md",
+    "depth": 0,
+    "chars": 34348,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/gealan-acrylcolor-base-oscura",
+    "ok": true,
+    "title": "GEALAN-acrylcolor® Cuerpo base oscuro",
+    "file": "es_gealan-acrylcolor-base-oscura.md",
+    "depth": 0,
+    "chars": 37326,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/designed-for-you",
+    "ok": true,
+    "title": "Designed for you",
+    "file": "es_designed-for-you.md",
+    "depth": 0,
+    "chars": 41728,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/designed-for-you/realwood",
+    "ok": true,
+    "title": "Ventanas de PVC con un estética de madera",
+    "file": "es_designed-for-you_realwood.md",
+    "depth": 0,
+    "chars": 36707,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/innovaciones/aislamiento-termico-ikd",
+    "ok": true,
+    "title": "Innovaciones IKD®",
+    "file": "es_innovaciones_aislamiento-termico-ikd.md",
+    "depth": 0,
+    "chars": 36482,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/innovaciones/estatica-stv",
+    "ok": true,
+    "title": "Innovaciones STV®",
+    "file": "es_innovaciones_estatica-stv.md",
+    "depth": 0,
+    "chars": 35753,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/clientes-privados/ventanas-de-color",
+    "ok": true,
+    "title": "Superficies",
+    "file": "es_clientes-privados_ventanas-de-color.md",
+    "depth": 0,
+    "chars": 41173,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/mediateca/gealan-productos",
+    "ok": true,
+    "title": "Productos GEALAN en la mediateca",
+    "file": "es_mediateca_gealan-productos.md",
+    "depth": 0,
+    "chars": 39935,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/gealan-hafen-city",
+    "ok": true,
+    "title": "Aislamiento acústico",
+    "file": "es_productos_gealan-hafen-city.md",
+    "depth": 1,
+    "chars": 38547,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/[",
+    "ok": false,
+    "status": null
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/gealan-kontur-alt",
+    "ok": true,
+    "title": "GEALAN-KONTUR®",
+    "file": "es_sistemas_gealan-kontur-alt.md",
+    "depth": 1,
+    "chars": 40821,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/gealan-kubus-alt",
+    "ok": true,
+    "title": "GEALAN-KUBUS®",
+    "file": "es_sistemas_gealan-kubus-alt.md",
+    "depth": 1,
+    "chars": 39744,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/s-9000-alt",
+    "ok": true,
+    "title": "GEALAN S 9000 - sistema combinado innovador para ventanas y puertas",
+    "file": "es_sistemas_s-9000-alt.md",
+    "depth": 1,
+    "chars": 39790,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/s-8000-alt",
+    "ok": true,
+    "title": "GEALAN S 8000 | El sistema integral de ventanas de PVC",
+    "file": "es_sistemas_s-8000-alt.md",
+    "depth": 1,
+    "chars": 38072,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/~",
+    "ok": true,
+    "title": "500 - Error Interno del Servidor",
+    "file": "es_sistemas_.md",
+    "depth": 1,
+    "chars": 29742,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/sistemas/[",
+    "ok": false,
+    "status": null
+  },
+  {
+    "url": "https://www.gealan.de/es/sistemas/s-8000-iq",
+    "ok": true,
+    "title": "500 - Error Interno del Servidor",
+    "file": "es_sistemas_s-8000-iq.md",
+    "depth": 1,
+    "chars": 30094,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/[",
+    "ok": false,
+    "status": null
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/soluciones/[",
+    "ok": false,
+    "status": null
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/window-and-door-technology/[",
+    "ok": false,
+    "status": null
+  },
+  {
+    "url": "https://www.gealan.de/es/superficies/[",
+    "ok": false,
+    "status": null
+  },
+  {
+    "url": "https://www.gealan.de/es/innovaciones/[",
+    "ok": false,
+    "status": null
+  },
+  {
+    "url": "https://www.gealan.de/es/gealan-acrylcolor-dark-base",
+    "ok": true,
+    "title": "GEALAN-acrylcolor® Cuerpo base oscuro",
+    "file": "es_gealan-acrylcolor-dark-base.md",
+    "depth": 1,
+    "chars": 37326,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/designed-for-you/mocha-mousse",
+    "ok": true,
+    "title": "Pantone Color 2025 Mocha Mousse",
+    "file": "es_designed-for-you_mocha-mousse.md",
+    "depth": 1,
+    "chars": 38020,
+    "pdfs": []
+  },
+  {
+    "url": "https://www.gealan.de/es/designed-for-you/[",
+    "ok": false,
+    "status": null
+  },
+  {
+    "url": "https://www.gealan.de/es/productos/gealan-hafen-city-fenster",
+    "ok": true,
+    "title": "500 - Error Interno del Servidor",
+    "file": "es_productos_gealan-hafen-city-fenster.md",
+    "depth": 1,
+    "chars": 30843,
+    "pdfs": []
+  }
+]

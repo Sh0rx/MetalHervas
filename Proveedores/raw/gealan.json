@@ -1,0 +1,426 @@
+{
+ "proveedor": "GEALAN",
+ "web": "https://www.gealan.de/es/",
+ "alcance_nota": "S 8000 IQ, S 9000 IQ, Linear, Linear acrylcolor y gama de colores",
+ "aviso": "La web ya no usa el sufijo «IQ»: S 8000 IQ = S 8000 y S 9000 IQ = S 9000. Fichas técnicas completas en myGEALAN (acceso privado).",
+ "sistemas": [
+  {
+   "nombre": "S 8000",
+   "nombre_en_nota": "S 8000 IQ",
+   "trabaja_metalhervas": true,
+   "url": "https://www.gealan.de/es/sistemas/s-8000",
+   "descripcion": "Nuestro sistema económico y optimizado en materiales ofrece opciones versátiles para ventanas y puertas modernas. El S 8000 destaca por su amplia usabilidad, su alto índice de estabilidad y unos excelentes valores de aislamiento.",
+   "especificaciones": {
+    "Sistema de perfil": "S 8000",
+    "Profundidad de construcción del sistema": "74 mm",
+    "Versiones": "blanco Láminas decorativa BALANCE",
+    "Altura del solape": "Marco: 18/20 mm Hoja: 18/20 mm",
+    "Espesor máximo del vidrio": "hasta 48 mm (junta), hasta 50 mm (STV®)",
+    "Valor Uf": "hasta 1,2 W/(m2K)",
+    "Tipos": "Soluciones para ventanas Soluciones para puertas de entrada",
+    "Valores de rendimiento comprobados": "Prueba de estanqueidad al agua según DIN EN 12208: hasta clase 9A Prueba de permeabilidad al aire según DIN EN 12207: hasta clase 4 Prueba de carga de viento según DIN EN 12210: hasta clase C5/B5 Prueba de resistencia a impactos: hasta clase 4 Aislamiento acústico: 34 a 47 dB"
+   },
+   "variantes": {
+    "Ventanas": "",
+    "Puertas": "",
+    "Superficies": "El sistema S 8000 combina rendimiento y rentabilidad con exigencias estéticas. Para proyectos de construcción a medida se ofrecen dos tipos de soluciones de superficies. Además del clásico blanco , se dispone de numerosas láminas decorativas de alta calidad para adaptar las preferencias personales de color y diseño, logrando que las ventanas y puertas armonicen perfectamente con el edificio."
+   },
+   "documentos": []
+  },
+  {
+   "nombre": "S 9000",
+   "nombre_en_nota": "S 9000 IQ",
+   "trabaja_metalhervas": true,
+   "url": "https://www.gealan.de/es/sistemas/s-9000",
+   "descripcion": "Nuestro innovador sistema combinado ofrece múltiples opciones para ventanas modernas, puertas de entrada y soluciones correderas. La plataforma S 9000 destaca por su gran variedad de aplicaciones, sus excelentes prestaciones y un diseño actual.",
+   "especificaciones": {
+    "Sistema de perfiles": "S 9000",
+    "Profundidad del sistema": "82,5 mm",
+    "Versiones": "blanco GEALAN-acrylcolor® Laminados decorativos Carcasas de aluminio BALANCE",
+    "Altura del solape": "Marco: 26 mm Hoja: 18 mm + 26 mm",
+    "Espesor máximo del vidrio": "hasta 56 mm (sellado), hasta 58 mm (STV®)",
+    "Valor Uf": "hasta 0,89 W/(m2K)",
+    "Tipos de construcción": "Soluciones para ventanas Soluciones para puertas Puerta corredera elevable",
+    "Valores de prueba certificados": "Prueba de impermeabilidad según DIN EN 12208: hasta clase 9A Prueba de permeabilidad al aire según DIN EN 12207: hasta clase 4 Prueba de resistencia al viento según DIN EN 12210: hasta clase C5/B5 Prueba de resistencia a impactos según DIN EN 13049: hasta clase 2 Aislamiento acústico: 34 a 45 dB"
+   },
+   "variantes": {
+    "Ventana": "",
+    "Puertas de entrada": "",
+    "Puertas elevables correderas": "",
+    "GEALAN-FUTURA®": "",
+    "GEALAN-LUMAXX®": "",
+    "Superficies": ""
+   },
+   "documentos": []
+  },
+  {
+   "nombre": "GEALAN-LINEAR®",
+   "nombre_en_nota": "Linear (y Linear acrylcolor)",
+   "trabaja_metalhervas": true,
+   "url": "https://www.gealan.de/es/sistemas/gealan-linear",
+   "descripcion": "Nuestro versátil todoterreno ofrece innumerables posibilidades para ventanas modernas, puertas de entrada y puertas correderas. El sistema convence por su amplia usabilidad, excelentes valores de rendimiento y por su diseño moderno.",
+   "especificaciones": {
+    "Sistema de perfiles": "GEALAN-LINEAR®",
+    "Profundidad de construcción del sistema": "74 milímetros",
+    "Ejecuciones": "Blanco GEALAN-acrylcolor® Láminas decorativas Revestimiento de aluminio EQUILIBRAR",
+    "Altura de vuelco": "Cuadro: 26 mm Ala: 18 mm",
+    "Espesor máximo de vidrio": "hasta 48 mm (junta), hasta 50 mm (STV®)",
+    "ValorU f": "hasta 1,0 W/(m2K)",
+    "Tipos": "Soluciones de ventanas Soluciones para puertas de entrada Soluciones deslizantes",
+    "Valores de rendimiento probados": "Pruebas de estanqueidad a la lluvia en carretera según DIN EN 12208: hasta la clase 9A Ensayo de permeabilidad al aire según DIN EN 12207: hasta clase 4 Pruebas de carga de viento según DIN EN 12210: hasta la clase C5/B5 Prueba de resistencia a los golpes: hasta clase 3 Aislamiento acústico: 34 a 47 dB"
+   },
+   "variantes": {
+    "Ventanas": "",
+    "Puertas": "",
+    "Soluciones deslizantes": "",
+    "GEALAN-LUMAXX®": "",
+    "Hoja de ventana enrasada": "",
+    "Superficies": "",
+    "Marco de ventana empotrado": ""
+   },
+   "documentos": [
+    {
+     "tipo": "folleto",
+     "url": "https://www.gealan.de/getContentAsset/56a73eb0-8bde-4a27-82b0-ab48dab152dd/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/GEALAN-acrylcolor-Lieferklassen-Ansicht.pdf?language=en"
+    },
+    {
+     "tipo": "folleto",
+     "url": "https://www.gealan.de/getContentAsset/e93e268f-4920-420a-a440-07ed3c491cf0/3300e2ea-3bab-45bc-a62a-dc94db8eac24/GEALAN-LINEAR-B2C-E.pdf?language=es"
+    }
+   ]
+  },
+  {
+   "nombre": "GEALAN-KONTUR®",
+   "nombre_en_nota": null,
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/sistemas/gealan-kontur",
+   "descripcion": "Nuestro sistema premium con opción de aluminio ofrece muchas posibilidades para ventanas y puertas modernas. El sistema destaca por su fabricación automatizable, unas excelentes prestaciones y máxima diversidad de diseño.",
+   "especificaciones": {
+    "Sistema de perfiles": "GEALAN-KONTUR®",
+    "Profundidad de construcción": "82,5 mm",
+    "Versiones": "blanco GEALAN-acrylcolor® Láminas decorativas cubiertas de aluminio BALANCE",
+    "Altura del solape": "Marco: 26 mm Hoja: 26 mm",
+    "Espesor máximo del vidrio": "hasta 56 mm (con juntas), hasta 58 mm (STV®)",
+    "Valor Uf": "hasta 0,97 W/(m2K)",
+    "Tipos de construcción": "Soluciones de ventanas Soluciones para puertas de entrada",
+    "Valores de rendimiento comprobados": "Prueba de estanqueidad a lluvia según DIN EN 12208: hasta clase 9A Prueba de permeabilidad al aire según DIN EN 12207: hasta clase 4 Prueba resistencia a carga de viento según DIN EN 12210: hasta clase C5/B5 Prueba de resistencia a impactos: hasta clase 3 Reducción acústica: 36 a 49 dB"
+   },
+   "variantes": {
+    "Ventana": "",
+    "Puertas": "",
+    "Protección antiintrusión": "",
+    "Superficies": "",
+    "Carcasas de aluminio": ""
+   },
+   "documentos": []
+  },
+  {
+   "nombre": "GEALAN-KUBUS®",
+   "nombre_en_nota": null,
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/sistemas/gealan-kubus",
+   "descripcion": "Nuestro sistema de ventanas de vidrio completo orientado al diseño ofrece múltiples posibilidades para ventanas y puertas modernas. Destaca por: Alto porcentaje de vidrio. Excelentes valores de rendimiento. Estética actual.",
+   "especificaciones": {
+    "Sistema de perfiles": "GEALAN-KUBUS®",
+    "Profundidad de construcción": "82,5 mm",
+    "Versiones": "blanco GEALAN-acrylcolor® Láminas decorativas",
+    "Altura de solape": "Marco: 26 mm Hoja: 18 mm",
+    "Espesor máximo de vidrio": "hasta 48 mm",
+    "Valor Uf": "hasta 0,88 W/(m2K)",
+    "Tipos de construcción": "Soluciones para ventanas Soluciones para puertas de entrada Soluciones correderas",
+    "Valores de rendimiento certificados": "Estanqueidad a lluvia bajo presión según DIN EN 12208: hasta clase 9A Permeabilidad al aire según DIN EN 12207: hasta clase 4 Resistencia a carga de viento según DIN EN 12210: hasta clase C5/B5 Resistencia a impactos: hasta clase 2 Aislamiento acústico: de 34 a 45 dB"
+   },
+   "variantes": {
+    "Ventanas": "",
+    "Puertas": "",
+    "Adecuación Passivhaus": "",
+    "Máxima libertad de diseño": "",
+    "Acabados": ""
+   },
+   "documentos": []
+  },
+  {
+   "nombre": "GEALAN-SMOOVE multislide",
+   "nombre_en_nota": null,
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/sistemas/gealan-smoove-multislide",
+   "descripcion": "Nuestro versátil diseño ofrece numerosas variantes de ventanas y puertas correderas de alta calidad. El sistema destaca por su diseño flexible, una gran funcionalidad y su estética moderna.",
+   "especificaciones": {
+    "Sistema de perfiles": "GEALAN-SMOOVE multislide",
+    "Profundidad del sistema": "74 mm",
+    "Versiones": "blanco GEALAN-acrylcolor® Láminas decorativas",
+    "Altura de solape": "Marco: 22,5 mm Hoja: 18 mm",
+    "Tipos constructivos": "Soluciones correderas"
+   },
+   "variantes": {
+    "Ventana corredera": "",
+    "Puertas correderas": "",
+    "Solución con umbral": "",
+    "Monostulp": "",
+    "Acabados": ""
+   },
+   "documentos": []
+  },
+  {
+   "nombre": "Corredera 74 mm",
+   "nombre_en_nota": null,
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/productos/sistemas/sistema-deslizante-74mm-alt",
+   "descripcion": "Nuestro versátil todoterreno ofrece muchas posibilidades para ventanas correderas y puertas correderas de alta calidad. El sistema convence con su profundidad de instalación más estrecha, sus grandes superficies de vidrio y un manejo muy cómodo.",
+   "especificaciones": {
+    "Sistema de perfiles": "Solución deslizante 74 mm",
+    "Profundidad de construcción del sistema": "Hoja 48 mm / Marco 74 mm",
+    "Ejecuciones": "blanco, lámina decorativa",
+    "Altura de vuelco": "Marco: 22,5 mm / hoja 20 mm",
+    "Espesor máximo del vidrio": "hasta 28 mm",
+    "Valor U f": "De 2,1 a 2,3 W / (m2K)",
+    "Tamaños máximos de elementos": "Dimensiones del bastidor exterior: hasta 3500 mm x 2500 mm para 2 pistas hasta 6000 mm x 2500 mm para 3 pistas Pesos máximos de la hoja: hasta 120 kg"
+   },
+   "variantes": {
+    "Hojas de corredera": "El perfil marco para ventanas correderas tiene un ancho de cara estrecho de 74 mm y la hoja solo 48 mm. La hoja se puede utilizar junto con nuestro sistema de junquillos de acristalamiento de 18 mm de altura.",
+    "Correderas": "El perfil de hoja para la puerta corredera ofrece un ancho de cara estrecho de 89 mm. La hoja se puede utilizar junto con nuestro sistema de cordones de acristalamiento de 18 mm. El ala permite el uso de refuerzos de acero con un Ix de hasta 4,0 cm4.",
+    "Aplicación versátil": "Para la solución de corredera de 74 mm, se puede elegir entre diferentes tipos de apertura A, C, D, F y K, que se pueden implementar con los marcos y accesorios.",
+    "Profundidad de instalación estrecha": "La solución corredera se puede combinar con numerosos perfiles accesorios de nuestros sistemas de 74 mm.",
+    "Umbral plano": "La traviesa de doble vuelo tiene una altura de 20 mm, la traviesa de tres tramos una altura de 27,5 mm.",
+    "Grandes elementos gracias a STV®": "La tecnología de pegado STV® permite la fabricación ágil de ventanas de gran formato sin inversiones adicionales."
+   },
+   "documentos": []
+  },
+  {
+   "nombre": "GEALAN-SMOOVIO®",
+   "nombre_en_nota": null,
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/sistemas/gealan-smoovio",
+   "descripcion": "Espacio habitable es valioso y por ello hay que utilizarlo óptimamente. GEALAN-SMOOVIO® combina por primera vez la necesidad de poco espacio de la corredera con una estanqueidad extraordinaria. La interacción de nuevas piezas de herraje desarrolladas, geometría de perfiles innovadora y juntas optimizadas lo hacen posible.",
+   "especificaciones": {},
+   "variantes": {},
+   "documentos": []
+  }
+ ],
+ "colores": {
+  "trabaja_metalhervas": true,
+  "acrylcolor": {
+   "url": "https://www.gealan.de/es/innovaciones/gealan-acrylcolor",
+   "descripcion": "Capa de PMMA coextruida sobre el PVC: no se pela, resiste arañazos y luz; acabado mate sedoso. Disponible en KUBUS, LINEAR, KONTUR y S 9000 (paleta según sistema).",
+   "estandar": [
+    "RAL 7015 gris pizarra",
+    "RAL 7016 gris antracita",
+    "RAL 7022 gris umbra",
+    "RAL 7039 gris cuarzo",
+    "RAL 7040 gris ventana",
+    "RAL 8014 marrón sepia",
+    "RAL 9005 negro profundo",
+    "DB 703",
+    "Plata (similar a RAL 9007)"
+   ],
+   "ampliada": [
+    "RAL 8022 pardo negruzco",
+    "RAL 9006 aluminio blanco",
+    "Bronce",
+    "RAL 1019 beige agrisado",
+    "RAL 1035 beige perlado",
+    "RAL 7006 gris beige",
+    "RAL 7021 gris negruzco",
+    "RAL 7038 gris ágata",
+    "RAL 9016 blanco tráfico"
+   ],
+   "bajo_pedido": [
+    "RAL 8023",
+    "RAL 9001",
+    "RAL 9002",
+    "RAL 9010",
+    "RAL 8000",
+    "RAL 8001",
+    "RAL 8003",
+    "RAL 8011",
+    "RAL 8012",
+    "RAL 8017",
+    "RAL 7032",
+    "RAL 7033",
+    "RAL 7035",
+    "RAL 7036",
+    "RAL 7037",
+    "RAL 7043",
+    "RAL 7012",
+    "RAL 7013",
+    "RAL 7023",
+    "RAL 7024",
+    "RAL 7030",
+    "RAL 7031",
+    "RAL 7000",
+    "RAL 7001",
+    "RAL 7003",
+    "RAL 7004",
+    "RAL 7010",
+    "RAL 7011",
+    "RAL 5011",
+    "RAL 5014",
+    "RAL 6005",
+    "RAL 6009",
+    "RAL 6015",
+    "RAL 6021",
+    "RAL 1015",
+    "RAL 3004",
+    "RAL 3011",
+    "RAL 5002",
+    "RAL 5005",
+    "RAL 5007",
+    "RAL 1001",
+    "RAL 1013",
+    "RAL 1014",
+    "Oro"
+   ],
+   "metalicos": {
+    "url": "https://www.gealan.de/es/gealan-acrylcolor-metallic",
+    "colores": [
+     "Bronce",
+     "Oro",
+     "Beige perla RAL 1035",
+     "Aluminio blanco RAL 9006",
+     "Plata (≈ RAL 9007)",
+     "Mica de hierro DB 703"
+    ]
+   },
+   "base_oscura": {
+    "url": "https://www.gealan.de/es/gealan-acrylcolor-base-oscura",
+    "exterior": [
+     "RAL 7016",
+     "RAL 9005",
+     "DB 703"
+    ],
+    "interior": [
+     "Antracita liso RAL 7016",
+     "Antracita mate RAL 7016",
+     "Antracita graneado RAL 7016",
+     "Antracita RealWood RAL 7016",
+     "Negro Ulti-Matt",
+     "Alux DB703"
+    ]
+   },
+   "documentos": [
+    {
+     "tipo": "folleto",
+     "url": "https://www.gealan.de/getContentAsset/b2d0eb50-7de8-4a36-9b5d-bdd814654202/3300e2ea-3bab-45bc-a62a-dc94db8eac24/Warum-GEALAN-acrylcolor_GB_small.pdf?language=en"
+    }
+   ]
+  },
+  "laminas_decorativas": {
+   "url": "https://www.gealan.de/es/superficies/produktdetail-seite-dekorfolien",
+   "estandar": [
+    "Roble dorado",
+    "Nogal",
+    "Caoba",
+    "RAL 7001 gris plata",
+    "RAL 7039 gris cuarzo",
+    "RAL 7012 gris basalto",
+    "RAL 7016 liso gris antracita",
+    "Marrón chocolate"
+   ],
+   "madera": [
+    "Roble Sheffield claro",
+    "AnTEAK",
+    "Oregón",
+    "Abeto Douglas veteado",
+    "Nuez",
+    "Meranti",
+    "Roble rústico",
+    "Roble oscuro",
+    "Roble negro",
+    "Roble claro",
+    "Pino negro",
+    "Winchester XA"
+   ],
+   "realwood": [
+    "Woodec Sheffield Oak concrete",
+    "Weissbach Oak",
+    "Woodec Turner Oak toffee",
+    "Woodec Turner Oak malt",
+    "Ginger Oak",
+    "Honey Oak",
+    "RealWood RAL 9010",
+    "RealWood RAL 7016"
+   ],
+   "lisas": [
+    "RAL 9003 blanco brillante",
+    "RAL 9010 blanco puro",
+    "RAL 9001 blanco crema",
+    "RAL 7035 gris luminoso",
+    "RAL 7023 gris hormigón",
+    "RAL 5011 azul acero",
+    "RAL 8022 pardo negruzco",
+    "RAL 3011 rojo pardo",
+    "RAL 3005 rojo vino",
+    "RAL 6005 verde musgo",
+    "RAL 6009 verde abeto",
+    "Verde monumento"
+   ],
+   "mate": [
+    "RAL 7012 gris basalto liso",
+    "RAL 7016 antracita mate",
+    "RAL 7021 gris negro liso",
+    "RAL 9010 blanco puro mate",
+    "RAL 9001 blanco crema mate",
+    "RAL 7039 Smooth Quartz Grey",
+    "RAL 7022 gris umbra mate"
+   ],
+   "metalicas": [
+    "DB 703",
+    "Bronce",
+    "Cepillado metálico latón",
+    "Cepillado metálico plata"
+   ]
+  },
+  "revestimiento_aluminio": "Carcasas exteriores de aluminio en todos los sistemas y cualquier color RAL"
+ },
+ "complementos": [
+  {
+   "nombre": "Umbral estándar",
+   "tipo": "Umbral",
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/productos/soluciones/barreras-sin-umbral",
+   "descripcion": "El probado umbral estándar ha sido una adición crucial a la gama de productos de GEALAN durante años. Esta variante con una altura total reducida de solo 20 mm se puede utilizar de forma flexible en todos los sistemas de 74 mm y 82,5 mm. Esto hace que el umbral estándar sea igualmente adecuado para las medidas de renovación y la instalación en edificios nuevos. Allí, como umbral de puerta de entrada o puerta de balcón, permite una fácil transición del interior al exterior. Además, en base a las propiedades de los materiales utilizados, se garantiza un grado muy alto de aislamiento térmico y estanqueidad."
+  },
+  {
+   "nombre": "GEALAN-COMFORT®",
+   "tipo": "Umbral",
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/productos/gealan-comfort",
+   "descripcion": "GEALAN-COMFORT® es un sistema de umbrales con propiedades absolutamente premium. Estéticamente impresiona por su suelo enrasado sin transición reconocible. El umbral es apto para todas las variantes de marco de la plataforma del sistema S 9000 (con junta de tope o junta central) y puede ser implementado fácilmente por fabricantes que hayan instalado previamente el umbral estándar GEALAN. El resultado es una solución de producto de la máxima calidad que permite transiciones suaves y sin barreras del interior al exterior."
+  },
+  {
+   "nombre": "GEALAN-CAIRE® flex",
+   "tipo": "Ventilación",
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/sistemas-de-ventilacion",
+   "descripcion": "El sistema de ventilación pasiva GEALAN-CAIRE® flex se basa en la compensación de la presión entre el aire interior y exterior y puede instalarse de forma compacta y discreta en el galce de la ventana. Si hay una diferencia de presión, el ventilador de galce de ventana facilita un flujo de aire compensatorio, ya sea hacia adentro o hacia afuera. En caso de vientos fuertes, se cierran las válvulas de aire para que no se produzcan corrientes en las estancias. El sistema de ventilación pasiva es sencillo pero efectivo, fiable y rentable. Garantiza una ventilación básica permanente, previene el moho y funciona de forma independiente."
+  },
+  {
+   "nombre": "GEALAN-windowfit",
+   "tipo": "Montaje",
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/productos/window-and-door-technology/gealan-windowfit",
+   "descripcion": "Con GEALAN-windowfit obtendrá los probados perfiles de conexión y accesorios de la marca Blaugelb von Meesenburg de GEALAN. GEALAN-windowfit ofrece un sistema de perfiles de conexión completamente probado con las mejores propiedades de aislamiento térmico y la máxima protección contra la humedad. La amplia gama incluye perfiles aislantes de zócalo para elementos de suelo a techo y extensiones de marco de plástico técnico con capa superior de PVC, así como perfiles de espacio libre para puertas correderas elevables y perfiles de conexión de banco de EPS de alta densidad."
+  },
+  {
+   "nombre": "Hafen-City-Fenster®",
+   "tipo": "Acústica",
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/productos/gealan-hafen-city",
+   "descripcion": "La ventana GEALAN Hafen-City-Fenster® alcanza un valor de aislamiento acústico de hasta 63 dB en estado cerrado, mejorando así los valores de aislamiento acústico en comparación con las ventanas clásicas con cristal insonorizante, que pueden tener valores de hasta 48 dB."
+  },
+  {
+   "nombre": "STV®",
+   "tipo": "Tecnología",
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/innovaciones/estatica-stv",
+   "descripcion": "La tecnología de pegado única de GEALAN permite la producción fluida de elementos para ventanas de gran tamaño."
+  },
+  {
+   "nombre": "IKD®",
+   "tipo": "Tecnología",
+   "trabaja_metalhervas": false,
+   "url": "https://www.gealan.de/es/innovaciones/aislamiento-termico-ikd",
+   "descripcion": "En tiempos de subida de los precios de las materias primas y la energía, las ventanas modernas ayudan a reducir notablemente los costes de calefacción. Esto significa que los propietarios de edificios y los renovadores pueden esperar con tranquilidad nuevos aumentos de los precios del gasóleo o el gas para calefacción. Porque el aislamiento intensivo del núcleo IKD® es un paso decisivo para optimizar las propiedades de aislamiento térmico de las ventanas. Esto significa que ya hoy puede cumplir los requisitos estatales de aislamiento térmico del mañana."
+  }
+ ]
+}

@@ -1,0 +1,1023 @@
+[
+  {
+    "url": "https://aluval.es/productos",
+    "ok": true,
+    "title": "Productos | ALUVAL",
+    "file": "productos.md",
+    "depth": 0,
+    "chars": 6317,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/catalogo-general.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/acabados-y-colores",
+    "ok": true,
+    "title": "Muestras de acabados y colores | ALUVAL",
+    "file": "acabados-y-colores.md",
+    "depth": 0,
+    "chars": 9325,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/particulares",
+    "ok": true,
+    "title": "Particulares | ALUVAL",
+    "file": "particulares.md",
+    "depth": 0,
+    "chars": 5258,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/arquitectura-y-contract",
+    "ok": true,
+    "title": "Arquitectura & Contract | ALUVAL",
+    "file": "arquitectura-y-contract.md",
+    "depth": 0,
+    "chars": 14672,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/es/productos",
+    "ok": true,
+    "title": "Productos | ALUVAL",
+    "file": "es_productos.md",
+    "depth": 1,
+    "chars": 6317,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/catalogo-general.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables",
+    "ok": true,
+    "title": "Series Practicables | ALUVAL",
+    "file": "productos_series-practicables.md",
+    "depth": 1,
+    "chars": 5405,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas",
+    "ok": true,
+    "title": "Series Correderas – Elevables | ALUVAL",
+    "file": "productos_series-correderas.md",
+    "depth": 1,
+    "chars": 6348,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-europeo",
+    "ok": true,
+    "title": "Series Practicables RPT Canal Europeo | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-europeo.md",
+    "depth": 1,
+    "chars": 6782,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-16",
+    "ok": true,
+    "title": "Series Practicables RPT Canal 16 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-16.md",
+    "depth": 1,
+    "chars": 6542,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas-rpt",
+    "ok": true,
+    "title": "Series Correderas - Elevables RPT | ALUVAL",
+    "file": "productos_series-correderas-rpt.md",
+    "depth": 1,
+    "chars": 5948,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/fachadas-ligeras",
+    "ok": true,
+    "title": "Fachadas Ligeras | ALUVAL",
+    "file": "productos_fachadas-ligeras.md",
+    "depth": 1,
+    "chars": 4986,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/series-mallorquinas",
+    "ok": true,
+    "title": "Series Mallorquinas  | ALUVAL",
+    "file": "productos_series-mallorquinas.md",
+    "depth": 1,
+    "chars": 5487,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-de-barandillas",
+    "ok": true,
+    "title": "Sistemas de Barandillas | ALUVAL",
+    "file": "productos_sistemas-de-barandillas.md",
+    "depth": 1,
+    "chars": 5763,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/proteccion-solar-y-cerramientos-exteriores",
+    "ok": true,
+    "title": "Protección solar y cerramientos exteriores | ALUVAL",
+    "file": "productos_proteccion-solar-y-cerramientos-exteriores.md",
+    "depth": 1,
+    "chars": 6138,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad",
+    "ok": true,
+    "title": "Guías y Lamas de seguridad | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad.md",
+    "depth": 1,
+    "chars": 7083,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras",
+    "ok": true,
+    "title": "Mosquiteras | ALUVAL",
+    "file": "productos_mosquiteras.md",
+    "depth": 1,
+    "chars": 6710,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-tradicionales",
+    "ok": true,
+    "title": "Sistemas Tradicionales  | ALUVAL",
+    "file": "productos_sistemas-tradicionales.md",
+    "depth": 1,
+    "chars": 5899,
+    "pdfs": []
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables/aluprom-22",
+    "ok": true,
+    "title": "ALUPROM 22 | ALUVAL",
+    "file": "productos_series-practicables_aluprom-22.md",
+    "depth": 2,
+    "chars": 14324,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 22 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Abatibles.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas22(22).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables/aluprom-28",
+    "ok": true,
+    "title": "ALUPROM 28 | ALUVAL",
+    "file": "productos_series-practicables_aluprom-28.md",
+    "depth": 2,
+    "chars": 19000,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 28 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Abatibles.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas28(28).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables/serie-40x20",
+    "ok": true,
+    "title": "SERIE 40x20  | ALUVAL",
+    "file": "productos_series-practicables_serie-40x20.md",
+    "depth": 2,
+    "chars": 11021,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 4020 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Abatibles.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas/aluprom-14",
+    "ok": true,
+    "title": "ALUPROM 14 | ALUVAL",
+    "file": "productos_series-correderas_aluprom-14.md",
+    "depth": 2,
+    "chars": 11728,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 14 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Correderas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 14(14).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas/aluprom-15",
+    "ok": true,
+    "title": "ALUPROM 15  | ALUVAL",
+    "file": "productos_series-correderas_aluprom-15.md",
+    "depth": 2,
+    "chars": 13951,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 15 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Correderas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 15(15).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas/aluprom-18",
+    "ok": true,
+    "title": "ALUPROM 18  | ALUVAL",
+    "file": "productos_series-correderas_aluprom-18.md",
+    "depth": 2,
+    "chars": 13175,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 18 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Correderas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 18(18).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas/aluprom-21",
+    "ok": true,
+    "title": "ALUPROM 21  | ALUVAL",
+    "file": "productos_series-correderas_aluprom-21.md",
+    "depth": 2,
+    "chars": 22842,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 21 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Correderas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 21(21).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas/aluprom-24",
+    "ok": true,
+    "title": "ALUPROM 24  | ALUVAL",
+    "file": "productos_series-correderas_aluprom-24.md",
+    "depth": 2,
+    "chars": 17904,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 24 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Correderas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 24(24).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas/aluprom-30",
+    "ok": true,
+    "title": "ALUPROM 30 | ALUVAL",
+    "file": "productos_series-correderas_aluprom-30.md",
+    "depth": 2,
+    "chars": 11172,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 30 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Correderas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 30(30).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas/aluprom-40",
+    "ok": true,
+    "title": "ALUPROM 40  | ALUVAL",
+    "file": "productos_series-correderas_aluprom-40.md",
+    "depth": 2,
+    "chars": 11044,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 40 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo Series Correderas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 40(40).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-europeo/aluprom-25",
+    "ok": true,
+    "title": "ALUPROM 25  | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-europeo_aluprom-25.md",
+    "depth": 2,
+    "chars": 20062,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 25 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT CE.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 25(525).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-europeo/aluprom-34",
+    "ok": true,
+    "title": "ALUPROM 34 HO | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-europeo_aluprom-34.md",
+    "depth": 2,
+    "chars": 21271,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 34 HO Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT CE.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 34(534).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-europeo/aluprom-35-ho",
+    "ok": true,
+    "title": "ALUPROM 35 HO | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-europeo_aluprom-35-ho.md",
+    "depth": 2,
+    "chars": 20689,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 35 HO Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT CE.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 35(535).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-europeo/aluprom-36",
+    "ok": true,
+    "title": "ALUPROM 36  | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-europeo_aluprom-36.md",
+    "depth": 2,
+    "chars": 22735,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 36 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT CE.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 36(536).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-europeo/aluprom-38",
+    "ok": true,
+    "title": "ALUPROM 38  | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-europeo_aluprom-38.md",
+    "depth": 2,
+    "chars": 24071,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 38 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT CE.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 38(38).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-europeo/aluprom-43",
+    "ok": true,
+    "title": "ALUPROM 43 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-europeo_aluprom-43.md",
+    "depth": 2,
+    "chars": 7006,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 43 HO Catálogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT CE.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas43(543).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-europeo/aluprom-44",
+    "ok": true,
+    "title": "ALUPROM 44 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-europeo_aluprom-44.md",
+    "depth": 2,
+    "chars": 24404,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 44 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT CE.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 44(544).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-europeo/aluprom-46",
+    "ok": true,
+    "title": "ALUPROM 46 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-europeo_aluprom-46.md",
+    "depth": 2,
+    "chars": 23881,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 46 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT CE.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 46(546).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-25c16",
+    "ok": true,
+    "title": "ALUPROM 25 C16 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-16_aluprom-25c16.md",
+    "depth": 2,
+    "chars": 19123,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 25 C16 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT C16.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 25(10011).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-34hoc16",
+    "ok": true,
+    "title": "ALUPROM 34 HO C16 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-16_aluprom-34hoc16.md",
+    "depth": 2,
+    "chars": 21503,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 34 C16 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT C16.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 34(10010).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-35hoc16",
+    "ok": true,
+    "title": "ALUPROM 35 HO C16 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-16_aluprom-35hoc16.md",
+    "depth": 2,
+    "chars": 21138,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 35 HO C16 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT C16.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 35(10009).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-36c16",
+    "ok": true,
+    "title": "ALUPROM 36 C16 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-16_aluprom-36c16.md",
+    "depth": 2,
+    "chars": 21089,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 36 C16 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT C16.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 36(10008).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-38-c16",
+    "ok": true,
+    "title": "ALUPROM 38 C16 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-16_aluprom-38-c16.md",
+    "depth": 2,
+    "chars": 22997,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 38 C16 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT C16.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 38(38999).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-44c16",
+    "ok": true,
+    "title": "ALUPROM 44 C16 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-16_aluprom-44c16.md",
+    "depth": 2,
+    "chars": 24696,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 44 C16 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT C16.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 44(10005).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-practicables-rpt-canal-16/aluprom-46-c16",
+    "ok": true,
+    "title": "ALUPROM 46 C16 | ALUVAL",
+    "file": "productos_series-practicables-rpt-canal-16_aluprom-46-c16.md",
+    "depth": 2,
+    "chars": 22907,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 46 C16 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Practicables RPT C16.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 46(10004).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas-rpt/aluprom-17",
+    "ok": true,
+    "title": "ALUPROM 17 | ALUVAL",
+    "file": "productos_series-correderas-rpt_aluprom-17.md",
+    "depth": 2,
+    "chars": 19417,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 17 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Correderas - Elevables RPT.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 17(10017).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas-rpt/aluprom-20",
+    "ok": true,
+    "title": "ALUPROM 20 | ALUVAL",
+    "file": "productos_series-correderas-rpt_aluprom-20.md",
+    "depth": 2,
+    "chars": 7616,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 20 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Correderas - Elevables RPT.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas20(20).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas-rpt/aluprom-31",
+    "ok": true,
+    "title": "ALUPROM 31 | ALUVAL",
+    "file": "productos_series-correderas-rpt_aluprom-31.md",
+    "depth": 2,
+    "chars": 17638,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 31 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Correderas - Elevables RPT.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 31(31).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas-rpt/aluprom-41",
+    "ok": true,
+    "title": "ALUPROM 41 | ALUVAL",
+    "file": "productos_series-correderas-rpt_aluprom-41.md",
+    "depth": 2,
+    "chars": 19925,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 41 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Correderas - Elevables RPT.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 41(10015).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-correderas-rpt/aluprom-42",
+    "ok": true,
+    "title": "ALUPROM 42 | ALUVAL",
+    "file": "productos_series-correderas-rpt_aluprom-42.md",
+    "depth": 2,
+    "chars": 17898,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 42 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Series Correderas - Elevables RPT.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 42(10014).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/fachadas-ligeras/aluprom-54",
+    "ok": true,
+    "title": "ALUPROM 54 | ALUVAL",
+    "file": "productos_fachadas-ligeras_aluprom-54.md",
+    "depth": 2,
+    "chars": 8536,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 54 Catalogo(3504).pdf",
+      "https://aluval.es/files/pdf/category/Aluprom 54 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicast_54(54).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-mallorquinas/sistemas-aluval",
+    "ok": true,
+    "title": "SISTEMAS ALUVAL  | ALUVAL",
+    "file": "productos_series-mallorquinas_sistemas-aluval.md",
+    "depth": 2,
+    "chars": 7275,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Series Mallorquinas.pdf",
+      "https://aluval.es/files/pdf/category/Sistemas Aluval.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-mallorquinas/mallorquina-4020",
+    "ok": true,
+    "title": "MALLORQUINA 4020 | ALUVAL",
+    "file": "productos_series-mallorquinas_mallorquina-4020.md",
+    "depth": 2,
+    "chars": 8534,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mallorquina 4020.pdf",
+      "https://aluval.es/files/pdf/category/Series Mallorquinas.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/series-mallorquinas/mallorquina-estandar",
+    "ok": true,
+    "title": "MALLORQUINA ESTÁNDAR | ALUVAL",
+    "file": "productos_series-mallorquinas_mallorquina-estandar.md",
+    "depth": 2,
+    "chars": 11488,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mallorquina Estándar.pdf",
+      "https://aluval.es/files/pdf/category/Series Mallorquinas.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-de-barandillas/barandilla-tradicional",
+    "ok": true,
+    "title": "BARANDILLA TRADICIONAL  | ALUVAL",
+    "file": "productos_sistemas-de-barandillas_barandilla-tradicional.md",
+    "depth": 2,
+    "chars": 7392,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Barandilla tradicional catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Sistemas de Barandillas.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-de-barandillas/aluprom-50",
+    "ok": true,
+    "title": "ALUPROM 50 | ALUVAL",
+    "file": "productos_sistemas-de-barandillas_aluprom-50.md",
+    "depth": 2,
+    "chars": 8794,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Aluprom 50 Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Sistemas de Barandillas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas 50(55).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-de-barandillas/class-vision",
+    "ok": true,
+    "title": "CLASS VISION | ALUVAL",
+    "file": "productos_sistemas-de-barandillas_class-vision.md",
+    "depth": 2,
+    "chars": 7507,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Class Visión Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Sistemas de Barandillas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas CLASS_VISON(4000).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-de-barandillas/class-juliet",
+    "ok": true,
+    "title": "CLASS JULIET | ALUVAL",
+    "file": "productos_sistemas-de-barandillas_class-juliet.md",
+    "depth": 2,
+    "chars": 6342,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Class Juliet Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Sistemas de Barandillas.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas CLASS_JULIET(5000).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/proteccion-solar-y-cerramientos-exteriores/jalousie",
+    "ok": true,
+    "title": "JALOUSIE | ALUVAL",
+    "file": "productos_proteccion-solar-y-cerramientos-exteriores_jalousie.md",
+    "depth": 2,
+    "chars": 11896,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Jalousie Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Protección Solar y Cerramientos Exteriores.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas JALOUSIE(61).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/proteccion-solar-y-cerramientos-exteriores/techo-movil",
+    "ok": true,
+    "title": "TECHO MÓVIL | ALUVAL",
+    "file": "productos_proteccion-solar-y-cerramientos-exteriores_techo-movil.md",
+    "depth": 2,
+    "chars": 9087,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Protección Solar y Cerramientos Exteriores.pdf",
+      "https://aluval.es/files/pdf/category/Techo móvil Catalogo.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/proteccion-solar-y-cerramientos-exteriores/celosias-fijas-clipadas",
+    "ok": true,
+    "title": "CELOSÍAS FIJAS CLIPADAS | ALUVAL",
+    "file": "productos_proteccion-solar-y-cerramientos-exteriores_celosias-fijas-clipadas.md",
+    "depth": 2,
+    "chars": 7986,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Celosías fijas clipadas Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Protección Solar y Cerramientos Exteriores.pdf",
+      "https://aluval.es/files/pdf/category/aluval_fichas_tecnicas CELOSIAS FIJAS CLIPADAS(5101).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/proteccion-solar-y-cerramientos-exteriores/celosias",
+    "ok": true,
+    "title": "CELOSÍAS | ALUVAL",
+    "file": "productos_proteccion-solar-y-cerramientos-exteriores_celosias.md",
+    "depth": 2,
+    "chars": 8721,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Celosías Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Protección Solar y Cerramientos Exteriores.pdf",
+      "https://aluval.es/files/pdf/category/aluval_ficha_tecnica_lama_ovalada(5102).pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/proteccion-solar-y-cerramientos-exteriores/divisoria-y-100",
+    "ok": true,
+    "title": "DIVISORIA Y 100 | ALUVAL",
+    "file": "productos_proteccion-solar-y-cerramientos-exteriores_divisoria-y-100.md",
+    "depth": 2,
+    "chars": 8094,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Protección Solar y Cerramientos Exteriores.pdf",
+      "https://aluval.es/files/pdf/category/Techo móvil Catalogo.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/ps-30",
+    "ok": true,
+    "title": "PS-30 | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_ps-30.md",
+    "depth": 2,
+    "chars": 6804,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo específico de guías.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/ps-78",
+    "ok": true,
+    "title": "PS-78 | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_ps-78.md",
+    "depth": 2,
+    "chars": 5731,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/eco-100",
+    "ok": true,
+    "title": "ECO-100 | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_eco-100.md",
+    "depth": 2,
+    "chars": 6686,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo específico de guías.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/eco-80",
+    "ok": true,
+    "title": "ECO-80 | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_eco-80.md",
+    "depth": 2,
+    "chars": 6475,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo específico de guías.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/guias",
+    "ok": true,
+    "title": "GUÍAS | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_guias.md",
+    "depth": 2,
+    "chars": 14181,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/GUÍAS Catálogo.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/ps-4",
+    "ok": true,
+    "title": "PS-4 | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_ps-4.md",
+    "depth": 2,
+    "chars": 6469,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo específico de guías.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/lamas",
+    "ok": true,
+    "title": "LAMAS | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_lamas.md",
+    "depth": 2,
+    "chars": 10446,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo específico de guías.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/ps-15",
+    "ok": true,
+    "title": "PS-15 | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_ps-15.md",
+    "depth": 2,
+    "chars": 6961,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo específico de guías.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/ps-40",
+    "ok": true,
+    "title": "PS-40 | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_ps-40.md",
+    "depth": 2,
+    "chars": 6128,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo específico de guías.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/ps-10",
+    "ok": true,
+    "title": "PS-10 | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_ps-10.md",
+    "depth": 2,
+    "chars": 6495,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo específico de guías.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/guias-y-lamas-de-seguridad/ps-100",
+    "ok": true,
+    "title": "PS-100 | ALUVAL",
+    "file": "productos_guias-y-lamas-de-seguridad_ps-100.md",
+    "depth": 2,
+    "chars": 6671,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/CatalogoEspecificoDeGuias.pdf",
+      "https://aluval.es/files/pdf/category/Catálogo específico de guías.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/aludark-r33",
+    "ok": true,
+    "title": "Aludark R33 | ALUVAL",
+    "file": "productos_mosquiteras_aludark-r33.md",
+    "depth": 2,
+    "chars": 5891,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/aludark-p42",
+    "ok": true,
+    "title": "Aludark P42 | ALUVAL",
+    "file": "productos_mosquiteras_aludark-p42.md",
+    "depth": 2,
+    "chars": 5524,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/aludark-r42",
+    "ok": true,
+    "title": "Aludark R42 | ALUVAL",
+    "file": "productos_mosquiteras_aludark-r42.md",
+    "depth": 2,
+    "chars": 5563,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/mosquiclass",
+    "ok": true,
+    "title": "Mosquiclass | ALUVAL",
+    "file": "productos_mosquiteras_mosquiclass.md",
+    "depth": 2,
+    "chars": 6558,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/corte-recto-curvo",
+    "ok": true,
+    "title": "Corredera Curva | ALUVAL",
+    "file": "productos_mosquiteras_corte-recto-curvo.md",
+    "depth": 2,
+    "chars": 6086,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquitera Corredera Curva - 2020.pdf",
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/corte-recto-lisa",
+    "ok": true,
+    "title": "Corredera Recta | ALUVAL",
+    "file": "productos_mosquiteras_corte-recto-lisa.md",
+    "depth": 2,
+    "chars": 6112,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquitera Corredera Recta - 2020.pdf",
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/fija",
+    "ok": true,
+    "title": "Mosquitera fija | ALUVAL",
+    "file": "productos_mosquiteras_fija.md",
+    "depth": 2,
+    "chars": 6036,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquitera Fija - 2020.pdf",
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/r33",
+    "ok": true,
+    "title": "R33 | ALUVAL",
+    "file": "productos_mosquiteras_r33.md",
+    "depth": 2,
+    "chars": 5531,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/r42",
+    "ok": true,
+    "title": "R42 | ALUVAL",
+    "file": "productos_mosquiteras_r42.md",
+    "depth": 2,
+    "chars": 5531,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/mosquiteras/p42",
+    "ok": true,
+    "title": "P42 | ALUVAL",
+    "file": "productos_mosquiteras_p42.md",
+    "depth": 2,
+    "chars": 5774,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mosquiteras.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-tradicionales/vitrina",
+    "ok": true,
+    "title": "VITRINA | ALUVAL",
+    "file": "productos_sistemas-tradicionales_vitrina.md",
+    "depth": 2,
+    "chars": 5823,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Vitrinas.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-tradicionales/forros",
+    "ok": true,
+    "title": "FORROS | ALUVAL",
+    "file": "productos_sistemas-tradicionales_forros.md",
+    "depth": 2,
+    "chars": 7663,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Forros.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-tradicionales/premarcos-obra",
+    "ok": true,
+    "title": "PREMARCOS OBRA | ALUVAL",
+    "file": "productos_sistemas-tradicionales_premarcos-obra.md",
+    "depth": 2,
+    "chars": 7786,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Premarcos de obra Catalogo.pdf",
+      "https://aluval.es/files/pdf/category/Premarcos obra - Esquema.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-tradicionales/mampara-oficina",
+    "ok": true,
+    "title": "MÁMPARA OFICINA  | ALUVAL",
+    "file": "productos_sistemas-tradicionales_mampara-oficina.md",
+    "depth": 2,
+    "chars": 6565,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Mampara Oficina - Esquema.pdf",
+      "https://aluval.es/files/pdf/category/Mampara oficina.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-tradicionales/luminosos",
+    "ok": true,
+    "title": "LUMINOSOS | ALUVAL",
+    "file": "productos_sistemas-tradicionales_luminosos.md",
+    "depth": 2,
+    "chars": 7470,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Luminosos y Chapas.pdf"
+    ]
+  },
+  {
+    "url": "https://aluval.es/productos/sistemas-tradicionales/normalizados",
+    "ok": true,
+    "title": "NORMALIZADOS | ALUVAL",
+    "file": "productos_sistemas-tradicionales_normalizados.md",
+    "depth": 2,
+    "chars": 34111,
+    "pdfs": [
+      "https://aluval.es/files/pdf/category/Normalizados Catalogo.pdf"
+    ]
+  }
+]

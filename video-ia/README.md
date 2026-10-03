@@ -98,7 +98,8 @@ Extend the frame to [16:9 | 9:16] with only wall, ceiling and floor.
 **Provisional (prueba), generada:**
 
 ```
-Photorealistic landscape at blue hour, seen from a first-floor window: the Ambroz valley in northern Cáceres, Spain. Green chestnut and oak hills, a small village of stone houses with clay-tile roofs below with its first lights on, mountains on the horizon with the last warm light in the sky. Calm, natural colours. No people, no text. 16:9.
+Photorealistic open landscape photograph at blue hour: the Ambroz valley in northern Cáceres, Spain, seen from about six metres above the ground, camera floating in the open air. Green chestnut and oak hills, a small village of stone houses with clay-tile roofs below with its first lights on, mountains on the horizon with the last warm light in the sky. Calm, natural colours.
+Pure landscape only: no window, no window frame, no glass, no wall, no railing, no balcony, no interior, nothing in the foreground framing the view. No people, no text. 16:9.
 ```
 
 **Definitiva, sobre la foto real del valle:**

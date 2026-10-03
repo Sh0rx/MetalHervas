@@ -161,6 +161,11 @@ p { margin: 0; }
 .serie .ver { margin-top: auto; display: inline-flex; gap: 6px; align-items: center; color: var(--verde-texto); font-weight: 600; font-size: 15px; text-decoration: none; }
 .serie .ver:hover { text-decoration: underline; text-underline-offset: 3px; }
 .fuente { margin-top: 20px; color: var(--ink-muted); font-size: 14px; }
+/* Enlace a las páginas aparte (galería de trabajos y productos), que se harán después de elegir dirección */
+.pagina-aparte { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.boton-borde-claro { border-color: var(--ink); color: var(--ink); background: transparent; }
+.boton-borde-claro:hover { background: var(--surface-raised); }
+.pronto { font-size: 14px; color: var(--ink-muted); }
 @media (max-width: 1000px) { .series { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .series { grid-template-columns: minmax(0, 1fr); } }
 
@@ -228,7 +233,7 @@ p { margin: 0; }
     <nav class="nav" aria-label="Secciones">
       <a href="#que-hacemos">Qué hacemos</a>
       <a href="#trabajos">Trabajos</a>
-      <a href="#series">Series</a>
+      <a href="#series">Productos</a>
       <a href="#contacto">Contacto</a>
       <a class="tel" href="tel:+34664409618"><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>664 40 96 18</a>
     </nav>
@@ -330,6 +335,7 @@ p { margin: 0; }
         <figure><div class="foto"><img src="assets/fotos/barandilla-vidrio-escalera.webp" alt="Barandilla de vidrio en una escalera" loading="lazy"></div><figcaption><span class="label">Barandillas</span><span>Barandilla de vidrio</span></figcaption></figure>
         <figure><div class="foto"><img src="assets/fotos/nave-terminada.webp" alt="Nave metálica terminada con cubierta y fachada" loading="lazy"></div><figcaption><span class="label">Naves y estructuras</span><span>Nave terminada</span></figcaption></figure>
       </div>
+      <div class="pagina-aparte aparece"><a class="boton boton-borde-claro" href="#" data-pronto="la galería de trabajos">Ver todos los trabajos<svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><span class="pronto" hidden></span></div>
     </div>
   </section>
 
@@ -338,7 +344,7 @@ p { margin: 0; }
       <div class="seccion-cabeza aparece">
         <p class="label">Series y proveedores</p>
         <h2>Lo que montamos, con sus datos</h2>
-        <p>Algunas de las series con las que trabajamos. Las cifras son las que publica cada fabricante; te ayudamos a elegir la que encaja en tu obra.</p>
+        <p>Una selección de las series con las que trabajamos. Las cifras son las que publica cada fabricante; te ayudamos a elegir la que encaja en tu obra.</p>
       </div>
       <div class="series">
         <article class="serie aparece">
@@ -385,6 +391,7 @@ p { margin: 0; }
         </article>
       </div>
       <p class="fuente">Uf: aislamiento del perfil. Uw: de la ventana completa. Ug: del vidrio. Cuanto más bajo, menos calor se escapa.</p>
+      <div class="pagina-aparte aparece"><a class="boton boton-borde-claro" href="#" data-pronto="la página de productos">Ver todos los productos y proveedores<svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><span class="pronto" hidden></span></div>
     </div>
   </section>
 
@@ -468,6 +475,13 @@ p { margin: 0; }
     const texto = b.dataset.copiar, ok = () => { b.textContent = "Copiado"; setTimeout(() => (b.textContent = "Copiar"), 1800); };
     const sel = () => { const s = b.parentElement.querySelector("strong"); if (!s) return; const r = document.createRange(); r.selectNodeContents(s); const w = getSelection(); w.removeAllRanges(); w.addRange(r); };
     try { navigator.clipboard.writeText(texto).then(ok, sel); } catch { sel(); }
+  }));
+
+  document.querySelectorAll("[data-pronto]").forEach((a) => a.addEventListener("click", (e) => {
+    e.preventDefault();
+    const nota = a.nextElementSibling;
+    nota.textContent = `Prototipo: ${a.dataset.pronto} se hará cuando elijáis el estilo de la página inicial.`;
+    nota.hidden = false;
   }));
 
   const tira = document.getElementById("tira");

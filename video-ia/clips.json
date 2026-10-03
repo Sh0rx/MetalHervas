@@ -1,10 +1,10 @@
 {
   "_nota": "Orden del recorrido «Del taller a tu casa». {f} se sustituye por el formato (16x9 o 9x16). El último fotograma de cada clip es el primero del siguiente.",
   "clips": [
-    {"nombre": "clip-0", "tramo": "El taller → el vidrio",        "primero": "video-ia/claves/k0-{f}.png", "ultimo": "video-ia/claves/kv-{f}.png", "prompt": "video-ia/prompts/clip-0.txt"},
-    {"nombre": "clip-1", "tramo": "El vidrio → la habitación",    "primero": "video-ia/claves/kv-{f}.png", "ultimo": "video-ia/claves/k1-{f}.png", "prompt": "video-ia/prompts/clip-1.txt"},
-    {"nombre": "clip-a", "tramo": "La ventana se abre",           "primero": "video-ia/claves/k1-{f}.png", "ultimo": "video-ia/claves/k2-{f}.png", "prompt": "video-ia/prompts/clip-a.txt"},
-    {"nombre": "clip-b", "tramo": "Salimos al valle",             "primero": "video-ia/claves/k2-{f}.png", "ultimo": "video-ia/claves/k3-{f}.png", "prompt": "video-ia/prompts/clip-b.txt"},
-    {"nombre": "clip-c", "tramo": "Giro de 180º hacia la ventana", "primero": "video-ia/claves/k3-{f}.png", "ultimo": "video-ia/claves/k4-{f}.png", "prompt": "video-ia/prompts/clip-c.txt"}
+    {"nombre": "clip-0", "tramo": "El taller → el vidrio",        "primero": "video-ia/claves/k0-{f}.jpg", "ultimo": "video-ia/claves/kv-{f}.jpg", "prompt": "video-ia/prompts/clip-0.txt"},
+    {"nombre": "clip-1", "tramo": "El vidrio → la habitación",    "primero": "video-ia/claves/kv-{f}.jpg", "ultimo": "video-ia/claves/k1-{f}.jpg", "prompt": "video-ia/prompts/clip-1.txt"},
+    {"nombre": "clip-a", "tramo": "La ventana se abre",           "primero": "video-ia/claves/k1-{f}.jpg", "ultimo": "video-ia/claves/k2-{f}.jpg", "prompt": "video-ia/prompts/clip-a.txt"},
+    {"nombre": "clip-b", "tramo": "Salimos al valle",             "primero": "video-ia/claves/k2-{f}.jpg", "ultimo": "video-ia/claves/k3-{f}.jpg", "prompt": "video-ia/prompts/clip-b.txt"},
+    {"nombre": "clip-c", "tramo": "Giro de 180º hacia la ventana", "primero": "video-ia/claves/k3-{f}.jpg", "ultimo": "video-ia/claves/k4-{f}.jpg", "prompt": "video-ia/prompts/clip-c.txt"}
   ]
 }

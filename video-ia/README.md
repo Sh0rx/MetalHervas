@@ -33,7 +33,7 @@ Así el producto es **real en los fotogramas clave**: la IA solo rellena el movi
 | K3 | — (provisional, IA) | Más adelante: foto real del valle desde Hervás al anochecer |
 | K4 | — (provisional, IA), con `../prototipos/assets/fotos/chalet-travertino-fachada.webp` de referencia de estilo | Más adelante: foto real de la misma ventana desde fuera |
 
-Las claves terminadas se guardan en `claves/` con estos nombres: `k0-16x9.png`, `kv-16x9.png`, `k1-16x9.png`, `k2-16x9.png`, `k3-16x9.png`, `k4-16x9.png` (y luego las `-9x16`). **Primero solo 16:9**; el formato móvil cuando el recorrido guste.
+Las claves terminadas se guardan en `claves/` con estos nombres: `k0-16x9.jpg`, `kv-16x9.jpg`, `k1-16x9.jpg`, `k2-16x9.jpg`, `k3-16x9.jpg`, `k4-16x9.jpg` (y luego las `-9x16`). **Primero solo 16:9**; el formato móvil cuando el recorrido guste.
 
 **Lo ideal**, si la familia puede, son 3 fotos nuevas hechas a la hora azul (unos 20 minutos después de ponerse el sol), con el móvil apoyado y sin moverlo entre las dos primeras:
 

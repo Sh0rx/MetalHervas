@@ -1,0 +1,57 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Metal Hervás</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--surface); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; }
+  .verde { fill:var(--verde); }
+  .oscuro { fill:var(--verde-oscuro); }
+  .menta { fill:var(--menta); }
+  .losa { fill:var(--ink); }
+  .ipe { fill:var(--acero); }
+  .words { position:absolute; left:var(--space-8); bottom:var(--space-8); max-width:440px; }
+  .name { margin:0; font-family:var(--font-display); font-stretch:118%; font-size:96px; line-height:.95; font-weight:800; letter-spacing:-.02em; color:var(--ink); }
+  .tag { margin:var(--space-3) 0 0 2px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  bloques     verde 168×240 desde arriba (el verde de HERVÁS, el más grande) · ink 160×224 hasta el borde derecho (la viga negra; ink para que no desaparezca en oscuro) · verde-oscuro 320×24 abajo (la barra de VENTANAS de PVC) · menta 2 cuadros de 24 (el icono de ventana) ≈ 40 % de 960×288
+  disposición una losa verde alta con satélites, como el pilar del logo con su viga; bases alineadas a space-6 del borde, huecos de space-2
+  patrón      siluetas de perfil IPE (alas y alma) recortadas en acero sobre la losa oscura: el motivo literal del logo, una estructura de vigas
+  escalas     lados en múltiplos de space-2; paso del patrón space-12; esquinas radius-none (la marca es de cantos rectos)
+-->
+<rect class="verde" x="0" y="-16" width="168" height="256"/>
+<rect class="oscuro" x="0" y="248" width="320" height="24"/>
+<rect class="menta" x="176" y="184" width="24" height="24"/>
+<rect class="menta" x="176" y="216" width="24" height="24"/>
+<rect class="oscuro" x="208" y="184" width="24" height="56"/>
+<rect class="losa" x="328" y="40" width="160" height="232"/>
+<g class="ipe">
+  <path d="M344 64h32v6h-13v28h13v6h-32v-6h13v-28h-13z"/>
+  <path d="M392 64h32v6h-13v28h13v6h-32v-6h13v-28h-13z"/>
+  <path d="M440 64h32v6h-13v28h13v6h-32v-6h13v-28h-13z"/>
+  <path d="M344 128h32v6h-13v28h13v6h-32v-6h13v-28h-13z"/>
+  <path d="M392 128h32v6h-13v28h13v6h-32v-6h13v-28h-13z"/>
+  <path d="M440 128h32v6h-13v28h13v6h-32v-6h13v-28h-13z"/>
+  <path d="M344 192h32v6h-13v28h13v6h-32v-6h13v-28h-13z"/>
+  <path d="M392 192h32v6h-13v28h13v6h-32v-6h13v-28h-13z"/>
+</g>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Metal Hervás</h1>
+<p class="tag">Carpintería de hierro, aluminio y PVC · Estructuras metálicas</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {"v": 1, "at": "2026-10-03T02:52:58Z"},
+  "title": "Metal Hervás",
+  "namespace": "MetalHervas",
+  "libraries": [],
+  "sections": {},
+  "groups": ["Logos"],
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "l",
+      "order": ["logo-color.svg", "logo-negativo.svg", "logo-blanco.svg", "logo-mono.svg", "ventanas-pvc-color.svg", "ventanas-pvc-negativo.svg"],
+      "files": {
+        "logo-color.svg": {"name": "logo-color.svg", "blob": "7162c2521c05c8443dac25a0408d47f7", "size": 149982, "type": "image/svg+xml"},
+        "logo-negativo.svg": {"name": "logo-negativo.svg", "blob": "142c076793f9b0de28faa5501eda6c22", "size": 149982, "type": "image/svg+xml"},
+        "logo-blanco.svg": {"name": "logo-blanco.svg", "blob": "0131fce1876d29b7ae8cfb982b28c464", "size": 149982, "type": "image/svg+xml"},
+        "logo-mono.svg": {"name": "logo-mono.svg", "blob": "5bf9fd42ac3626d642b8a9e6fa3dc6ee", "size": 149982, "type": "image/svg+xml"},
+        "ventanas-pvc-color.svg": {"name": "ventanas-pvc-color.svg", "blob": "f439f7b67bfd0079405f50b1cb0e195f", "size": 79860, "type": "image/svg+xml"},
+        "ventanas-pvc-negativo.svg": {"name": "ventanas-pvc-negativo.svg", "blob": "1b8b9e3651265c86253838a908db5c41", "size": 79860, "type": "image/svg+xml"}
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {"sections": []},
+  "lastChange": {"by": "Jorge", "at": "2026-10-03T02:52:58Z", "via": "Claude Code", "note": "Design System v0 a partir del logo verde y la cartelería"}
+}

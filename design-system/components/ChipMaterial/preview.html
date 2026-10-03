@@ -1,0 +1,16 @@
+<!-- @dsCard group="Navegación" height=80 -->
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>ChipMaterial</title></head>
+<body>
+<div class="mh-row" role="group" aria-label="Filtrar por material">
+  <button class="mh-chip" type="button" aria-pressed="false"><i style="background:var(--viga)"></i>Hierro</button>
+  <button class="mh-chip" type="button" aria-pressed="false"><i style="background:var(--acero)"></i>Aluminio</button>
+  <button class="mh-chip" type="button" aria-pressed="true"><i style="background:var(--verde)"></i>PVC</button>
+  <button class="mh-chip" type="button" aria-pressed="false"><i style="background:var(--menta)"></i>Vidrio</button>
+</div>
+<script>
+document.querySelectorAll('.mh-chip').forEach(function (b) {
+  b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+});
+</script>
+</body></html>

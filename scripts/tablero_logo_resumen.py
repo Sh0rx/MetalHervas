@@ -15,6 +15,11 @@ sys.argv = [sys.argv[0], str(SRC), str(ROOT)]
 exec(compile(src, "tablero_logo_extra.py", "exec"), ns)
 page, lockup, simbolo, ASP, URL = ns["page"], ns["lockup"], ns["simbolo"], ns["ASP"], ns["URL"]
 SANS, DISP, MONO, LABEL = ns["SANS"], ns["DISP"], ns["MONO"], ns["LABEL"]
+# 14 · E1b: el nudo con la viga en sus colores originales (alas negras, alma gris)
+ns["BLOB"].update({"e1b-lockup-color": "9df9a6207e97ad2454f87ee5717cb8a9", "e1b-lockup-negativo": "08e3e9e7561d24d3a2bd3480e2ad7a1b",
+                   "e1b-simbolo-color": "f5d02a9b006abe8969b04dcc89f2e05d",   # icono sobre verde
+                   "e1b-simbolo-blanco": "f3065524e7e274671b7ccc2855a4f48e"})
+ASP["e1b"] = ns["aspect"](pathlib.Path("prototipos/assets/logo/evolucion/e1b-lockup-color.svg"))
 
 ASP1 = {"Actual": 5040 / 1980, "A": 5040 / 1860, "B": 1000 / 230, "C": 1330 / 300}
 def imp(p, form, h):
@@ -35,6 +40,8 @@ nombres_v = ["Fiel", "Tilde de viga", "Placa de fabricante", "Nave", "Firma de t
 nombres_e = ["Nudo", "Herencia", "Escuadra", "Tilde-viga moderna", "Línea de corte"]
 R2 = [(str(4 + i), nombres_v[i], d, lockup(k, "claro", h=fit_h(ASP[k])), simbolo(k, 48)) for i, (k, _, d) in enumerate(SETV)]
 R3 = [(str(9 + i), nombres_e[i], d, lockup(k, "claro", h=fit_h(ASP[k])), simbolo(k, 48)) for i, (k, _, d) in enumerate(SETE)]
+R3.append(("14", "Nudo en acero", "Como la 9, con la viga en sus colores de siempre: alas negras y alma gris.",
+           lockup("e1b", "claro", h=fit_h(ASP["e1b"])), simbolo("e1b", 48)))
 
 def card(num, nombre, idea, grande, icono, ref=False):
     badge_bg, badge_fg = ("#e9ece9", "#545e58") if ref else ("#256a31", "#ffffff")
@@ -59,7 +66,7 @@ def fila(titulo, nota, cards):
 <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px">{''.join(cards)}</div>
 </section>"""
 
-body = f"""<div style="width: 1920px; height: 1640px; box-sizing: border-box; padding: 56px; background: #f5f6f4; color: #141815; font-family: {SANS}; display: flex; flex-direction: column; gap: 40px">
+body = f"""<div style="width: 1920px; height: 2020px; box-sizing: border-box; padding: 56px; background: #f5f6f4; color: #141815; font-family: {SANS}; display: flex; flex-direction: column; gap: 40px">
 <header style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 10px">
 <p style="{LABEL}">Metal Hervás · Logo</p>
@@ -73,9 +80,13 @@ body = f"""<div style="width: 1920px; height: 1640px; box-sizing: border-box; pa
 {fila("Evolución", "Mismo verde y mismo HERVÁS, con letra más actual.", [card(*c) for c in R3])}
 </div>"""
 
-(P / "Resumen.dc.html").write_text(page("Todas las propuestas", body, 1920, 1640), encoding="utf-8")
+(P / "Resumen.dc.html").write_text(page("Todas las propuestas", body, 1920, 2020), encoding="utf-8")
 canvas = json.loads(SRC.read_text(encoding="utf-8"))
-canvas["boards"]["Resumen.dc.html"] = {"x": -2700, "y": 0, "w": 1920, "h": 1640, "title": "Todas las propuestas"}
+canvas["boards"]["Resumen.dc.html"] = {"x": -2700, "y": 0, "w": 1920, "h": 2020, "title": "Todas las propuestas"}
+(P / "AplicE1B.dc.html").write_text(ns["aplic"]("E", "e1b", "14 · Nudo en acero"), encoding="utf-8")
+canvas["boards"]["AplicE1B.dc.html"] = {"x": 1680, "y": 11640, "w": 1600, "h": 980, "title": "14 · Nudo en acero · en uso"}
+if "AplicE1B.dc.html" not in canvas["order"]:
+    canvas["order"].append("AplicE1B.dc.html")
 if "Resumen.dc.html" not in canvas["order"]:
     canvas["order"].append("Resumen.dc.html")
 canvas["launch"] = {"view": "focused", "file": "Resumen.dc.html"}

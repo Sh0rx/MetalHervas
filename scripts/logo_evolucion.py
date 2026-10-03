@@ -153,6 +153,30 @@ def e5_sim(c):
             + rect(14, yc + 3, x - 26, 8, c["tile_ink"]) + rect(x + wh + 12, yc + 3, 256 - (x + wh + 12) - 14, 8, c["tile_ink"]))
     return svg("0 0 256 256", body, "Símbolo E5")
 
+
+# =========================== E1b · NUDO BITONO (colores del logo original) ===========================
+def nudo_bitono(c, ala=11, top=0, bot=256):
+    """El nudo con alas en `viga` y alma en `acero`, como el pilar y la viga del logo original."""
+    t = math.tan(math.radians(22.5)); colx, colw, yj, D = 150, 44, 96, 44
+    xr = 256; yr = yj - t * (xr - colx - colw)
+    alma = (rect(colx, top, colw, bot - top, c["acero"])
+            + poly([(0, yj - t * colx), (colx, yj), (colx, yj + D), (0, yj - t * colx + D)], c["acero"])
+            + poly([(colx + colw, yj), (xr, yr), (xr, yr + D * .8), (colx + colw, yj + D * .8)], c["acero"]))
+    alas = (rect(colx, top, ala, bot - top, c["viga"]) + rect(colx + colw - ala, top, ala, bot - top, c["viga"])
+            + poly([(0, yj - t * colx), (colx, yj), (colx, yj + ala), (0, yj - t * colx + ala)], c["viga"])
+            + poly([(0, yj - t * colx + D - ala), (colx, yj + D - ala), (colx, yj + D), (0, yj - t * colx + D)], c["viga"])
+            + poly([(colx + colw, yj), (xr, yr), (xr, yr + ala), (colx + colw, yj + ala)], c["viga"])
+            + poly([(colx + colw, yj + D * .8 - ala), (xr, yr + D * .8 - ala), (xr, yr + D * .8), (colx + colw, yj + D * .8)], c["viga"]))
+    return alma + alas
+
+def e1b(c):
+    T = HB - MTOP
+    nud = f'<g transform="translate(0 {MTOP:.1f}) scale({T/256:.4f})">{nudo_bitono(c)}</g>'
+    w, wh, _ = palabra(T + 60, c)
+    return svg(f"-10 {MTOP-10:.0f} {T+60+wh+20:.0f} {T+20:.0f}", nud + w, "Metal Hervás — E1b Nudo bitono")
+def e1b_sim(c, fondo):
+    return svg("0 0 256 256", f'<rect width="256" height="256" fill="{fondo}"/>' + nudo_bitono(c, top=-10, bot=266), "Símbolo E1b")
+
 CLARO = dict(metal=NEGRO, hervas=VERDE, viga=NEGRO, acero=ACERO, tile=VERDE, tile_ink=BLANCO, oscuro=OSCURO, medio=MEDIO, menta=MENTA)
 NEG = dict(metal=BLANCO, hervas=VERDE, viga="#E6E6E6", acero="#7A7A7A", tile=VERDE, tile_ink=BLANCO, oscuro=MENTA, medio=MEDIO, menta="#4BA939")
 SIM = {1: dict(CLARO), 2: dict(CLARO), 3: dict(CLARO, tile=BLANCO), 4: dict(CLARO), 5: dict(CLARO)}
@@ -164,4 +188,8 @@ if __name__ == "__main__":
         (OUT / f"e{n}-lockup-color.svg").write_text(LOCK[n](CLARO), encoding="utf-8")
         (OUT / f"e{n}-lockup-negativo.svg").write_text(LOCK[n](NEG), encoding="utf-8")
         (OUT / f"e{n}-simbolo-color.svg").write_text(SYMS[n](SIM[n]), encoding="utf-8")
+    (OUT / "e1b-lockup-color.svg").write_text(e1b(CLARO), encoding="utf-8")
+    (OUT / "e1b-lockup-negativo.svg").write_text(e1b(NEG), encoding="utf-8")
+    (OUT / "e1b-simbolo-color.svg").write_text(e1b_sim(CLARO, BLANCO), encoding="utf-8")
+    (OUT / "e1b-simbolo-verde.svg").write_text(e1b_sim(CLARO, VERDE), encoding="utf-8")
     print(sorted(p.name for p in OUT.glob("*.svg")))

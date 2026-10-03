@@ -95,9 +95,10 @@ export function crearVentana(perfil) {
   cajon.position.set(0, ALTO / 2 + CAJON / 2, 0.065); ventana.add(cajon);
 
   const hojaW = (ANCHO - 2 * vS0 * mm - HOLGURA) / 2, hojaH = ALTO - 2 * vS0 * mm;
-  const formasHoja = [...perfil.hoja, ...perfil.junquillo].map((p) => forma(p, 0, vS0));
-  const geoHoja = rectangulo(formasHoja, hojaW, hojaH, uC);
+  const geoHoja = rectangulo(perfil.hoja.map((p) => forma(p, 0, vS0)), hojaW, hojaH, uC);
+  const geoJunquillo = rectangulo(perfil.junquillo.map((p) => forma(p, 0, vS0)), hojaW, hojaH, uC);
   const geoJuntasHoja = rectangulo(juntasHoja.map((p) => forma(p, 0, vS0)), hojaW, hojaH, uC);
+  const geoAceroHoja = rectangulo(perfil.acero_hoja.map((p) => forma(p, 0, vS0)), hojaW, hojaH, uC);
   const borde = (g.borde_v - vS0) * mm, vw = hojaW - 2 * borde, vh = hojaH - 2 * borde;
   const zHoja = (perfil.cotas.fondo_total - uC) * mm, zBisagra = zHoja - 0.012;
   const hojas = [];
@@ -105,36 +106,56 @@ export function crearVentana(perfil) {
     const pivote = new THREE.Group();
     pivote.position.set(lado * (ANCHO / 2 - vS0 * mm), 0, zBisagra); ventana.add(pivote);
     const hoja = new THREE.Group(); hoja.position.set(-lado * hojaW / 2, 0, -zBisagra); pivote.add(hoja);
-    hoja.add(new THREE.Mesh(geoHoja, pvc), new THREE.Mesh(geoJuntasHoja, goma));
+    // Cada pieza en su capa, para el despiece hacia el interior: [objeto, z montado, z en el despiece completo]
+    const capas = [];
+    const capa = (o, dz) => { hoja.add(o); capas.push([o, o.position.z, dz]); return o; };
+    const perfilG = capa(new THREE.Group(), 0.3); perfilG.add(new THREE.Mesh(geoHoja, pvc));
+    const refuerzo = capa(new THREE.Mesh(geoAceroHoja, acero), 0.16); refuerzo.visible = false;   // solo se ve en el despiece
+    const juntas = capa(new THREE.Mesh(geoJuntasHoja, goma), 0.42);
     // Triple acristalamiento con sus dos separadores
     const lunas = [];
     for (let i = 0; i < 3; i++) {
       const luna = new THREE.Mesh(new THREE.BoxGeometry(vw, vh, 0.004), cristal);
-      luna.position.z = (g.u0 + 2 + i * 20 - uC) * mm; hoja.add(luna); lunas.push(luna);
+      luna.position.z = (g.u0 + 2 + i * 20 - uC) * mm; capa(luna, 0.52 + i * 0.12); lunas.push(luna);
     }
     for (let i = 0; i < 2; i++) {
       const sep = new THREE.Mesh(anillo(vw - 0.002, vh - 0.002, 0.012, 0.016), aluminio);
-      sep.position.z = (g.u0 + 12 + i * 20 - uC) * mm; hoja.add(sep);
+      sep.position.z = (g.u0 + 12 + i * 20 - uC) * mm; capa(sep, 0.58 + i * 0.12);
     }
+    const junquillo = capa(new THREE.Mesh(geoJunquillo, pvc), 0.86);
     for (const y of [-hojaH / 2 + 0.12, hojaH / 2 - 0.12]) {
       const b = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.09, 16), herraje);
-      b.position.set(lado * (hojaW / 2 + 0.003), y, zBisagra); hoja.add(b);
+      b.position.set(lado * (hojaW / 2 + 0.003), y, zBisagra); perfilG.add(b);
     }
-    hojas.push({ lado, pivote, hoja, lunaInt: lunas[2], vw, vh });
+    hojas.push({ lado, pivote, hoja, perfilG, refuerzo, juntas, junquillo, lunas, capas, lunaInt: lunas[2], vw, vh });
   }
 
   // Hoja principal: tapajuntas del encuentro central (de ejemplo) y manilla que gira 90°
   const izq = hojas[0].hoja;
   const tapa = new THREE.Mesh(new THREE.BoxGeometry(0.034, hojaH - 0.03, 0.006), pvc);
-  tapa.position.set(hojaW / 2 + HOLGURA / 2, 0, zHoja + 0.003); izq.add(tapa);
+  tapa.position.set(hojaW / 2 + HOLGURA / 2, 0, zHoja + 0.003); hojas[0].perfilG.add(tapa);
   const manilla = new THREE.Group(); manilla.position.set(hojaW / 2 - 0.012, 0, zHoja + 0.006);
   const roseta = new THREE.Mesh(new THREE.BoxGeometry(0.032, 0.085, 0.012), herraje);
   const palanca = new THREE.Group(); palanca.position.z = 0.012;
   const cuello = new THREE.Mesh(new THREE.CylinderGeometry(0.009, 0.009, 0.04, 16), herraje); cuello.rotation.x = Math.PI / 2; cuello.position.z = 0.014;
   const brazo = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.13, 0.018), herraje); brazo.position.set(0, -0.06, 0.03);
   palanca.add(cuello, brazo); manilla.add(roseta, palanca); izq.add(manilla);
+  const zManilla = manilla.position.z;
 
-  // ── Trozo de perfil cortado para «Pieza a pieza», metido en el travesaño de abajo ──
+  // Anclas de las etiquetas del despiece de la ventana entera
+  const despiece = {};
+  const ancla0 = (padre, x, y, z) => { const o = new THREE.Object3D(); o.position.set(x, y, z); padre.add(o); return o; };
+  const der = hojas[1];
+  despiece.marco = ancla0(marco, -ANCHO / 2 + 0.02, -ALTO * 0.3, 0.04);
+  despiece.cajon = ancla0(cajon, ANCHO * 0.3, 0, 0.1);
+  despiece.perfil = ancla0(der.perfilG, hojaW / 2 - 0.04, hojaH / 2 - 0.04, zHoja);
+  despiece.refuerzo = ancla0(der.refuerzo, -hojaW / 2 + 0.03, hojaH * 0.3, 0.02);
+  despiece.junta = ancla0(der.juntas, hojaW / 2 - 0.05, hojaH * 0.02, zHoja - 0.01);
+  despiece.vidrio = ancla0(der.lunas[2], 0.1, hojaH * 0.22, 0);
+  despiece.junquillo = ancla0(der.junquillo, -hojaW / 2 + 0.08, -hojaH / 2 + 0.05, zHoja);
+  despiece.manilla = ancla0(manilla, 0, -0.13, 0.04);
+
+  // ── Trozo de perfil cortado para «El perfil», metido en el travesaño de abajo ──
   // Mismo plano que el travesaño (sección en Y–Z, largo a lo largo de X); en la cara del corte se ve el PVC blanco.
   const L = 0.2;
   const muestra = new THREE.Group(); muestra.position.set(0, -ALTO / 2, 0); muestra.rotation.y = -Math.PI / 2; ventana.add(muestra);
@@ -163,25 +184,35 @@ export function crearVentana(perfil) {
   partes.vidrio = vidrio;
   for (const k in partes) muestra.add(partes[k]);
   const ancla = (padre, u, v, z = L / 2) => { const o = new THREE.Object3D(); o.position.set((u - uC) * mm, v * mm, z); padre.add(o); return o; };
-  anclas.marco = ancla(partes.marco, 8, 28);
-  anclas.aceroMarco = ancla(partes.aceroMarco, 48, 12);
-  anclas.juntaCentral = ancla(partes.juntaCentral, 30, 52);
-  anclas.hoja = ancla(partes.hoja, 30, 100);
-  anclas.aceroHoja = ancla(partes.aceroHoja, 58, 92);
-  anclas.junquillo = ancla(partes.junquillo, 97, 110);
-  anclas.vidrio = ancla(vidrio, g.u0 + 22, g.borde_v + 60);
+  const corte = {
+    marco: ancla(partes.marco, 8, 28),
+    aceroMarco: ancla(partes.aceroMarco, 48, 12),
+    juntaCentral: ancla(partes.juntaCentral, 30, 52),
+    hoja: ancla(partes.hoja, 30, 100),
+    aceroHoja: ancla(partes.aceroHoja, 58, 92),
+    junquillo: ancla(partes.junquillo, 97, 110),
+    vidrio: ancla(vidrio, g.u0 + 22, g.borde_v + 60),
+  };
+  Object.assign(anclas, { despiece, corte });
   const centroMuestra = new THREE.Object3D(); centroMuestra.position.set(0, 75 * mm, 0.03); muestra.add(centroMuestra);
 
   ventana.position.y = -CAJON / 2;      // centra el conjunto (hueco + cajón)
 
-  // Estado de la ventana: abrir 0–1 (0 cerrada, 1 a 90°), manilla 0–1 (0 abajo, 1 horizontal)
-  function estado({ abrir = 0, manilla: m = 0 }) {
+  // Estado de la ventana: abrir 0–1 (0 cerrada, 1 a 90°), manilla 0–1 (0 abajo, 1 horizontal),
+  // despiece 0–1 (las piezas de cada hoja se separan en capas hacia el interior y el cajón sube)
+  function estado({ abrir = 0, manilla: m = 0, despiece: e = 0 }) {
     const a = abrir * Math.PI / 2 * 0.95;
-    for (const h of hojas) h.pivote.rotation.y = h.lado < 0 ? -a : a;
+    for (const h of hojas) {
+      h.pivote.rotation.y = h.lado < 0 ? -a : a;
+      for (const [o, z0, dz] of h.capas) o.position.z = z0 + e * dz;
+      h.refuerzo.visible = e > 0.01;
+    }
+    manilla.position.z = zManilla + e * 0.94;
     palanca.rotation.z = m * Math.PI / 2;
+    cajon.position.y = ALTO / 2 + CAJON / 2 + e * 0.22;
   }
   // Visibilidad (0–1) de la ventana montada y del trozo de perfil; separa 0–1 abre el trozo en sus piezas
-  const matsVentana = [pvc, goma, aluminio, herraje];
+  const matsVentana = [pvc, goma, aluminio, herraje, acero];
   function fundir(mats, o) { for (const x of mats) { x.transparent = o < 0.999; x.opacity = o; x.depthWrite = o > 0.5; } }
   function vistas({ ventana: ov = 1, muestra: om = 0, separa = 0 }) {
     fundir(matsVentana, ov); cristal.opacity = 0.3 * ov; pvcCajon.opacity = Math.min(pvcCajon.opacity, ov);

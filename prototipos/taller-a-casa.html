@@ -57,7 +57,7 @@ p { margin: 0; }
 @media (max-width: 640px) { .cabecera .tel { display: none; } .cabecera .logo img { height: 32px; } }
 
 /* Escenario: alto para el scroll, con la escena pegada a la pantalla */
-#escenario { position: relative; height: 1000vh; }
+#escenario { position: relative; height: 1090vh; }
 .escena { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--noche); }
 .escena canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 #lienzo-3d { opacity: 0; pointer-events: none; }
@@ -179,7 +179,8 @@ body.solo .cabecera, body.solo .recorrido, body.solo .barra-movil, body.solo .ro
       <div class="rotulo" data-r="fachada"><h2>Por fuera, a ras de la fachada</h2><p>El cajón de persiana queda por dentro y desde la calle solo se ve el marco.</p></div>
       <div class="rotulo" data-r="dentro"><h2>Ahora, por dentro</h2><p>La misma ventana, en 3D. Sigue bajando y la abrimos.</p></div>
       <div class="rotulo" data-r="manilla"><h2>Una manilla, dos hojas</h2><p>Giras la manilla de la hoja principal y la ventana abre hacia dentro.</p></div>
-      <div class="rotulo" data-r="piezas"><h2>El perfil por dentro</h2><p>GEALAN S 9000: 82,5 mm de fondo, cámaras de aislamiento, junta central y refuerzo de acero en el marco y en la hoja. Uf del perfil hasta 0,89 W/(m²K).</p></div>
+      <div class="rotulo" data-r="piezas"><h2>Pieza a pieza</h2><p>Marco, hojas con refuerzo de acero, juntas, triple vidrio y junquillo. Así se monta en el taller.</p></div>
+      <div class="rotulo" data-r="perfil"><h2>El perfil por dentro</h2><p>GEALAN S 9000: 82,5 mm de fondo, cámaras de aislamiento, junta central y refuerzo de acero en el marco y en la hoja. Uf del perfil hasta 0,89 W/(m²K).</p></div>
       <div class="rotulo" data-r="obras"><h2>Obras nuestras, ya terminadas</h2><p>Ventanas, puertas y cerramientos que hemos fabricado y montado.</p>
         <div class="acciones"><a class="boton boton-borde" href="#obras">Ver más obras</a></div></div>
 
@@ -191,7 +192,8 @@ body.solo .cabecera, body.solo .recorrido, body.solo .barra-movil, body.solo .ro
           <li data-paso="valle">El valle</li>
           <li data-paso="fachada">La fachada</li>
           <li data-paso="dentro">Por dentro</li>
-          <li data-paso="piezas">El perfil</li>
+          <li data-paso="piezas">Pieza a pieza</li>
+          <li data-paso="perfil">El perfil</li>
           <li data-paso="obras">Obras</li>
         </ol>
         <p class="carga" aria-live="polite">Cargando el recorrido…</p>
@@ -296,7 +298,9 @@ const suave = (t) => t * t * (3 - 2 * t);
 const mezcla = (a, b, t) => a + (b - a) * t;
 
 // ── Fotogramas del vídeo ──────────────────────────────────────────────
-const P_VIDEO = 0.6;                 // el vídeo ocupa el 60 % del recorrido
+const P_VIDEO = 0.5455;              // el vídeo ocupa el 54,5 % del recorrido
+// El tramo 3D se mide en 50 pasos (unos 9 vh de scroll cada uno): F(paso) da el punto del recorrido
+const F = (a) => P_VIDEO + a * (1 - P_VIDEO) / 50;
 const BASE = "assets/recorrido/16x9/";
 const man = await fetch(BASE + "manifest.json").then((r) => r.json());
 const rutas = [], tramos = {};
@@ -304,6 +308,7 @@ for (const t of man.tramos) { tramos[t.nombre] = { ini: rutas.length }; for (con
 const N = rutas.length, imgs = new Array(N);
 const pDe = (nombre, f) => ((tramos[nombre].ini + f * (tramos[nombre].fin - tramos[nombre].ini)) / (N - 1)) * P_VIDEO;
 
+let pDestino = 0, pVista = 0;      // punto del recorrido: al que lleva el scroll y el que se ve
 let cargadas = 0;
 function cargar(i) {
   return new Promise((ok) => { const im = new Image(); im.decoding = "async"; im.onload = () => { imgs[i] = im; cargadas++; ok(); }; im.onerror = ok; im.src = rutas[i]; });
@@ -338,15 +343,16 @@ const R = {
   casa: [pDe("clip-1", 0.35), pDe("clip-a", 0.2)],
   abre: [pDe("clip-a", 0.32), pDe("clip-a", 1)],
   valle: [pDe("clip-b", 0.25), pDe("clip-b", 0.95)],
-  fachada: [pDe("clip-c", 0.55), 0.635],
-  dentro: [0.665, 0.725],
-  manilla: [0.735, 0.805],
-  piezas: [0.85, 0.9],
-  obras: [0.935, 2],
+  fachada: [pDe("clip-c", 0.55), F(3.5)],
+  dentro: [F(6.5), F(12.5)],
+  manilla: [F(13.5), F(20.5)],
+  piezas: [F(23), F(29)],
+  perfil: [F(35), F(40)],
+  obras: [F(43.5), 2],
 };
 const PASOS = [["taller", 0], ["casa", pDe("clip-1", 0)], ["abre", pDe("clip-a", 0)], ["valle", pDe("clip-b", 0)], ["fachada", pDe("clip-c", 0)],
-  ["dentro", 0.64], ["piezas", 0.8], ["obras", 0.9]];
-const NOMBRES = { taller: "El taller", casa: "Tu casa", abre: "Se abre", valle: "El valle", fachada: "La fachada", dentro: "Por dentro", piezas: "El perfil", obras: "Obras" };
+  ["dentro", F(4)], ["piezas", F(20)], ["perfil", F(30)], ["obras", F(40)]];
+const NOMBRES = { taller: "El taller", casa: "Tu casa", abre: "Se abre", valle: "El valle", fachada: "La fachada", dentro: "Por dentro", piezas: "Pieza a pieza", perfil: "El perfil", obras: "Obras" };
 const rotulos = [...document.querySelectorAll(".rotulo")].map((el) => ({ el, r: R[el.dataset.r] }));
 const pasos = [...document.querySelectorAll(".recorrido li")];
 const nombrePaso = document.querySelector(".nombre-paso"), barra = document.querySelector(".pista-barra i");
@@ -364,7 +370,7 @@ function actualizarTextos(p) {
 }
 
 // Con «reducir movimiento» el recorrido avanza a saltos entre momentos fijos, sin interpolar
-const HITOS = [0, pDe("clip-0", 1), pDe("clip-1", 1), pDe("clip-a", 1), pDe("clip-b", 1), P_VIDEO, 0.67, 0.75, 0.8, 0.885, 0.95, 1];
+const HITOS = [0, pDe("clip-0", 1), pDe("clip-1", 1), pDe("clip-a", 1), pDe("clip-b", 1), P_VIDEO, F(7), F(15), F(20), F(27), F(38.5), F(45), 1];
 const aHito = (p) => HITOS.reduce((m, h) => (p >= h ? h : m), 0);
 
 // ── Escena 3D ─────────────────────────────────────────────────────────
@@ -402,15 +408,19 @@ function montar3D(perfil) {
     capas[k][j].map = t; capas[k][j].needsUpdate = true; api.sucio = true;
   })));
 
-  // Etiquetas del despiece
-  // [ancla, título, detalle, lado del texto]
-  const ETQ = [["vidrio", "Triple acristalamiento", "como en el plano de GEALAN", "d"], ["junquillo", "Junquillo", "sujeta el vidrio por dentro", "d"],
-    ["hoja", "Hoja", "con cámaras de aislamiento", "i"], ["juntaCentral", "Junta central", "entre marco y hoja", "i"],
-    ["aceroMarco", "Refuerzo de acero", "dentro del marco y de la hoja", "d"], ["marco", "Marco GEALAN S 9000", "82,5 mm de fondo", "i"]];
+  // Etiquetas: [grupo de anclas, ancla, título, detalle, lado del texto]
+  // «despiece» es la ventana entera separada en capas; «corte», el trozo de travesaño abierto en sus piezas
+  const ETQ = [["despiece", "cajon", "Cajón de persiana", "", "d"], ["despiece", "perfil", "Hoja GEALAN S 9000", "perfil antracita", "d"],
+    ["despiece", "vidrio", "Triple acristalamiento", "como en el plano de GEALAN", "d"], ["despiece", "junta", "Juntas", "contra el aire y el agua", "d"],
+    ["despiece", "manilla", "Manilla", "solo en la hoja principal", "i"], ["despiece", "refuerzo", "Refuerzo de acero", "dentro del perfil", "i"],
+    ["despiece", "marco", "Marco", "fijo al hueco", "i"],
+    ["corte", "vidrio", "Triple acristalamiento", "como en el plano de GEALAN", "d"], ["corte", "junquillo", "Junquillo", "sujeta el vidrio por dentro", "d"],
+    ["corte", "hoja", "Hoja", "con cámaras de aislamiento", "i"], ["corte", "juntaCentral", "Junta central", "entre marco y hoja", "i"],
+    ["corte", "aceroMarco", "Refuerzo de acero", "dentro del marco y de la hoja", "d"], ["corte", "marco", "Marco GEALAN S 9000", "82,5 mm de fondo", "i"]];
   const capaEtq = document.querySelector(".etiquetas");
-  const etiquetas = ETQ.map(([k, t, s, lado]) => {
+  const etiquetas = ETQ.map(([grupo, k, t, s, lado]) => {
     const el = document.createElement("div"); el.className = "etiqueta" + (lado === "i" ? " izquierda" : "");
-    el.innerHTML = `<span>${t}${s ? `<small>${s}</small>` : ""}</span>`; capaEtq.appendChild(el); return { el, ancla: v.anclas[k] };
+    el.innerHTML = `<span>${t}${s ? `<small>${s}</small>` : ""}</span>`; capaEtq.appendChild(el); return { el, grupo, ancla: v.anclas[grupo][k] };
   });
   const aviso = document.querySelector(".aviso-3d"), recorrido = document.querySelector(".recorrido");
 
@@ -431,22 +441,23 @@ function montar3D(perfil) {
   function render(p) {
     const W = cv3d.clientWidth, H = cv3d.clientHeight;
     camara.aspect = W / H;
-    const corrimiento = W / H > 1.15 ? W * 0.09 * suave(tramo(p, 0.64, 0.7)) : 0;
+    const corrimiento = W / H > 1.15 ? W * 0.09 * suave(tramo(p, F(4), F(10))) : 0;
     camara.setViewOffset(W, H, corrimiento, 0, W, H); camara.updateProjectionMatrix();
     const r0 = distanciaEncaje(), r1 = distanciaComoda();
     // Fases del 3D
-    const fEntra = suave(tramo(p, 0.6, 0.63)), fFondo = suave(tramo(p, 0.63, 0.66));
-    const fGira = suave(tramo(p, 0.66, 0.72)), fMan = suave(tramo(p, 0.72, 0.75)), fAbre = suave(tramo(p, 0.75, 0.8));
-    const fCierra = suave(tramo(p, 0.8, 0.82));
-    const fCorte = suave(tramo(p, 0.8, 0.845)), fSepara = suave(tramo(p, 0.85, 0.885)), fVuelta = suave(tramo(p, 0.895, 0.93));
-    const fFotos = tramo(p, 0.93, 0.95);
-    // Vista de la ventana: llega de frente desde fuera, gira hacia dentro y acaba de frente para las fotos
-    let az = mezcla(Math.PI, -0.55, fGira); az = mezcla(az, 0, fVuelta);
+    const fEntra = suave(tramo(p, F(0), F(3))), fFondo = suave(tramo(p, F(3), F(6)));
+    const fGira = suave(tramo(p, F(6), F(12))), fMan = suave(tramo(p, F(12), F(15))), fAbre = suave(tramo(p, F(15), F(20)));
+    const fCierra = suave(tramo(p, F(20), F(22)));
+    const fDesp = suave(tramo(p, F(22), F(26.5))) * (1 - suave(tramo(p, F(28.5), F(31))));
+    const fCorte = suave(tramo(p, F(30), F(34.5))), fSepara = suave(tramo(p, F(35), F(38.5))), fVuelta = suave(tramo(p, F(39.5), F(43)));
+    const fFotos = tramo(p, F(43), F(45));
+    // Vista de la ventana: llega de frente desde fuera, gira hacia dentro, se aparta para el despiece y acaba de frente para las fotos
+    let az = mezcla(Math.PI, -0.55, fGira); az = mezcla(az, -0.85, fCierra); az = mezcla(az, 0, fVuelta);
     let el = mezcla(0, 0.14, fGira); el = mezcla(el, 0, fVuelta);
-    let r = mezcla(r0, r1, suave(tramo(p, 0.63, 0.7))); r = mezcla(r, r1 * 0.92, fVuelta);
-    const yHueco = -v.medidas.cajon / 2, yObjetivo = mezcla(yHueco, 0, suave(tramo(p, 0.64, 0.7)));
+    let r = mezcla(r0, r1, suave(tramo(p, F(3), F(10)))); r = mezcla(r, r1 * 1.12, fDesp); r = mezcla(r, r1 * 0.92, fVuelta);
+    const yHueco = -v.medidas.cajon / 2, yObjetivo = mezcla(yHueco, 0, suave(tramo(p, F(4), F(10))));
     pos.set(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)).multiplyScalar(r); pos.y += yObjetivo;
-    objetivo.set(0, yObjetivo, 0);
+    objetivo.set(0, yObjetivo, 0.35 * fDesp);
     // Vista del corte: la cámara se mete en el travesaño de abajo, mirando la cara cortada del perfil
     const fC = fCorte * (1 - fVuelta);
     if (fC > 0) {
@@ -457,28 +468,30 @@ function montar3D(perfil) {
     }
     camara.position.copy(pos); camara.lookAt(objetivo);
     v.cajonVisible(fGira);
-    const abrir = p < 0.66 ? 0.72 : mezcla(0.72, 0, fGira) + fAbre * (1 - fCierra);
-    v.estado({ abrir: clamp(abrir), manilla: fMan * (1 - fCierra) });
-    v.vistas({ ventana: 1 - tramo(p, 0.825, 0.845) * (1 - tramo(p, 0.905, 0.925)), muestra: tramo(p, 0.815, 0.835) * (1 - tramo(p, 0.9, 0.915)),
-      separa: fSepara * (1 - tramo(p, 0.895, 0.91)) });
+    const abrir = p < F(6) ? 0.72 : mezcla(0.72, 0, fGira) + fAbre * (1 - fCierra);
+    v.estado({ abrir: clamp(abrir), manilla: fMan * (1 - fCierra), despiece: fDesp });
+    v.vistas({ ventana: 1 - tramo(p, F(32.5), F(34.5)) * (1 - tramo(p, F(40.5), F(42.5))), muestra: tramo(p, F(31.5), F(33.5)) * (1 - tramo(p, F(40), F(41.5))),
+      separa: fSepara * (1 - tramo(p, F(39.5), F(41))) });
     // Fotos en los vidrios, de pareja en pareja
-    const j = p < 0.965 ? 0 : p < 0.985 ? 1 : 2, t = j === 0 ? 1 : tramo(p, j === 1 ? 0.965 : 0.985, (j === 1 ? 0.965 : 0.985) + 0.008);
+    const c1 = F(46.5), c2 = F(48.5), cf = F(47.3) - c1;
+    const j = p < c1 ? 0 : p < c2 ? 1 : 2, t = j === 0 ? 1 : tramo(p, j === 1 ? c1 : c2, (j === 1 ? c1 : c2) + cf);
     capas.forEach((cs) => cs.forEach((m, k) => { m.opacity = fFotos * (k === j ? t : k === j - 1 ? 1 - t : 0); }));
 
     cv3d.style.opacity = fEntra;
     cvVideo.style.opacity = 1 - fFondo;
-    const vEtq = tramo(p, 0.865, 0.88) * (1 - tramo(p, 0.89, 0.9));
-    for (const { el, ancla } of etiquetas) {
+    const vEtq = { despiece: tramo(p, F(25.5), F(26.5)) * (1 - tramo(p, F(28), F(28.5))), corte: tramo(p, F(36.5), F(38)) * (1 - tramo(p, F(39), F(40))) };
+    for (const { el, grupo, ancla } of etiquetas) {
+      el.style.opacity = vEtq[grupo];
+      if (vEtq[grupo] <= 0) continue;
       ancla.getWorldPosition(tmp); tmp.project(camara);
-      el.style.opacity = vEtq;
       // Se mantiene dentro de la pantalla aunque el ancla quede cerca del borde (móvil)
       const ancho = el.offsetWidth, alto = el.offsetHeight;
       let x = (tmp.x + 1) / 2 * W - (el.classList.contains("izquierda") ? ancho : 3);
       x = clamp(x, 8, W - ancho - 8);
       el.style.transform = `translate(${x.toFixed(1)}px, ${((1 - tmp.y) / 2 * H - alto / 2).toFixed(1)}px)`;
     }
-    aviso.style.opacity = tramo(p, 0.64, 0.66) * (1 - tramo(p, 0.93, 0.94));
-    recorrido.style.opacity = 1 - 0.85 * vEtq;          // el recorrido se aparta mientras hay etiquetas
+    aviso.style.opacity = tramo(p, F(4), F(6)) * (1 - tramo(p, F(43), F(44)));
+    recorrido.style.opacity = 1 - 0.85 * Math.max(vEtq.despiece, vEtq.corte);          // el recorrido se aparta mientras hay etiquetas
     renderer.render(escena, camara);
   }
   function tam() { renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.75)); renderer.setSize(cv3d.clientWidth, cv3d.clientHeight, false); }
@@ -487,7 +500,6 @@ function montar3D(perfil) {
 }
 
 // ── Bucle: el scroll marca el destino y la vista lo sigue con un poco de inercia ──
-let pDestino = 0, pVista = 0;
 if (fijo) { history.scrollRestoration = "manual"; }
 if (fijo) {                          // modo captura: el recorrido queda quieto en ese punto
   pDestino = pVista = clamp(+fijo[1] / 100);
@@ -506,7 +518,7 @@ function bucle() {
   const destino = reducir ? aHito(pDestino) : pDestino;
   pVista = reducir || fijo ? destino : pVista + (destino - pVista) * 0.14;
   if (Math.abs(destino - pVista) < 0.00005) pVista = destino;
-  if (pVista <= P_VIDEO + 0.07 || !tres) dibujarVideo();      // también pinta los fotogramas que acaban de llegar
+  if (pVista <= F(7) || !tres) dibujarVideo();      // también pinta los fotogramas que acaban de llegar
   if (pVista !== pPintada || tres?.sucio) {
     pPintada = pVista;
     actualizarTextos(pVista);
